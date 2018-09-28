@@ -1,0 +1,119 @@
+body {
+  background: rgb(101, 103, 204);
+  margin: 0;
+  font-family: 'Exo', sans-serif;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.Header {
+  height: 12%;
+  display: flex;
+  color: #fff;
+  font-size: 1.6rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(255,255,255,0));
+}
+
+.Footer {
+  height: 6%;
+  display: flex;
+  background-image: linear-gradient(rgba(57, 59, 133, 0), rgba(0, 0, 0, 0.35));
+}
+
+.Month {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Month > div {
+  display: flex;
+  padding-right: 0.5rem;
+}
+
+.Greeting {
+  flex: 2 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+.secondary {
+  color: rgb(123, 125, 230);
+  font-weight: bold;
+}
+
+.Content {
+  height: 82%;
+  display: flex;
+}
+
+.Panel {
+  background: rgb(101, 103, 204);
+  display: flex;
+  flex-direction: column;
+}
+
+.Clock {
+  background: rgb(123, 125, 230);
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.Tick {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.Second {
+  flex: 1 1 auto;
+}
+
+.Time {
+  position: absolute;
+  width: 14%;
+  height: 82%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hasElapsed {
+  border: 0.6px solid rgba(243, 106, 243, 0.5);
+  border-radius: 5%;
+}
+
+.Digit {
+  display: flex;
+  flex: 1 1 auto;
+  color: #eee;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.Label {
+  flex: 1 1 auto;
+  display: flex;
+  color: #fff;
+  font-size: 0.5rem;
+}
+
+.Label.Right {
+  padding-left: 0.5rem;
+  padding-top: 1rem;
+}
+
+.Label.Left {
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 0.5rem;
+  padding-bottom: 1rem;
+}
