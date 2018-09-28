@@ -18,7 +18,9 @@ const ClockDisplay = ({
   <div className="Time">
     <DigitDuo
       digits={
-        getHours(time)
+		getHours(time) > 12
+		? getHours(time) - 12
+		: getHours(time)
       }
     />
 
