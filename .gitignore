@@ -20,9 +20,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-calendar.js
-gmail.js
-maps.js
+apiKey.js
 
 calendar_credentials.json
 calendar_token.json
