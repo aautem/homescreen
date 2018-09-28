@@ -6,7 +6,6 @@ const propTypes = {
 }
 
 const digitZero = '0'
-const keyMaker = () => String(Math.random())
 
 const twoItemArray = (
   digits
@@ -31,10 +30,10 @@ const DigitDuo = ({
     .toString()
     .split('')
   )
-  .map(digit => (
+  .map((digit, index) => (
     <div
       className="Digit"
-      key={keyMaker()}
+      key={index}
     >
       {digit}
     </div>
