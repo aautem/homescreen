@@ -1,30 +1,34 @@
-const API_KEY = require('./apiKey')
+const { GOOGLE_API_KEY } = require('./apiKeys')
+
+const { log } = console
 
 const googleMapsClient = (
     require('@google/maps')
     .createClient({
-        key: API_KEY,
+        key: GOOGLE_API_KEY,
         Promise: Promise,
     })
 )
 
-console.log({ googleMapsClient })
+// 50 requests per day
 
-googleMapsClient.geocode({address: '1600 Amphitheatre Parkway, Mountain View, CA'})
-  .asPromise()
-  .then((response) => {
-    console.log(response.json.results);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-// googleMapsClient.directions({
-//     origin: 'Town Hall, Sydney, NSW',
-//     destination: 'Parramatta, NSW',
-//   })
-//   .asPromise()
-//   .then(function(response) {
-//     console.log({ response })
-//   })
-//   .catch(error => console.log(error))
+googleMapsClient
+.directions({
+    origin: '4900 W 108th St, Overland Park, KS 66211',
+    destination: 'Liberty, MO',
+})
+.asPromise()
+.then(({ json }) => {
+    log({
+        travelTime: (
+            json
+            .routes[0]
+            .legs[0]
+            .duration
+            .text
+        )
+    })
+})
+.catch(error => {
+    log(error)
+})

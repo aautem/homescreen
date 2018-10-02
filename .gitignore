@@ -20,7 +20,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-apiKey.js
+apiKeys.js
 
 calendar_credentials.json
 calendar_token.json
