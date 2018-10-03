@@ -2,7 +2,7 @@ import React from 'react'
 import { render as renderApp } from 'react-dom'
 
 import './index.css'
-import App from './App'
+import App from './components/App'
 
 const controller = {
   start: () => {},
