@@ -8,6 +8,8 @@
 }
 
 .Clock_display {
+  /* border: 0.01rem dashed white; */
+
   align-items: center;
   color: #ccc;
   display: flex;
@@ -19,8 +21,9 @@
 }
 
 .Clock_gutter {
+  /* border: 0.01rem dashed white; */
+
   align-items: center;
-  background: rgba(0, 0, 0, 0.25);
   color: #fff;
   display: flex;
   flex-basis: 20%;

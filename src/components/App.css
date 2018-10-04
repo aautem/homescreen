@@ -1,5 +1,5 @@
 .App {
-  background: #aaa;
+  background: slateblue;
 
   display: flex;
   flex-direction: column;
@@ -7,10 +7,11 @@
 }
 
 .App_bottom {
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0,0,0,0.35));
   display: flex;
   flex-basis: 50%;
   flex-direction: column;
-  margin: 0 1.5rem 1.5rem 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
 .App_bottomColumn {
@@ -32,7 +33,7 @@
 
 .App_middle {
   align-items: center;
-  background-image: url('https://media.giphy.com/media/3o7bu9zwfieCd1R9HG/source.gif');
+  background-image: linear-gradient(slateblue, rgba(255,255,255,0), slateblue), url('https://media.giphy.com/media/3o7bu9zwfieCd1R9HG/source.gif');
   background-position: center;
   display: flex;
   flex-basis: 20%;
@@ -40,9 +41,10 @@
 }
 
 .App_top {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(255,255,255,0));
   display: flex;
   flex-basis: 30%;
-  margin: 1.5rem 1.5rem 0 1.5rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .App_topLeft {
