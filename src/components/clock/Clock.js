@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Display from './Display'
+// import Display from './Display'
+import SecondsGrid from './SecondsGrid'
 import './Clock.css'
 
 const Clock = () => (
@@ -10,7 +11,9 @@ const Clock = () => (
     </div>
 
     <div className="Clock_display">
-      <Display />
+      {/* <Display /> */}
+
+      <SecondsGrid />
     </div>
 
     <div className="Clock_gutter">

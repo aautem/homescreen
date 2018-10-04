@@ -35,6 +35,7 @@
   align-items: center;
   background-image: linear-gradient(slateblue, rgba(255,255,255,0), slateblue), url('https://media.giphy.com/media/3o7bu9zwfieCd1R9HG/source.gif');
   background-position: center;
+  background-size: cover;
   display: flex;
   flex-basis: 20%;
   justify-content: center;
