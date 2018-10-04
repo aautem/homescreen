@@ -1,0 +1,10 @@
+.NextEvent {
+  border: 0.01rem dashed white;
+  
+  align-items: center;
+  display: flex;
+  flex-basis: 40%;
+  font-size: 0.8rem;
+  justify-content: center;
+  width: 100%;
+}

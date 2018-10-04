@@ -1,0 +1,14 @@
+.Weather {
+  display: flex;
+  flex-basis: 40%;
+  width: 100%;
+}
+
+.Weather_forecast {
+  border: 0.01rem dashed white;
+
+  align-items: center;
+  display: flex;
+  flex-basis: 33.33%;
+  justify-content: center;
+}

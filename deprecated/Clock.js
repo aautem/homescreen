@@ -2,7 +2,7 @@ import getSeconds from 'date-fns/get_seconds'
 import React, { Component } from 'react'
 
 import ClockDisplay from './ClockDisplay'
-import secondValues from '../utils/secondValues'
+import secondValues from '../src/utils/secondValues'
 import TickRow from './TickRow'
 
 const { stringify } = JSON

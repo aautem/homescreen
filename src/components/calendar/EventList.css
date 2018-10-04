@@ -1,0 +1,16 @@
+.EventList {
+  display: flex;
+  flex-basis: 40%;
+  flex-direction: column;
+  width: 100%;
+}
+
+.EventList_entry {
+  border: 0.01rem dashed white;
+
+  align-items: center;
+  display: flex;
+  flex-basis: 33.33%;
+  font-size: 0.8rem;
+  justify-content: center;
+}
