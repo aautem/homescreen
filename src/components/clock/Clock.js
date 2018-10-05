@@ -1,18 +1,16 @@
 import React from 'react'
 
-import Display from './Display'
-import SecondLabel from './SecondLabel'
-import SecondsGrid from './SecondsGrid'
+import Time from './display/Time'
+import SecondLabel from './display/SecondLabel'
+import SecondsGrid from './grid/SecondsGrid'
+import { bottomGutterSeconds, topGutterSeconds } from '../../utils/constants'
 import './Clock.css'
-
-const bottomRowSeconds = [8, 16, 24, 32, 40, 48, 56]
-const topRowSeconds = [4, 12, 20, 28, 36, 44, 52, 60]
 
 const Clock = () => (
   <div className="Clock">
-    <div className="Clock_gutterTop">
+    <div className="Clock_topGutter">
       {
-        topRowSeconds
+        topGutterSeconds
         .map(second => (
           <SecondLabel
             key={second}
@@ -23,13 +21,13 @@ const Clock = () => (
     </div>
 
     <div className="Clock_display">
-      <Display />
+      <Time />
       <SecondsGrid />
     </div>
 
-    <div className="Clock_gutterBottom">
+    <div className="Clock_bottomGutter">
     {
-        bottomRowSeconds
+        bottomGutterSeconds
         .map(second => (
           <SecondLabel
             key={second}

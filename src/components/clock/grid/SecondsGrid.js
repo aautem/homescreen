@@ -1,8 +1,8 @@
 import React from 'react'
 
 import SecondsColumn from './SecondsColumn'
-import secondValues from '../../utils/secondValues'
-import { CurrentDateConsumer } from '../../contexts/CurrentDateContext'
+import { CurrentDateConsumer } from '../../../contexts/CurrentDateContext'
+import { secondValues } from '../../../utils/constants'
 import './SecondsGrid.css'
 
 const SecondsGrid = () => (

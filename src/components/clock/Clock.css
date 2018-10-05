@@ -16,7 +16,7 @@
   flex-basis: 60%;
 }
 
-.Clock_gutterTop {
+.Clock_topGutter {
   align-items: center;
   background-image: linear-gradient(
     rgba(255, 255, 255, 0),
@@ -28,7 +28,7 @@
   padding: 0 1rem;
 }
 
-.Clock_gutterBottom {
+.Clock_bottomGutter {
   align-items: center;
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.1),

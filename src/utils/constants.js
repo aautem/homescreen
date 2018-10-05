@@ -1,4 +1,7 @@
-const secondValues = [
+export const bottomGutterSeconds = [8, 16, 24, 32, 40, 48, 56]
+export const topGutterSeconds = [4, 12, 20, 28, 36, 44, 52, 60]
+
+export const secondValues = [
   [ 3,  2,  1,  0],
   [ 4,  5,  6,  7],
   [11, 10,  9,  8],
@@ -15,5 +18,3 @@ const secondValues = [
   [52, 53, 54, 55],
   [59, 58, 57, 56],
 ]
-
-export default secondValues

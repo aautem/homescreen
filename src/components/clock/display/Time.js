@@ -2,15 +2,15 @@ import getHours from 'date-fns/get_hours'
 import getMinutes from 'date-fns/get_minutes'
 import React from 'react'
 
-import Time from './Time'
-import { CurrentDateConsumer } from '../../contexts/CurrentDateContext'
-import './Display.css'
+import DigitDuo from './DigitDuo'
+import { CurrentDateConsumer } from '../../../contexts/CurrentDateContext'
+import './Time.css'
 
-const Display = () => (
+const Time = () => (
   <CurrentDateConsumer>
     {({ currentDate }) => (
-      <div className="Display">
-        <Time
+      <div className="Time">
+        <DigitDuo
           time={
             getHours(
               currentDate
@@ -18,7 +18,7 @@ const Display = () => (
           }
         />
 
-        <Time
+        <DigitDuo
           time={
             getMinutes(
               currentDate
@@ -30,4 +30,4 @@ const Display = () => (
   </CurrentDateConsumer>
 )
 
-export default Display
+export default Time

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import returnTwoDigitArray from '../../utils/returnTwoDigitArray'
+import returnTwoDigitArray from '../../../utils/returnTwoDigitArray'
 
-const Time = ({ time }) => (
+const DigitDuo = ({ time }) => (
   returnTwoDigitArray(
     String(time)
   )
@@ -13,4 +13,4 @@ const Time = ({ time }) => (
   ))
 )
 
-export default Time
+export default DigitDuo
