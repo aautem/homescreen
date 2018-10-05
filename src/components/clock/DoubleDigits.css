@@ -1,0 +1,7 @@
+.DoubleDigits {
+  /* border: 0.01rem dashed white; */
+
+  display: flex;
+  flex-basis: 25%;
+  justify-content: center;
+}

@@ -1,25 +1,35 @@
-import React, { Fragment } from 'react'
+import getHours from 'date-fns/get_hours'
+import getMinutes from 'date-fns/get_minutes'
+import React from 'react'
 
+import DoubleDigits from './DoubleDigits'
+import { CurrentDateConsumer } from '../../contexts/CurrentDateContext'
 import './Display.css'
 
 const Display = () => (
-  <Fragment>
-    <div className="Display_digit">
-      0
-    </div>
-
-    <div className="Display_digit">
-      2
-    </div>
-
-    <div className="Display_digit">
-      4
-    </div>
-
-    <div className="Display_digit">
-      6
-    </div>
-  </Fragment>
+  <CurrentDateConsumer>
+    {({ currentDate }) => (
+      <div className="Display">
+        <DoubleDigits
+          digits={
+            getHours(currentDate) > 12
+            ? getHours(currentDate) - 12
+            : (
+              getHours(currentDate) === 0
+              ? 12
+              : getHours(currentDate)
+            )
+          }
+        />
+    
+        <DoubleDigits
+          digits={
+            getMinutes(currentDate)
+          }
+        />
+      </div>
+    )}
+  </CurrentDateConsumer>
 )
 
 export default Display

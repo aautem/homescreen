@@ -1,7 +1,6 @@
 .SecondsGrid {
-  border: 0.01rem dashed white;
-
   align-items: center;
+  border: 0.01rem solid rgba(0, 0, 0, 0.25);
   display: flex;
   flex-basis: 100%;
   height: 100%;

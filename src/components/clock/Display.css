@@ -1,5 +1,7 @@
-.Display_digit {
+.Display {
+  /* border: 0.01rem dashed white; */
+
   display: flex;
-  flex-basis: 25%;
-  justify-content: center;
+  position: absolute;
+  width: 60%;
 }
