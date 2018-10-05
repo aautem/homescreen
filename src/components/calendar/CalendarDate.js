@@ -1,44 +1,42 @@
 import format from 'date-fns/format'
-import React, { Fragment } from 'react'
+import React from 'react'
 
-import { DateConsumer, DateProvider } from '../contexts/DateContext'
+import { DateTimeConsumer } from '../contexts/DateTimeContext'
 import './CalendarDate.css'
 
 const CalendarDate = () => (
-  <DateProvider>
-    <DateConsumer>
-      {({ currentDate }) => (
-        <Fragment>
-          <div className="CalendarDate_ofWeek">
-            {
-              format(
-                currentDate,
-                'MMMM'
-              )
-            }
-          </div>
+  <DateTimeConsumer>
+    {({ dateTime }) => (
+      <div className="CalendarDate">
+        <div className="CalendarDate_ofWeek">
+          {
+            format(
+              dateTime,
+              'MMMM'
+            )
+          }
+        </div>
 
-          <div className="CalendarDate_number">
-            {
-              format(
-                currentDate,
-                'D'
-              )
-            }
-          </div>
+        <div className="CalendarDate_number">
+          {
+            format(
+              dateTime,
+              'D'
+            )
+          }
+        </div>
 
-          <div className="CalendarDate_ofWeek">
-            {
-              format(
-                currentDate,
-                'dddd'
-              )
-            }
-          </div>
-        </Fragment>
-      )}
-      </DateConsumer>
-  </DateProvider>
+        <div className="CalendarDate_ofWeek">
+          {
+            format(
+              dateTime,
+              'dddd'
+            )
+          }
+        </div>
+      </div>
+    )}
+    </DateTimeConsumer>
 )
 
 export default CalendarDate

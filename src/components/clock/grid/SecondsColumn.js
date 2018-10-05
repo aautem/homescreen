@@ -1,39 +1,41 @@
+import getSeconds from 'date-fns/get_seconds'
 import React from 'react'
 
 import Second from './Second'
-import { SecondConsumer, SecondProvider } from '../../contexts/SecondContext'
+import { DateTimeConsumer } from '../../contexts/DateTimeContext'
 import './SecondsColumn.css'
 
 const hasSecondElapsed = ({
-  currentSecond,
+  dateTime,
   second,
 }) => (
-  Number(
-    currentSecond
-  ) >= second
+  getSeconds(dateTime)
+  >= second
 )
 
 const SecondsColumn = ({
-  seconds,
+  secondsRow,
 }) => (
-  <SecondProvider>
-    <SecondConsumer>
-      {({ currentSecond }) => (        
-        seconds
-        .map(second => (
-          <Second
-            hasElapsed={
-              hasSecondElapsed({
-                currentSecond,
-                second,
-              })
-            }
-            key={second}
-          />
-        ))
-      )}
-    </SecondConsumer>
-  </SecondProvider>
+  <DateTimeConsumer>
+    {({ dateTime }) => (
+      <div className="SecondsColumn">
+        {
+          secondsRow
+          .map(second => (
+            <Second
+              hasElapsed={
+                hasSecondElapsed({
+                  dateTime,
+                  second,
+                })
+              }
+              key={second}
+            />
+          ))
+        }
+      </div>
+    )}
+  </DateTimeConsumer>
 )
 
 export default SecondsColumn

@@ -11,7 +11,7 @@ const SecondsGrid = () => (
       .map(secondsRow => (
         <SecondsColumn
           key={secondsRow.join('')}
-          seconds={secondsRow}
+          secondsRow={secondsRow}
         />
       ))
     }

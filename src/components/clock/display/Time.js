@@ -1,22 +1,28 @@
+import format from 'date-fns/format'
 import React from 'react'
 
-import { TimeConsumer, TimeProvider } from '../../contexts/TimeContext'
+import { DateTimeConsumer } from '../../contexts/DateTimeContext'
 import './Time.css'
 
 const Time = () => (
-  <TimeProvider>
-    <TimeConsumer>
-      {({ currentTimeString }) => (
-        currentTimeString
-        .split('')
-        .map((digitString, index) => (
-          <div key={index}>
-            {digitString}
-          </div>
-        ))
-      )}
-    </TimeConsumer>
-  </TimeProvider>
+  <DateTimeConsumer>
+    {({ dateTime }) => (
+      <div className="Time">
+        {
+          format(
+            dateTime,
+            'HHmm'
+          )
+          .split('')
+          .map((digit, index) => (
+            <div key={index}>
+              {digit}
+            </div>
+          ))
+        }
+      </div>
+    )}
+  </DateTimeConsumer>
 )
 
 export default Time
