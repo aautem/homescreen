@@ -1,7 +1,10 @@
 .Display {
-  /* border: 0.01rem dashed white; */
-
+  color: #fff;
   display: flex;
+  font-size: 4rem;
+  font-weight: bold;
+  justify-content: space-evenly;
   position: absolute;
-  width: 60%;
+  top: 33%;
+  width: 70%;
 }

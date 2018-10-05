@@ -1,7 +1,4 @@
 .SecondLabel {
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  
-  /* margin-top: 0.3rem; */
+  color: #ccc;
+  font-size: 0.8rem;
 }

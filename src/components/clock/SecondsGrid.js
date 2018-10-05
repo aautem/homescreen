@@ -1,4 +1,3 @@
-// import getSeconds from 'date-fns/get_seconds'
 import React from 'react'
 
 import SecondsColumn from './SecondsColumn'
@@ -14,7 +13,6 @@ const SecondsGrid = () => (
           secondValues
           .map(secondsRow => (
             <SecondsColumn
-              // colors={colors}
               key={
                 JSON
                 .stringify(

@@ -1,5 +1,5 @@
 .App {  
-  background: slateblue;
+  background: rgb(106, 90, 205);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -14,7 +14,7 @@
 
 
 .App_bottom {
-  border: 0.1rem dashed white;
+  /* border: 0.1rem dashed white; */
 
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0,0,0,0.35));
   display: flex;
@@ -41,19 +41,12 @@
 }
 
 .App_middle {
-  border: 0.1rem dashed white;
-
-  align-items: center;
-  background-image: linear-gradient(slateblue, rgba(255,255,255,0), slateblue), url('https://media.giphy.com/media/3o7bu9zwfieCd1R9HG/source.gif');
-  background-position: center;
-  background-size: cover;
   display: flex;
   flex-basis: 10%;
-  justify-content: center;
 }
 
 .App_top {
-  border: 0.1rem dashed white;
+  /* border: 0.1rem dashed white; */
   
   background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(255,255,255,0));
   display: flex;

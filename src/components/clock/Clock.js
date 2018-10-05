@@ -5,17 +5,21 @@ import SecondLabel from './SecondLabel'
 import SecondsGrid from './SecondsGrid'
 import './Clock.css'
 
+const bottomRowSeconds = [8, 16, 24, 32, 40, 48, 56]
+const topRowSeconds = [4, 12, 20, 28, 36, 44, 52, 60]
+
 const Clock = () => (
   <div className="Clock">
     <div className="Clock_gutterTop">
-      <SecondLabel>4</SecondLabel>
-      <SecondLabel>12</SecondLabel>
-      <SecondLabel>20</SecondLabel>
-      <SecondLabel>28</SecondLabel>
-      <SecondLabel>36</SecondLabel>
-      <SecondLabel>44</SecondLabel>
-      <SecondLabel>52</SecondLabel>
-      <SecondLabel>60</SecondLabel>
+      {
+        topRowSeconds
+        .map(second => (
+          <SecondLabel
+            key={second}
+            second={second}
+          />
+        ))
+      }
     </div>
 
     <div className="Clock_display">
@@ -24,13 +28,15 @@ const Clock = () => (
     </div>
 
     <div className="Clock_gutterBottom">
-      <SecondLabel>8</SecondLabel>
-      <SecondLabel>16</SecondLabel>
-      <SecondLabel>24</SecondLabel>
-      <SecondLabel>32</SecondLabel>
-      <SecondLabel>40</SecondLabel>
-      <SecondLabel>48</SecondLabel>
-      <SecondLabel>56</SecondLabel>
+    {
+        bottomRowSeconds
+        .map(second => (
+          <SecondLabel
+            key={second}
+            second={second}
+          />
+        ))
+      }
     </div>
   </div>
 )
