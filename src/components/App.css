@@ -1,17 +1,35 @@
-.App {  
-  background: rgb(106, 90, 205);
+.App_top {  
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(255,255,255,0)
+  );
   display: flex;
-  flex-direction: column;
-  height: 100vh;
+  flex-basis: 30%;
+  padding: 3% 3% 0 3%;
 }
 
+.App_topLeft {
+  /* border: 0.1rem dashed white; */
 
+  display: flex;
+  flex-basis: 40%;
+  flex-direction: column;
+  padding: 3% 3% 0 3%;
+}
 
+.App_topRight {
+  border: 0.1rem dashed white;
 
+  display: flex;
+  flex-basis: 60%;
+  flex-direction: column;
+  padding: 0 3%;
+}
 
-
-
-
+.App_middle {
+  display: flex;
+  flex-basis: 10%;
+}
 
 .App_bottom {
   /* border: 0.1rem dashed white; */
@@ -23,6 +41,14 @@
   padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
+.App_bottomRow {
+  align-items: center;
+  display: flex;
+  flex-basis: 40%;
+  justify-content: center;
+  width: 100%;
+}
+
 .App_bottomColumn {
   align-items: center;
   display: flex;
@@ -32,40 +58,9 @@
   justify-content: center;
 }
 
-.App_bottomRow {
-  align-items: center;
+.App {  
+  background: #95b1af;
   display: flex;
-  flex-basis: 40%;
-  justify-content: center;
-  width: 100%;
-}
-
-.App_middle {
-  display: flex;
-  flex-basis: 10%;
-}
-
-.App_top {
-  /* border: 0.1rem dashed white; */
-  
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(255,255,255,0));
-  display: flex;
-  flex-basis: 30%;
-  padding: 1.5rem 1.5rem 0 1.5rem;
-}
-
-.App_topLeft {
-  align-items: center;
-  display: flex;
-  flex-basis: 40%;
   flex-direction: column;
-  justify-content: center;
-}
-
-.App_topRight {
-  align-items: center;
-  display: flex;
-  flex-basis: 60%;
-  flex-direction: column;
-  justify-content: center;
+  height: 100vh;
 }

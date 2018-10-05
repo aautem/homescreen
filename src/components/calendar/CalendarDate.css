@@ -1,26 +1,25 @@
-.Day {
-  border: 0.01rem dashed white;
-  
+.CalendarDate {
+  background: #0c7e7d;
   display: flex;
   flex-basis: 60%;
   flex-direction: column;
   width: 100%;
+  justify-content: center;
 }
 
-.Day_number {
+.CalendarDate_number {
   align-items: center;
+  color: #ebebeb;
   display: flex;
-  flex-basis: 65%;
-  font-size: 4rem;
+  font-size: 8rem;
   font-weight: bold;
   justify-content: center;
 }
 
-.Day_ofWeek {
-  align-items: center;
+.CalendarDate_ofWeek {
+  color: #ebebeb;
   display: flex;
-  flex-basis: 35%;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
   justify-content: center;
   text-transform: uppercase;

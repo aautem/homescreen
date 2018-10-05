@@ -11,10 +11,10 @@ const Clock = () => (
     <div className="Clock_topGutter">
       {
         topGutterSeconds
-        .map(second => (
+        .map(label => (
           <SecondLabel
-            key={second}
-            second={second}
+            key={label}
+            label={label}
           />
         ))
       }
@@ -28,10 +28,10 @@ const Clock = () => (
     <div className="Clock_bottomGutter">
     {
         bottomGutterSeconds
-        .map(second => (
+        .map(label => (
           <SecondLabel
-            key={second}
-            second={second}
+            key={label}
+            label={label}
           />
         ))
       }

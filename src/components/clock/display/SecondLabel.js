@@ -2,9 +2,9 @@ import React from 'react'
 
 import './SecondLabel.css'
 
-const SecondLabel = ({ second }) => (
+const SecondLabel = ({ label }) => (
   <div className="SecondLabel">
-    {second}
+    {label}
   </div>
 )
 

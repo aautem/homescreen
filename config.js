@@ -1,2 +1,3 @@
 // Cheap feature flags
-export const militaryTime = false
+export const militaryTime = true
+export const nightMode = false
