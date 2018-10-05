@@ -4,7 +4,7 @@ import Clock from './clock/Clock'
 import CalendarDate from './calendar/CalendarDate'
 import EventList from './calendar/EventList'
 // import Inbox from './email/Inbox'
-import Header from './layout/Header'
+import Greeting from './calendar/Greeting'
 // import Menu from './menu/Menu'
 // import NewReleases from './media/NewReleases'
 // import News from './news/News'
@@ -23,7 +23,7 @@ const App = () => (
       </div>
 
       <div className="App_topRight">
-        <Header />
+        <Greeting />
         <Weather />
         <EventList />
       </div>

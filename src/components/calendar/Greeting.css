@@ -1,0 +1,12 @@
+.Greeting {
+  color: #324b4a;
+  display: flex;
+  flex-basis: 20%;
+  font-size: 3rem;
+  font-weight: bold;
+  justify-content: flex-end;
+}
+
+.Greeting_emoji {
+  padding: 0 1rem;
+}

@@ -4,8 +4,8 @@
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
-  padding-top: 1rem;
-  padding-bottom: 0.3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .NextEvent_event {
@@ -19,7 +19,7 @@
   display: flex;
   flex-basis: 80%;
   justify-content: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .NextEvent_time {
@@ -41,20 +41,11 @@
 .NextEvent_countdown {
   align-items: center;
   flex-basis: 10%;
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0),
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.1),
-    rgba(255, 255, 255, 0)
-  );
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   color: #0c7e7d;
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
-  margin-left: 40%;
-  padding: 0.5rem 0;
+  font-size: 1rem;
+  margin-bottom: 2rem;
   text-transform: uppercase;
 }
 

@@ -9,8 +9,6 @@
 }
 
 .App_topLeft {
-  /* border: 0.1rem dashed white; */
-
   display: flex;
   flex-basis: 40%;
   flex-direction: column;
@@ -18,7 +16,7 @@
 }
 
 .App_topRight {
-  border: 0.1rem dashed white;
+  /* border: 0.1rem dashed white; */
 
   display: flex;
   flex-basis: 60%;
