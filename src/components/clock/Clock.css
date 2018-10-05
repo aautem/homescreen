@@ -1,21 +1,3 @@
-.Clock {
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.3),
-    rgba(255, 255, 255, 0),
-    rgba(0, 0, 0, 0.3)
-  );
-  display: flex;
-  flex-basis: 100%;
-  flex-direction: column;
-  padding: 0 15%;
-}
-
-.Clock_display {
-  display: flex;
-  flex-basis: 60%;
-}
-
 .Clock_topGutter {
   align-items: center;
   background-image: linear-gradient(
@@ -28,6 +10,11 @@
   padding: 0 1rem;
 }
 
+.Clock_display {
+  display: flex;
+  flex-basis: 60%;
+}
+
 .Clock_bottomGutter {
   align-items: center;
   background-image: linear-gradient(
@@ -37,4 +24,17 @@
   display: flex;
   flex-basis: 20%;
   justify-content: space-evenly;
+}
+
+.Clock {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+  padding: 0 15%;
 }

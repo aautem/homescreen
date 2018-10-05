@@ -4,7 +4,6 @@ import React from 'react'
 import './Second.css'
 
 const Second = ({
-  colors,
   hasElapsed,
 }) => (
   <div

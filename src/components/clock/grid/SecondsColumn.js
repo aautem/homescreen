@@ -13,7 +13,6 @@ const hasSecondElapsed = ({
 )
 
 const SecondsColumn = ({
-  colors,
   currentDate,
   seconds,
 }) => (  
@@ -22,7 +21,6 @@ const SecondsColumn = ({
       seconds
       .map(second => (
         <Second
-          colors={colors}
           hasElapsed={
             hasSecondElapsed({
               currentDate,
