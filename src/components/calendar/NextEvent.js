@@ -4,17 +4,21 @@ import './NextEvent.css'
 
 const NextEvent = () => (
   <div className="NextEvent">
-    <div>
+    <div className="NextEvent_header">
       Up Next
     </div>
-    <div>
-      7:30a
+
+    <div className="NextEvent_event">
+      <div className="NextEvent_time">
+        7:30a
+      </div>
+      <div className="NextEvent_title">
+        Morning Jog
+      </div>
     </div>
-    <div>
-      Morning Jog
-    </div>
-    <div>
-      24 minutes
+    
+    <div className="NextEvent_countdown">
+      24 Minutes
     </div>
   </div>
 )

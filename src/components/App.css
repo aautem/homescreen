@@ -23,7 +23,6 @@
   display: flex;
   flex-basis: 60%;
   flex-direction: column;
-  padding: 0 3%;
 }
 
 .App_middle {

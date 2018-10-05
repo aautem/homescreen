@@ -23,9 +23,9 @@ const App = () => (
       </div>
 
       <div className="App_topRight">
-        {/* <Header />
+        <Header />
         <Weather />
-        <EventList /> */}
+        <EventList />
       </div>
     </div>
 
