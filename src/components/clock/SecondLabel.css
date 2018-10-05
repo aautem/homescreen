@@ -1,0 +1,7 @@
+.SecondLabel {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  
+  /* margin-top: 0.3rem; */
+}
