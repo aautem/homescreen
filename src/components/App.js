@@ -3,14 +3,14 @@ import React from 'react'
 import Clock from './clock/Clock'
 import CalendarDate from './calendar/CalendarDate'
 import EventList from './calendar/EventList'
-// import Inbox from './email/Inbox'
+import Inbox from './email/Inbox'
 import Greeting from './calendar/Greeting'
-// import Menu from './menu/Menu'
-// import NewReleases from './media/NewReleases'
-// import News from './news/News'
+import Menu from './menu/Menu'
+import NewReleases from './media/NewReleases'
+import News from './news/News'
 import NextEvent from './calendar/NextEvent'
-// import Stocks from './stocks/Stocks'
-// import UpcomingEvents from './calendar/UpcomingEvents'
+import Stocks from './stocks/Stocks'
+import UpcomingEvents from './calendar/UpcomingEvents'
 import Weather from './weather/Weather'
 import { DateTimeProvider } from './contexts/DateTimeContext'
 import './App.css'
@@ -36,7 +36,7 @@ const App = () => (
       </div>
 
       <div className="App_bottom">
-        {/* <Stocks />
+        <Stocks />
 
         <div className="App_bottomRow">
           <div className="App_bottomColumn">
@@ -50,7 +50,7 @@ const App = () => (
         <div className="App_bottomRow">
           <News />
           <UpcomingEvents />
-        </div> */}
+        </div>
       </div>
     </div>
   </DateTimeProvider>

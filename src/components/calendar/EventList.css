@@ -6,7 +6,7 @@
 }
 
 .EventList_entry {
-  border: 0.01rem dashed white;
+  /* border: 0.01rem dashed white; */
 
   align-items: center;
   display: flex;

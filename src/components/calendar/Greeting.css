@@ -1,4 +1,5 @@
 .Greeting {
+  align-items: center;
   color: #324b4a;
   display: flex;
   flex-basis: 20%;

@@ -9,7 +9,9 @@ axios
   .concat(`/${DARKSKY_API_KEY}`)
   .concat(`/${latitude},${longitude}`)
 )
-.then(({ data }) => (
-  console.log({ data })
-))
+.then(({ data }) => {
+  console.log({ currently: data.currently })
+  console.log({ hourly: data.hourly.data })
+  console.log({ daily: data.daily.data })
+})
 .catch(error => console.log(error))
