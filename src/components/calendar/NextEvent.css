@@ -1,4 +1,5 @@
 .NextEvent_header {
+  border-bottom: 0.2rem solid #324b4a;
   color: #324b4a;
   flex-basis: 10%;
   font-size: 1rem;
@@ -6,19 +7,21 @@
   font-weight: bold;
   padding-top: 1.5rem;
   padding-bottom: 0.5rem;
+  width: 33%;
+  margin-bottom: 0.8rem;
 }
 
 .NextEvent_event {
-  border-bottom: 0.5rem solid #324b4a;
-  border-top: 0.2rem solid #324b4a;
+  border: 0.3rem solid #324b4a;
+  background: #767676;
   display: flex;
   flex-basis: 80%;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .NextEvent_time {
-  color: #0c7e7d;
+  color: #ff874a;
   display: flex;
   align-items: center;
   font-size: 1rem;
@@ -35,13 +38,16 @@
 }
 
 .NextEvent_countdown {
+  border-top: 0.2rem solid #324b4a;
   align-items: center;
   flex-basis: 10%;
   display: flex;
   justify-content: flex-end;
   color: #324b4a;
   font-size: 1rem;
+  margin-left: 66%;
   margin-bottom: 2rem;
+  padding-top: 1rem;
 }
 
 .NextEvent {

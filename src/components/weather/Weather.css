@@ -19,9 +19,10 @@
 
 .Weather_header {
   align-items: center;
-  border-bottom: 0.5rem solid #324b4a;
-  border-top: 0.2rem solid #324b4a;
-  color: #324b4a;;
+  background: #324b4a;
+  /* border-bottom: 0.5rem solid #324b4a;
+  border-top: 0.2rem solid #324b4a; */
+  color: #cccccc;;
   display: flex;
   flex-basis: 20%;
   font-size: 1.5rem;

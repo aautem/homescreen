@@ -1,17 +1,14 @@
 .EventList {
   align-items: center;
-  background-image: linear-gradient(
-    to bottom,
-    #ebebeb,
-    rgba(255, 255, 255, 0)
-  );
+  background: #ebebeb;
+  border: 0.3rem solid #324b4a;
   display: flex;
   flex-basis: 40%;
   flex-direction: column;
   justify-content: space-evenly;
   margin-bottom: 1rem;
   margin-top: 0.8rem;
-  width: 96%;
+  width: 100%;
 }
 
 .EventList_day {
@@ -25,4 +22,5 @@
 .EventList_entry {
   /* margin-left: 2rem; */
   font-size: 0.8rem;
+  font-weight: bold;
 }
