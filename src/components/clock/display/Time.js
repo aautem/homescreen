@@ -15,7 +15,10 @@ const Time = () => (
           )
           .split('')
           .map((digit, index) => (
-            <div key={index}>
+            <div
+              className="Time_digit"
+              key={index}
+            >
               {digit}
             </div>
           ))

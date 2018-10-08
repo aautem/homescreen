@@ -12,8 +12,8 @@
 }
 
 .NextEvent_event {
-  border: 0.3rem solid #324b4a;
-  background: #767676;
+  border: 0.2rem solid #324b4a;
+  background: rgba(0, 0, 0, 0.2);;
   display: flex;
   flex-basis: 80%;
   justify-content: center;

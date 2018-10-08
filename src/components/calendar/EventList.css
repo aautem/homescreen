@@ -1,7 +1,6 @@
 .EventList {
-  align-items: center;
-  background: #ebebeb;
-  border: 0.3rem solid #324b4a;
+  /* background: #ebebeb;
+  border: 0.3rem solid #324b4a; */
   display: flex;
   flex-basis: 40%;
   flex-direction: column;
@@ -15,12 +14,12 @@
   color: #0c7e7d;
   font-size: 1rem;
   font-weight: 600;
-  /* margin-left: 1rem; */
+  margin-left: 2rem;
   text-transform: uppercase;
 }
 
 .EventList_entry {
-  /* margin-left: 2rem; */
+  margin-left: 4rem;
   font-size: 0.8rem;
   font-weight: bold;
 }
