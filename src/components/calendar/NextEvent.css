@@ -1,5 +1,5 @@
 .NextEvent_header {
-  color: #000000;
+  color: #324b4a;
   flex-basis: 10%;
   font-size: 1rem;
   text-transform: uppercase;
@@ -9,13 +9,8 @@
 }
 
 .NextEvent_event {
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0),
-    #ebebeb,
-    #ebebeb,
-    rgba(255, 255, 255, 0)
-  );
+  border-bottom: 0.5rem solid #324b4a;
+  border-top: 0.2rem solid #324b4a;
   display: flex;
   flex-basis: 80%;
   justify-content: center;
@@ -23,15 +18,16 @@
 }
 
 .NextEvent_time {
-  color: #c15c7f;
+  color: #0c7e7d;
   display: flex;
   align-items: center;
   font-size: 1rem;
+  font-weight: 600;
   padding: 0 0.5rem;
 }
 
 .NextEvent_title {
-  color: #666666;
+  color: #ebebeb;
   display: flex;
   align-items: center;
   font-size: 1.5rem;
@@ -43,10 +39,9 @@
   flex-basis: 10%;
   display: flex;
   justify-content: flex-end;
-  color: #0c7e7d;
+  color: #324b4a;
   font-size: 1rem;
   margin-bottom: 2rem;
-  text-transform: uppercase;
 }
 
 .NextEvent {

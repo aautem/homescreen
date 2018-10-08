@@ -81,8 +81,7 @@ function listEvents(auth) {
     if (events.length) {
       console.log('Upcoming 10 events:');
       events.map((event, i) => {
-        const start = event.start.dateTime || event.start.date;
-        console.log(`${start} - ${event.summary}`);
+        console.log({ event })
       });
     } else {
       console.log('No upcoming events found.');

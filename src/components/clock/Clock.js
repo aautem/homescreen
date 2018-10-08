@@ -21,8 +21,8 @@ const Clock = () => (
     </div>
 
     <div className="Clock_display">
-      <Time />
       <SecondsGrid />
+      <Time />
     </div>
 
     <div className="Clock_bottomGutter">

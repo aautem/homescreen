@@ -16,14 +16,14 @@
 }
 
 .App_topRight {
-  /* border: 0.1rem dashed white; */
-
+  align-items: center;
   display: flex;
   flex-basis: 60%;
   flex-direction: column;
 }
 
 .App_middle {
+  background: #324b4a;
   display: flex;
   flex-basis: 10%;
 }

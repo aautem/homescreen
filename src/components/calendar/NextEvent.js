@@ -18,7 +18,7 @@ const NextEvent = () => (
     </div>
     
     <div className="NextEvent_countdown">
-      24 Minutes
+      24 minutes
     </div>
   </div>
 )

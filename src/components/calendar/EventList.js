@@ -4,16 +4,27 @@ import './EventList.css'
 
 const EventList = () => (
   <div className="EventList">
-    <div className="EventList_entry">
-      Coming up later today
+    <div className="EventList_day">
+      Today
     </div>
 
     <div className="EventList_entry">
-      Coming up later today
+      <span>ALL-DAY</span>
+      <span>Kai Flea/Tick</span>
     </div>
 
     <div className="EventList_entry">
-      Coming up later today
+      <span>ALL-DAY</span>
+      <span>Kai Flea/Tick</span>
+    </div>
+
+    <div className="EventList_day">
+      Tomorrow
+    </div>
+
+    <div className="EventList_entry">
+      <span>ALL-DAY</span>
+      <span>Kai Flea/Tick</span>
     </div>
   </div>
 )

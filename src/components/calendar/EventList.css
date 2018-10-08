@@ -1,16 +1,28 @@
 .EventList {
+  align-items: center;
+  background-image: linear-gradient(
+    to bottom,
+    #ebebeb,
+    rgba(255, 255, 255, 0)
+  );
   display: flex;
   flex-basis: 40%;
   flex-direction: column;
-  width: 100%;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+  margin-top: 0.8rem;
+  width: 96%;
+}
+
+.EventList_day {
+  color: #0c7e7d;
+  font-size: 1rem;
+  font-weight: 600;
+  /* margin-left: 1rem; */
+  text-transform: uppercase;
 }
 
 .EventList_entry {
-  /* border: 0.01rem dashed white; */
-
-  align-items: center;
-  display: flex;
-  flex-basis: 33.33%;
+  /* margin-left: 2rem; */
   font-size: 0.8rem;
-  justify-content: center;
 }
