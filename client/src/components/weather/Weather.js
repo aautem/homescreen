@@ -5,6 +5,11 @@ import { FiWind } from 'react-icons/fi'
 
 import './Weather.css'
 
+import {
+  WeatherConsumer,
+  WeatherProvider,
+} from '../contexts/WeatherContext'
+
 const mockWeatherData = [{
   title: 'Currently',
   Icon: FiCloudDrizzle,
@@ -24,35 +29,41 @@ const mockWeatherData = [{
 
 const Weather = () => (
   <div className="Weather">
-    {
-      mockWeatherData
-      .map(({ title, Icon, temperature, summary }, index) => (
-        <div
-          className="Weather_forecast"
-          key={index}
-        >
-          <div className="Weather_header">
-            {title}
-          </div>
+    <WeatherProvider>
+      <WeatherConsumer>
+        {({ weather }) => (
+          console.log({ weather }) ||
 
-        <div className="Weather_content">
-          <Icon
-            color="#ffffff"
-            size={108}
-          />
-        </div>
-
-          <div className="Weather_footer">
-            <span className="Weather_temperature">
-              {temperature}&deg; F
-            </span>
-            <span className="Weather_summary">
-              {summary}
-            </span>
-          </div>
-        </div>
-      ))
-    }
+          mockWeatherData
+          .map(({ title, Icon, temperature, summary }, index) => (
+            <div
+              className="Weather_forecast"
+              key={index}
+            >
+              <div className="Weather_header">
+                {title}
+              </div>
+  
+            <div className="Weather_content">
+              <Icon
+                color="#ffffff"
+                size={108}
+              />
+            </div>
+  
+              <div className="Weather_footer">
+                <span className="Weather_temperature">
+                  {temperature}&deg; F
+                </span>
+                <span className="Weather_summary">
+                  {summary}
+                </span>
+              </div>
+            </div>
+          ))
+        )}
+      </WeatherConsumer>
+    </WeatherProvider>
   </div>
 )
 

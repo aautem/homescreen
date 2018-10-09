@@ -1,4 +1,4 @@
-const { GOOGLE_API_KEY } = require('./apiKeys')
+const { GOOGLE_API_KEY } = require('./credentials/apiKeys')
 
 const { log } = console
 
