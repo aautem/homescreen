@@ -1,0 +1,19 @@
+{
+  "name": "homescreen-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/aautem/homescreen.git",
+  "author": "Alex Autem <autem.alex@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "express": "^4.16.3"
+  },
+  "scripts": {
+    "start": "concurrently \"yarn run server\" \"yarn run client\"",
+    "server": "node server.js",
+    "client": "node start-client.js"
+  }
+}

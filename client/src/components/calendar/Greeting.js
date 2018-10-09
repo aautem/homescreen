@@ -8,7 +8,11 @@ const Greeting = () => (
       Good morning, Alex!
     </span>
     
-    <span className="Greeting_icon">
+    <span
+      aria-label="emoji"
+      className="Greeting_icon"
+      role="img"
+    >
       😎
     </span>
   </div>
