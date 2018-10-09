@@ -1,7 +1,10 @@
 import React from 'react'
+import { FiCloud } from 'react-icons/fi'
 import { FiCloudDrizzle } from 'react-icons/fi'
-import { FiCloudLightning } from 'react-icons/fi'
-import { FiWind } from 'react-icons/fi'
+// import { FiCloudLightning } from 'react-icons/fi'
+// import { FiWind } from 'react-icons/fi'
+import { FiHelpCircle } from 'react-icons/fi'
+import { FiSun } from 'react-icons/fi'
 
 import './Weather.css'
 
@@ -10,61 +13,106 @@ import {
   WeatherProvider,
 } from '../contexts/WeatherContext'
 
-const mockWeatherData = [{
-  title: 'Currently',
-  Icon: FiCloudDrizzle,
-  temperature: 68,
-  summary: 'overcast',
-}, {
-  title: 'Tomorrow',
-  Icon: FiCloudLightning,
-  temperature: 72,
-  summary: 'thunder storms',
-}, {
-  title: 'Tuesday',
-  Icon: FiWind,
-  temperature: 65,
-  summary: 'windy',
-}]
+const weatherIcons = {
+  'clear-day': FiSun,
+  'partly-cloudy-day': FiCloud,
+  'partly-cloudy-night': FiCloud,
+  'rain': FiCloudDrizzle,
+}
 
 const Weather = () => (
-  <div className="Weather">
-    <WeatherProvider>
-      <WeatherConsumer>
-        {({ weather }) => (
-          console.log({ weather }) ||
+  <WeatherProvider>
+    <WeatherConsumer>
+      {({ currentWeather, forecast }) => (
+        console.log({ currentWeather, forecast }) ||
 
-          mockWeatherData
-          .map(({ title, Icon, temperature, summary }, index) => (
-            <div
-              className="Weather_forecast"
-              key={index}
-            >
-              <div className="Weather_header">
-                {title}
+        <div className="Weather">
+          {
+            currentWeather.summary
+            && (
+              <div className="Weather_forecast">
+                <div className="Weather_header">
+                  Currently
+                </div>
+
+                <div className="Weather_content">
+                  {
+                    weatherIcons[currentWeather.icon]
+                    ? (
+                      weatherIcons[currentWeather.icon]({
+                        color: '#ebebeb',
+                        size: 90,
+                      })
+                    )
+                    : (
+                      <FiHelpCircle
+                        color="#ebebeb"
+                        size={90}
+                      />
+                    )
+                  }
+                </div>
+
+                <div className="Weather_footer">
+                  {currentWeather.summary}
+                </div>
               </div>
-  
-            <div className="Weather_content">
-              <Icon
-                color="#ffffff"
-                size={108}
-              />
-            </div>
-  
-              <div className="Weather_footer">
-                <span className="Weather_temperature">
-                  {temperature}&deg; F
-                </span>
-                <span className="Weather_summary">
-                  {summary}
-                </span>
-              </div>
-            </div>
-          ))
-        )}
-      </WeatherConsumer>
-    </WeatherProvider>
-  </div>
+            )
+          }
+
+          {
+            forecast
+            .map((weather, index) => ({
+              ...weather,
+              index,
+            }))
+            .map(({
+              icon,
+              summary,
+              temperatureHigh,
+              temperatureLow,
+              index,
+            }) => (
+                <div
+                  className="Weather_forecast"
+                  key={index}
+                >
+                  <div className="Weather_header">
+                    {
+                      index === 0
+                      ? 'Tomorrow'
+                      : 'Wednesday'
+                    }
+                  </div>
+      
+                  <div className="Weather_content">
+                    {
+                      weatherIcons[icon]
+                      ? (
+                        weatherIcons[icon]({
+                          color: '#ebebeb',
+                          size: 90,
+                        })
+                      )
+                      : (
+                        <FiHelpCircle
+                          color="#ebebeb"
+                          size={90}
+                        />
+                      )
+                    }
+                  </div>
+      
+                  <div className="Weather_footer">
+                    {summary}
+                  </div>
+                </div>
+            ))
+          }
+        </div>
+      )}
+    </WeatherConsumer>
+  </WeatherProvider>
 )
 
 export default Weather

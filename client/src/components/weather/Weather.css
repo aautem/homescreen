@@ -34,14 +34,9 @@
   background: #324b4a;
   display: flex;
   flex-basis: 15%;
-  font-size: 1rem;
+  font-size: 0.8rem;
   justify-content: center;
-}
-
-.Weather_summary {
   color: #ebebeb;
-  margin: 0 0.2rem;
-  text-transform: capitalize;
 }
 
 .Weather_temperature {

@@ -8,7 +8,8 @@ export class WeatherProvider extends Component {
     super(props)
 
     this.state = {
-      weather: [],
+      currentWeather: {},
+      forecast: [],
     }
   }
 
@@ -19,36 +20,43 @@ export class WeatherProvider extends Component {
     )
     .then(({ data }) => {
       this.setState({
-        weather: data,
+        currentWeather: data[0],
+        forecast: data.slice(1),
       })
     })
     .catch(error => {
       console.error(error)
     })
 
-    // setInterval(
-    //   () => {
-    //     axios.get(
-    //       'http://localhost:3001'
-    //       .concat('/api/weather')
-    //     )
-    //     .then(response => {
-    //       console.log({ response })
-    //     })
-    //     .catch(error => {
-    //       console.error(error)
-    //     })
-    //   },
-    //   3600000
-    // )
+    setInterval(
+      () => {
+        axios.get(
+          'http://localhost:3000'
+          .concat('/api/weather')
+        )
+        .then(({ data }) => {
+          this.setState({
+            currentWeather: data[0],
+            forecast: data.slice(1),
+          })
+        })
+        .catch(error => {
+          console.error(error)
+        })
+      },
+      60000
+    )
   }
 
   render() {
     return (
       <WeatherContext.Provider
         value={{
-          weather: (
-            this.state.weather
+          currentWeather: (
+            this.state.currentWeather
+          ),
+          forecast: (
+            this.state.forecast
           ),
         }}
       >
