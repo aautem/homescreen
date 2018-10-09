@@ -38,7 +38,7 @@ const Weather = () => (
         <div className="Weather_content">
           <Icon
             color="#ffffff"
-            size={90}
+            size={108}
           />
         </div>
 

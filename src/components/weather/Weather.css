@@ -1,6 +1,6 @@
 .Weather {
   display: flex;
-  flex-basis: 40%;
+  flex-basis: 50%;
   width: 100%;
 }
 
@@ -20,9 +20,7 @@
 .Weather_header {
   align-items: center;
   background: #324b4a;
-  /* border-bottom: 0.5rem solid #324b4a;
-  border-top: 0.2rem solid #324b4a; */
-  color: #cccccc;;
+  color: #ebebeb;;
   display: flex;
   flex-basis: 20%;
   font-size: 1.5rem;
@@ -36,17 +34,18 @@
   background: #324b4a;
   display: flex;
   flex-basis: 15%;
+  font-size: 1rem;
   justify-content: center;
 }
 
 .Weather_summary {
   color: #ebebeb;
-  margin: 0 0.1rem;
+  margin: 0 0.2rem;
   text-transform: capitalize;
 }
 
 .Weather_temperature {
   color: #ff874a;
   font-weight: 600;
-  margin: 0 0.1rem;
+  margin: 0 0.2rem;
 }

@@ -3,7 +3,7 @@
   display: flex;
   flex-basis: 15%;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 2.2rem;
 }
 
 .Clock_display {
@@ -17,7 +17,8 @@
   align-items: center;
   display: flex;
   flex-basis: 15%;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  padding: 0 2.8rem;
 }
 
 .Clock {
