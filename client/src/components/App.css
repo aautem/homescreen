@@ -62,6 +62,19 @@
   flex-basis: 18%;
 }
 
+.App_times {
+  background-color: black;
+  display: flex;
+  height: 5em;
+  align-items: center;
+  padding-left: 16em;
+}
+
+.Border {
+  background-color: black;
+  height: 2.5em;
+}
+
 .Content {
   background-color: rgba(0, 0, 0, 0.35);
   display: flex;
@@ -72,6 +85,12 @@
   background-color: rgba(39, 56, 63, 0.48);
   display: flex;
   flex-basis: 100%;
+}
+
+.Timeline_time {
+  color: white;
+  font-size: 2.5em;
+  margin-right: 4.2em;
 }
 
 .Timeline {

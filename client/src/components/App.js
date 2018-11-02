@@ -25,10 +25,21 @@ const App = () => (
           </div>
         </div>
 
+        <div className="Border"></div>
+
         <div className="App_content">
           <div className="Content">
             <Clock />
           </div>
+        </div>
+
+        <div className="App_times">
+          <span className="Timeline_time">03.</span>
+          <span className="Timeline_time">04.</span>
+          <span className="Timeline_time">05.</span>
+          <span className="Timeline_time">06.</span>
+          <span className="Timeline_time">07.</span>
+          <span className="Timeline_time">08.</span>
         </div>
 
         <div className="App_timeline">
@@ -36,6 +47,8 @@ const App = () => (
             Timeline
           </div>
         </div>
+
+        <div className="Border"></div>
 
         <div className="App_footer">
           Footer
