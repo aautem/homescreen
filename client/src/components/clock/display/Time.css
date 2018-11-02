@@ -1,15 +1,12 @@
 .Time {
   align-items: center;
-  justify-content: center;
   display: flex;
-  position: absolute;
-  width: 98%;
-  height: 7%;
+  flex-basis: 50%;
+  justify-content: space-evenly;
 }
 
 .Time_digit {
-  margin: 0 4rem;
   color: #ebebeb;
-  font-size: 4rem;
+  font-size: 9em;
   font-weight: bold;
 }
