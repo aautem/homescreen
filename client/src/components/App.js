@@ -18,7 +18,32 @@ import './App.css'
 const App = () => (
   <DateTimeProvider>
     <div className="App">
-      <div className="App_top">
+      <div className="App_container">
+        <div className="App_header">
+          <div className="Header">
+            Header
+          </div>
+        </div>
+
+        <div className="App_content">
+          <div className="Content">
+            <Clock />
+          </div>
+        </div>
+
+        <div className="App_timeline">
+          <div className="Timeline">
+            Timeline
+          </div>
+        </div>
+
+        <div className="App_footer">
+          Footer
+        </div>
+      </div>
+
+
+      {/* <div className="App_top">
         <div className="App_topLeft">
           <CalendarDate />
           <NextEvent />
@@ -51,7 +76,7 @@ const App = () => (
           <News />
           <UpcomingEvents />
         </div>
-      </div>
+      </div> */}
     </div>
   </DateTimeProvider>
 )

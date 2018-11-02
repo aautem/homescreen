@@ -1,3 +1,89 @@
+@keyframes headerZoom {
+	from { background-size: 100%; }
+	to { background-size: 150%; }
+}
+
+@keyframes timelinePan {
+	from { background-position: -50em 130em; }
+	to { background-position: -25em 130em; }
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.App_container {
+  background-image: url('../images/night-sky-background.jpg');
+  background-size: auto 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 2.5em 2.5em 2.5em 0;
+}
+
+.App_content {
+  display: flex;
+  flex-basis: 44%;
+}
+
+.App_footer {
+  display: flex;
+  flex-basis: 22%;
+}
+
+.App_header {
+  animation-direction: alternate;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-name: headerZoom;
+  animation-timing-function: linear;
+
+  background-image: url('../images/night-sky-background.jpg');
+  background-position: center top;
+  /* border-bottom: 2.5em solid black; */
+  display: flex;
+  flex-basis: 16%;
+}
+
+.App_timeline {
+  animation-direction: alternate;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-name: timelinePan;
+  animation-timing-function: linear;
+
+  background-image: url('../images/night-sky-background.jpg');
+  background-size: 180%;
+  /* border-bottom: 2.5em solid black; */
+  /* border-top: 2.5em solid black; */
+  display: flex;
+  flex-basis: 18%;
+}
+
+.Content {
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-basis: 100%;
+}
+
+.Header {
+  background-color: rgba(39, 56, 63, 0.48);
+  display: flex;
+  flex-basis: 100%;
+}
+
+.Timeline {
+  background-image: url('../images/timeline-background.svg');
+  background-position: center;
+  background-size: auto 100%;
+  display: flex;
+  flex-basis: 100%;
+}
+
+
+/* Outdated styles */
 .App_top {  
   background-image: linear-gradient(
     rgba(0, 0, 0, 0.3),
@@ -53,11 +139,4 @@
   flex-direction: column;
   height: 100%;
   justify-content: center;
-}
-
-.App {
-  background: #95b1af;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
 }

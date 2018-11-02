@@ -1,34 +1,4 @@
-.Clock_topGutter {
-  align-items: center;
-  display: flex;
-  flex-basis: 15%;
-  justify-content: space-between;
-  padding: 0 2.2rem;
-}
-
-.Clock_display {
-  justify-content: center;
-  padding: 0 0.2rem;
-  display: flex;
-  flex-basis: 70%;
-}
-
-.Clock_bottomGutter {
-  align-items: center;
-  display: flex;
-  flex-basis: 15%;
-  justify-content: space-around;
-  padding: 0 2.8rem;
-}
-
 .Clock {
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.1),
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0),
-    rgba(0, 0, 0, 0.1)
-  );
   display: flex;
   flex-basis: 100%;
   flex-direction: column;
