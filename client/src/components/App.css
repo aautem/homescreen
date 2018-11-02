@@ -15,8 +15,6 @@
 }
 
 .App_container {
-  background-image: url('../images/night-sky-background.jpg');
-  background-size: auto 100%;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -24,6 +22,9 @@
 }
 
 .App_content {
+  background-image: url('../images/night-sky-background.jpg');
+  background-position: center 160em;
+  background-size: 120%;
   display: flex;
   flex-basis: 44%;
 }
@@ -31,6 +32,9 @@
 .App_footer {
   display: flex;
   flex-basis: 22%;
+  background-image: url('../images/night-sky-background.jpg');
+  background-position: center bottom;
+  background-size: 120%;
 }
 
 .App_header {
@@ -42,7 +46,6 @@
 
   background-image: url('../images/night-sky-background.jpg');
   background-position: center top;
-  /* border-bottom: 2.5em solid black; */
   display: flex;
   flex-basis: 16%;
 }
@@ -56,8 +59,6 @@
 
   background-image: url('../images/night-sky-background.jpg');
   background-size: 180%;
-  /* border-bottom: 2.5em solid black; */
-  /* border-top: 2.5em solid black; */
   display: flex;
   flex-basis: 18%;
 }
