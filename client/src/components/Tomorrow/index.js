@@ -8,7 +8,22 @@ const propTypes = {
 
 const Tomorrow = () => (
     <div className="Tomorrow">
-        Tomorrow
+        <div className="Tomorrow_temperature">
+            72°
+        </div>
+
+        <div className="Tomorrow_labels">
+            <div className="Tomorrow_topLabel">
+                Tonight
+            </div>
+            <div className="Tomorrow_bottomLabel">
+                Tomorrow
+            </div>
+        </div>
+
+        <div className="Tomorrow_icon">
+            Icon
+        </div>
     </div>
 )
 
