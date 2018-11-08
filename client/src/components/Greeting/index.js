@@ -8,7 +8,9 @@ const propTypes = {
 
 const Greeting = () => (
     <div className="Greeting">
-        Good Morning, Alex
+        <div className="Greeting_text">
+            Good Morning, Alex
+        </div>
     </div>
 )
 

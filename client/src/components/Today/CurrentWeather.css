@@ -1,0 +1,44 @@
+.CurrentWeather {
+    align-items: center;
+    flex-basis: 66.67%;
+    justify-content: center;
+}
+
+.CurrentWeather_temperature {
+    align-items: center;
+    border-bottom: 0.05em solid white;
+    border-right: 0.05em solid white;
+    box-sizing: border-box;
+    color: white;
+    display: inline-flex;
+    font-size: 8em;
+    font-weight: bold;
+    height: 60%;
+    justify-content: center;
+    position: relative;
+    width: 30%;
+}
+
+.CurrentWeather_extremeTemperatures {
+}
+
+.CurrentWeather_chanceOfRain {
+}
+
+.CurrentWeather_summary {
+}
+
+.CurrentWeather_icon {
+    align-items: center;
+    border-left: 0.05em solid white;
+    border-top: 0.05em solid white;
+    box-sizing: border-box;
+    color: white;
+    display: inline-flex;
+    height: 60%;
+    justify-content: center;
+    left: 40%;
+    position: relative;
+    top: 40%;
+    width: 30%;
+}

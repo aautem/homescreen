@@ -2,13 +2,17 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './Today.css'
 
+import Date from './Date'
+import CurrentWeather from './CurrentWeather'
+
 const propTypes = {
     //
 }
 
 const Today = () => (
     <div className="Today">
-        Today
+        <Date />
+        <CurrentWeather />
     </div>
 )
 

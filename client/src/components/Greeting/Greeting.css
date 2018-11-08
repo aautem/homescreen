@@ -1,6 +1,14 @@
 .Greeting {
-    background-color: purple;
+    align-items: center;
     display: flex;
-    flex-direction: column;
     flex-basis: 12%;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.Greeting_text {
+    color: white;
+    font-size: 6em;
+    font-weight: bold;
+    text-transform: uppercase;
 }
