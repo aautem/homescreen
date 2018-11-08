@@ -1,6 +1,14 @@
 .Clock {
-    background-color: orange;
     display: flex;
     flex-direction: column;
     flex-basis: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.Clock_text {
+    color: white;
+    font-size: 8em;
+    font-weight: bold;
+    text-transform: uppercase;
 }

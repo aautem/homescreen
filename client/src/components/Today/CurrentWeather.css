@@ -30,8 +30,8 @@
 
 .CurrentWeather_icon {
     align-items: center;
-    border-left: 0.05em solid white;
-    border-top: 0.05em solid white;
+    border-left: 0.4em solid white;
+    border-top: 0.4em solid white;
     box-sizing: border-box;
     color: white;
     display: inline-flex;

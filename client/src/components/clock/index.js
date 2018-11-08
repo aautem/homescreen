@@ -8,7 +8,9 @@ const propTypes = {
 
 const Clock = () => (
     <div className="Clock">
-        Clock
+        <div className="Clock_text">
+            1:21 am
+        </div>
     </div>
 )
 
