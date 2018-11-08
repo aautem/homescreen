@@ -1,0 +1,6 @@
+.Footer {
+    background: blue;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 5%;
+}

@@ -1,0 +1,5 @@
+.Clock {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+}

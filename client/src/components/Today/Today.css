@@ -1,0 +1,6 @@
+.Today {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30%;
+}

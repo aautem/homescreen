@@ -1,5 +1,5 @@
-.Clock {
-    background-color: orange;
+.Tomorrow {
+    background: yellow;
     display: flex;
     flex-direction: column;
     flex-basis: 10%;

@@ -1,0 +1,6 @@
+.Calendar {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 18%;
+}

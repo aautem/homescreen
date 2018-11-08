@@ -1,97 +1,27 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-
-import Clock from './clock/Clock'
-import CalendarDate from './calendar/CalendarDate'
-import EventList from './calendar/EventList'
-import Inbox from './email/Inbox'
-import Greeting from './calendar/Greeting'
-import Menu from './menu/Menu'
-import NewReleases from './media/NewReleases'
-import News from './news/News'
-import NextEvent from './calendar/NextEvent'
-import Stocks from './stocks/Stocks'
-import UpcomingEvents from './calendar/UpcomingEvents'
-import Weather from './weather/Weather'
-import { DateTimeProvider } from './contexts/DateTimeContext'
 import './App.css'
 
+import Greeting from './Greeting'
+import Today from './Today'
+import Clock from './Clock'
+import Calendar from './Calendar'
+import Stocks from './Stocks'
+import Tomorrow from './Tomorrow'
+import Footer from './Footer'
+
 const App = () => (
-  <DateTimeProvider>
-    <div className="App">
-      <div className="App_container">
-        <div className="App_header">
-          <div className="Header">
-            Header
-          </div>
-        </div>
-
-        <div className="Border"></div>
-
-        <div className="App_content">
-          <div className="Content">
-            <Clock />
-          </div>
-        </div>
-
-        <div className="App_times">
-          <span className="Timeline_time">03.</span>
-          <span className="Timeline_time">04.</span>
-          <span className="Timeline_time">05.</span>
-          <span className="Timeline_time">06.</span>
-          <span className="Timeline_time">07.</span>
-          <span className="Timeline_time">08.</span>
-        </div>
-
-        <div className="App_timeline">
-          <div className="Timeline">
-            Timeline
-          </div>
-        </div>
-
-        <div className="Border"></div>
-
-        <div className="App_footer">
-          Footer
-        </div>
-      </div>
-
-
-      {/* <div className="App_top">
-        <div className="App_topLeft">
-          <CalendarDate />
-          <NextEvent />
-        </div>
-
-        <div className="App_topRight">
-          <Greeting />
-          <Weather />
-          <EventList />
-        </div>
-      </div>
-
-      <div className="App_middle">
-        <Clock />
-      </div>
-
-      <div className="App_bottom">
-        <Stocks />
-
-        <div className="App_bottomRow">
-          <div className="App_bottomColumn">
-            <Inbox />
-            <NewReleases />
-          </div>
-
-          <Menu />
-        </div>
-
-        <div className="App_bottomRow">
-          <News />
-          <UpcomingEvents />
-        </div>
-      </div> */}
+  <div className="App">
+    <div className="App_frame">
+      <Greeting />
+      <Today />
+      <Clock />
+      <Calendar />
+      <Stocks />
+      <Tomorrow />
+      <Footer />
     </div>
-  </DateTimeProvider>
+  </div>
 )
 
 export default App

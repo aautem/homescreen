@@ -1,0 +1,6 @@
+.Greeting {
+    background-color: purple;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 12%;
+}
