@@ -1,6 +1,12 @@
 .Stocks {
-    background-color: white;
+    align-items: center;
+    justify-content: space-evenly;
     display: flex;
-    flex-direction: column;
     flex-basis: 15%;
+}
+
+.Stocks_stock {
+    color: white;
+    font-size: 6em;
+    font-weight: bold;
 }

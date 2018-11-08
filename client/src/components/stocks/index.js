@@ -8,7 +8,18 @@ const propTypes = {
 
 const Stocks = () => (
     <div className="Stocks">
-        Stocks
+        <div className="Stocks_stock">
+            BTC
+        </div>
+        <div className="Stocks_stock">
+            ETH
+        </div>
+        <div className="Stocks_stock">
+            LTC
+        </div>
+        <div className="Stocks_stock">
+            OPRX
+        </div>
     </div>
 )
 
