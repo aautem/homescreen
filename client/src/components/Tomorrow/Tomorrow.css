@@ -1,6 +1,15 @@
 .Tomorrow {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.3);
+    /* display: flex; */
+    flex-basis: 10%;
+}
+
+.Tomorrow_content {
+    background-image: url('../../images/night-sky-background.jpg');
+    background-size: 140%;
+    background-position: center -18%;
     border: 0.4em solid white;
+    height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-basis: 10%;

@@ -8,11 +8,13 @@ const propTypes = {
 
 const Calendar = () => (
     <div className="Calendar">
-        <div className="Calendar_events">
-            Events
-        </div>
-        <div className="Calendar_happeningSoon">
-            Happening Soon
+        <div className="Calendar_content">
+            <div className="Calendar_events">
+                Events
+            </div>
+            <div className="Calendar_happeningSoon">
+                Happening Soon
+            </div>
         </div>
     </div>
 )

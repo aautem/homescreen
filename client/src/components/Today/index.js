@@ -11,8 +11,10 @@ const propTypes = {
 
 const Today = () => (
     <div className="Today">
-        <Date />
-        <CurrentWeather />
+        <div className="Today_content">
+            <Date />
+            <CurrentWeather />
+        </div>
     </div>
 )
 
