@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import './Clock.css'
 
+import SecondStars from './SecondStars'
 import { DateTimeConsumer, DateTimeProvider } from '../deprecated/contexts/DateTimeContext'
 import { militaryTime } from '../../config'
 
@@ -20,7 +21,7 @@ const formatDateTime = dateTime => (
         'hhmm'
       )
     )
-  )
+)
 
 const propTypes = {
     //
@@ -28,6 +29,7 @@ const propTypes = {
 
 const Clock = () => (
     <DateTimeProvider>
+        <SecondStars />
         <DateTimeConsumer>
             {({ dateTime }) => (
                 <div className="Clock">

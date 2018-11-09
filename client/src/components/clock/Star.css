@@ -1,0 +1,9 @@
+.Star {
+    height: 0.5em;
+    width: 0.5em;
+    border-radius: 50%;
+}
+
+.Star.hasElapsed {
+    background-color: white;
+}
