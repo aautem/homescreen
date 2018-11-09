@@ -1,9 +1,9 @@
 .Clock {
     display: flex;
-    flex-direction: column;
     flex-basis: 10%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 28em;
 }
 
 .Clock_text {

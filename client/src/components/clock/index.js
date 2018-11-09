@@ -1,17 +1,54 @@
+import format from 'date-fns/format'
 import PropTypes from 'prop-types'
 import React from 'react'
 import './Clock.css'
+
+import { DateTimeConsumer, DateTimeProvider } from '../deprecated/contexts/DateTimeContext'
+import { militaryTime } from '../../config'
+
+const formatDateTime = dateTime => (
+    militaryTime
+    ? (
+      format(
+        dateTime,
+        'HHmm'
+      )
+    )
+    : (
+      format(
+        dateTime,
+        'hhmm'
+      )
+    )
+  )
 
 const propTypes = {
     //
 }
 
 const Clock = () => (
-    <div className="Clock">
-        <div className="Clock_text">
-            1:21 am
-        </div>
-    </div>
+    <DateTimeProvider>
+        <DateTimeConsumer>
+            {({ dateTime }) => (
+                <div className="Clock">
+                    {
+                        formatDateTime(
+                            dateTime
+                        )
+                        .split('')
+                        .map((digit, index) => (
+                            <div
+                                className="Clock_text"
+                                key={index}
+                            >
+                                {digit}
+                            </div>
+                        ))
+                    }
+                </div>
+            )}
+        </DateTimeConsumer>
+    </DateTimeProvider>
 )
 
 Clock
