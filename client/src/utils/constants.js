@@ -1,20 +1,31 @@
-export const bottomGutterSeconds = [8, 16, 24, 32, 40, 48, 56]
-export const topGutterSeconds = [4, 12, 20, 28, 36, 44, 52, 60]
+import { Chance } from 'chance'
 
-export const secondValues = [
-  [ 3,  2,  1,  0],
-  [ 4,  5,  6,  7],
-  [11, 10,  9,  8],
-  [12, 13, 14, 15],
-  [19, 18, 17, 16],
-  [20, 21, 22, 23],
-  [27, 26, 25, 24],
-  [28, 29, 30, 31],
-  [35, 34, 33, 32],
-  [36, 37, 38, 39],
-  [43, 42, 41, 40],
-  [44, 45, 46, 47],
-  [51, 50, 49, 48],
-  [52, 53, 54, 55],
-  [59, 58, 57, 56],
-]
+const chance = new Chance()
+
+export const seconds = (
+  [
+    ...Array(60)
+    .keys()
+  ]
+  .map(second => ({
+    second,
+    top: (
+      String(
+        chance
+        .integer({
+            max: 100,
+            min: 0,
+        })
+      ) + '%'
+    ),
+    left: (
+      String(
+        chance
+        .integer({
+            max: 100,
+            min: 0,
+        })
+      ) + '%'
+    ),
+  }))
+)

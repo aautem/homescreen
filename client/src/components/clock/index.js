@@ -30,6 +30,7 @@ const propTypes = {
 const Clock = () => (
     <DateTimeProvider>
         <SecondStars />
+        
         <DateTimeConsumer>
             {({ dateTime }) => (
                 <div className="Clock">

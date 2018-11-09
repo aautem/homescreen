@@ -2,57 +2,43 @@ import getSeconds from 'date-fns/get_seconds'
 import React from 'react'
 
 import Star from './Star'
-import { DateTimeProvider, DateTimeConsumer } from '../deprecated/contexts/DateTimeContext'
-import { secondValues } from '../../utils/constants'
+import { DateTimeConsumer } from '../deprecated/contexts/DateTimeContext'
+import { seconds } from '../../utils/constants'
 import './SecondStars.css'
 
 const hasSecondElapsed = ({
     dateTime,
     second,
-  }) => (
+}) => (
     getSeconds(dateTime)
     >= second
-  )
-  
-  const SecondsColumn = ({
-    secondsRow,
-  }) => (
-    <DateTimeProvider>
-        <DateTimeConsumer>
-            {({ dateTime }) => (
-                <div className="SecondsColumn">
-                    {
-                        secondsRow
-                        .map(second => (
-                            <Star
-                                hasElapsed={
-                                    hasSecondElapsed({
-                                        dateTime,
-                                        second,
-                                    })
-                                }
-                                key={second}
-                            />
-                        ))
-                    }
-                </div>
-            )}
-        </DateTimeConsumer>
-    </DateTimeProvider>
 )
 
 const SecondStars = () => (
-    <div className="SecondStars">
-        {
-            secondValues
-            .map(secondsRow => (
-                <SecondsColumn
-                    key={secondsRow.join('')}
-                    secondsRow={secondsRow}
-                />
-            ))
-        }
-    </div>
+    <DateTimeConsumer>
+        {({ dateTime }) => (
+            <div className="SecondStars">
+                {
+                    seconds
+                    .map(({ second, top, left }) => (
+                        <Star
+                            hasElapsed={
+                                hasSecondElapsed({
+                                    dateTime,
+                                    second,
+                                })
+                            }
+                            key={second}
+                            position={{
+                                top,
+                                left,
+                            }}
+                        />
+                    ))
+                }
+            </div>
+        )}
+    </DateTimeConsumer>
 )
 
 export default SecondStars

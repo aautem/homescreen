@@ -5,6 +5,7 @@ import './Star.css'
 
 const Star = ({
   hasElapsed,
+  position,
 }) => (
   <div
     className={
@@ -13,6 +14,7 @@ const Star = ({
         { hasElapsed },
       )
     }
+    style={position}
   />
 )
 

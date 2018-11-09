@@ -1,6 +1,7 @@
 .Star {
-    height: 0.5em;
-    width: 0.5em;
+    position: absolute;
+    height: 0.6em;
+    width: 0.6em;
     border-radius: 50%;
 }
 
