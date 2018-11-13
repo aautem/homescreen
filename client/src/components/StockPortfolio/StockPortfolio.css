@@ -1,13 +1,7 @@
-.Stocks {
+.StockPortfolio {
     background-color: rgba(0, 0, 0, 0.25);
     align-items: center;
     justify-content: space-evenly;
     display: flex;
     flex-basis: 15%;
-}
-
-.Stocks_stock {
-    color: white;
-    font-size: 6em;
-    font-weight: bold;
 }

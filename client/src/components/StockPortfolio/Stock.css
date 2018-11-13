@@ -1,0 +1,17 @@
+.Stock {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.Stock_symbol {
+    color: white;
+    font-size: 6em;
+    font-weight: bold;
+}
+
+.Stock_price {
+    color: red;
+    font-size: 3em;
+    /* font-weight: bold; */
+}
