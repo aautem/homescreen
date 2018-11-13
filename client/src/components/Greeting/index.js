@@ -1,22 +1,18 @@
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React from 'react'
 import './Greeting.css'
 
 const propTypes = {
     //
 }
 
-const Greeting = () => {
-    const [name, setName] = useState('Alex')
-
-    return (
-        <div className="Greeting">
-            <div className="Greeting_text">
-                Good Morning, {name}
-            </div>
+const Greeting = () => (
+    <div className="Greeting">
+        <div className="Greeting_text">
+            Good Morning, Alex
         </div>
-    )
-}
+    </div>
+)
 
 Greeting
 .propTypes = propTypes

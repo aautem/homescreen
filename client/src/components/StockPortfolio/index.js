@@ -1,78 +1,87 @@
+import axios from 'axios'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './StockPortfolio.css'
 
 import Stock from './Stock'
 
-const stocks = [
-    {
-        companyName: 'Bitcoin USD',
-        high: 6483.93,
-        latestPrice: 6463.57,
-        latestTime: '12:58:12 AM',
-        low: 6391.15,
-        symbol: 'BTCUSDT',
-    },
-    {
-        companyName: 'Ethereum USD',
-        high: 6483.93,
-        latestPrice: 6463.57,
-        latestTime: '12:58:12 AM',
-        low: 6391.15,
-        symbol: 'ETHUSDT',
-    },
-    {
-        companyName: 'Litecoin USD',
-        high: 6483.93,
-        latestPrice: 6463.57,
-        latestTime: '12:58:12 AM',
-        low: 6391.15,
-        symbol: 'LTCUSDT',
-    },
-    {
-        companyName: 'OptimizeRx Corporation',
-        high: 6483.93,
-        latestPrice: 6463.57,
-        latestTime: '12:58:12 AM',
-        low: 6391.15,
-        symbol: 'OPRX',
-    },
-]
+const useStockPortfolio = () => {
+    const [stocks, setStocks] = useState([])
+
+    useEffect(() => {
+        const fetchStocks = (
+            setInterval(
+                () => {
+                    axios
+                    .get(
+                        'https://api.iextrading.com/1.0/stock/market/batch?symbols=btcusdt,ethusdt,ltcusdt,oprx&types=quote'
+                    )
+                    .then(({ data }) => {
+                        setStocks(
+                            Object
+                            .keys(data)
+                            .map(key => (
+                                data[key]
+                                .quote
+                            ))
+                        )
+                    })
+                },
+                60000,
+            )
+        )
+
+        return (
+            () => {
+                clearInterval(fetchStocks)
+            }
+        )
+    })
+
+    return stocks
+}
 
 const propTypes = {
     //
 }
 
-const StockPortfolio = () => (
-    <div className="StockPortfolio">
-        {
-            stocks
-            .map(stock => ({
-                ...stock,
-                symbol: (
-                    stock
-                    .symbol
-                    .includes('USDT')
-                    ? (
+const StockPortfolio = () => {
+    const portfolio = useStockPortfolio()
+
+    return (
+        <div className="StockPortfolio">
+            {
+                portfolio
+                .map(stock => ({
+                    ...stock,
+                    symbol: (
                         stock
                         .symbol
-                        .replace(
-                            'USDT',
-                            '',
+                        .includes('USDT')
+                        ? (
+                            stock
+                            .symbol
+                            .replace(
+                                'USDT',
+                                '',
+                            )
                         )
-                    )
-                    : (
-                        stock
-                        .symbol
-                    )
-                ),
-            }))
-            .map(stock => (
-                <Stock {...stock} />
-            ))
-        }
-    </div>
-)
+                        : (
+                            stock
+                            .symbol
+                        )
+                    ),
+                }))
+                .map(stock => (
+                    <Stock
+                        {...stock}
+                        key={stock.symbol}
+                    />
+                ))
+            }
+        </div>
+    )
+}
 
 StockPortfolio
 .propTypes = propTypes
@@ -80,7 +89,6 @@ StockPortfolio
 export default StockPortfolio
 
 // https://api.iextrading.com/1.0/stock/BTCUSDT/quote
-
 // {
 //     "symbol":"BTCUSDT",
 //     "companyName":"Bitcoin USD",
