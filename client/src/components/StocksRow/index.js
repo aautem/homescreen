@@ -9,6 +9,12 @@ import {
   StocksProvider,
 } from '../../contexts/Stocks'
 
+const formatStockPrice = (
+  ({ latestPrice }) => (
+    latestPrice.toFixed(2)
+  )
+)
+
 const formatStockSymbol = (
   ({ symbol }) => (
     symbol
@@ -28,6 +34,9 @@ const StocksRow = () => (
             stocks
             .map(stockInfo => ({
               ...stockInfo,
+              latestPrice: (
+                formatStockPrice(stockInfo)
+              ),
               symbol: (
                 formatStockSymbol(stockInfo)
               ),

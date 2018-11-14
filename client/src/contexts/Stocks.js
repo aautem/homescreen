@@ -4,8 +4,7 @@ import React, { Component, createContext } from 'react'
 // TODO: allow for custom symbols
 const apiAddress = 'https://api.iextrading.com/1.0/stock/market/batch?symbols=btcusdt,ethusdt,ltcusdt,oprx&types=quote'
 const fetchDelay = 10000
-
-export const StocksContext = createContext()
+const StocksContext = createContext()
 
 export const StocksInjector = (
   StocksContext.Consumer

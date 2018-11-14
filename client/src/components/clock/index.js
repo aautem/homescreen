@@ -1,60 +1,52 @@
 import format from 'date-fns/format'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React from 'react'
+import { militaryTime } from '../../config'
 import './Clock.css'
 
-import SecondStars from './SecondStars'
-import { DateTimeConsumer, DateTimeProvider } from '../../contexts/DateTimeContext'
-import { militaryTime } from '../../config'
+import SecondIndicators from './SecondIndicators'
 
-const formatDateTime = dateTime => (
+import {
+  DateTimeInjector,
+  DateTimeProvider,
+} from '../../contexts/DateTime'
+
+const formatDateTime = (
+  dateTime => (
     militaryTime
-    ? (
-      format(
-        dateTime,
-        'HHmm'
-      )
-    )
-    : (
-      format(
-        dateTime,
-        'hhmm'
-      )
-    )
+    ? format(dateTime, 'HH:mm')
+    : format(dateTime, 'hh:mm')
+  )
 )
-
-const propTypes = {
-    //
-}
 
 const Clock = () => (
-    <DateTimeProvider>
-        <SecondStars />
-        
-        <DateTimeConsumer>
-            {({ dateTime }) => (
-                <div className="Clock">
-                    {
-                        formatDateTime(
-                            dateTime
-                        )
-                        .split('')
-                        .map((digit, index) => (
-                            <div
-                                className="Clock_text"
-                                key={index}
-                            >
-                                {digit}
-                            </div>
-                        ))
-                    }
-                </div>
-            )}
-        </DateTimeConsumer>
-    </DateTimeProvider>
+  <DateTimeProvider>
+    <SecondIndicators />
+    <DateTimeInjector>
+      {({ dateTime }) => (
+        <div className="Clock">
+          {
+            formatDateTime(
+              dateTime,
+              'HH:mm',
+            )
+            .split('')
+            .map((
+              digit,
+              index,
+            ) => (
+              <div
+                className="Clock_text"
+                key={index}
+              >
+                {digit}
+              </div>
+            ))
+          }
+        </div>
+      )}
+    </DateTimeInjector>
+  </DateTimeProvider>
 )
-
-Clock
-.propTypes = propTypes
 
 export default Clock

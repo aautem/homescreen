@@ -1,16 +1,16 @@
 import classNames from 'classnames'
 import React from 'react'
 
-import './Star.css'
+import './Second.css'
 
-const Star = ({
+const Second = ({
   hasElapsed,
   position,
 }) => (
   <div
     className={
       classNames(
-        'Star',
+        'Second',
         { hasElapsed },
       )
     }
@@ -18,4 +18,4 @@ const Star = ({
   />
 )
 
-export default Star
+export default Second
