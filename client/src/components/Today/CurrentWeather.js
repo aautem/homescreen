@@ -26,23 +26,26 @@ const icons = {
   'clear-night': FiMoon,
 }
 
-const getTemperatureString = (
+const iconProps = {
+  size: '1.6em',
+}
+
+const temperatureUnit = '°F'
+
+const getTemperature = (
   ({ temperature }) => (
     String(
       Math.round(temperature)
     )
+    .concat(temperatureUnit)
   )
 )
 
 const renderIcon = (
   ({ icon }) => (
     icons[icon]
-    ? (
-      icons[icon]({
-        size: '2em',
-      })
-    )
-    : <FiHelpCircle size="2em" />
+    ? icons[icon](iconProps)
+    : <FiHelpCircle {...iconProps} />
   )
 )
 
@@ -56,10 +59,9 @@ const CurrentWeather = () => (
           <div className="CurrentWeather_data">
             <div className="CurrentWeather_temperature">
               {
-                getTemperatureString(
+                getTemperature(
                   currentWeather
                 )
-                .concat('°')
               }
             </div>
     
@@ -77,6 +79,7 @@ const CurrentWeather = () => (
             {
               currentWeather
               .summary
+              || 'Loading'
             }
           </div>
     
