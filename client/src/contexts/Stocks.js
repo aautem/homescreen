@@ -36,6 +36,7 @@ export class StocksProvider extends Component {
         stocks,
       })
     })
+    .catch(console.error)
 
     setTimeout(
       this.fetchStocksOnDelay,
