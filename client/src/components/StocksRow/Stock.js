@@ -5,7 +5,7 @@ import './Stock.css'
 const propTypes = {
   companyName: PropTypes.string.isRequired,
   high: PropTypes.number.isRequired,
-  latestPrice: PropTypes.number.isRequired,
+  latestPrice: PropTypes.string.isRequired,
   latestTime: PropTypes.string.isRequired,
   low: PropTypes.number.isRequired,
   symbol: PropTypes.string.isRequired,
