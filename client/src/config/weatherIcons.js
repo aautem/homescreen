@@ -6,7 +6,7 @@ import {
   // FiCloudSnow,
   // FiHelpCircle,
   FiMoon,
-  // FiSun,
+  FiSun,
   // FiSunrise,
   // FiSunset,
   // FiWind,
@@ -17,6 +17,7 @@ export const weatherIconProps = {
 }
 
 export const weatherIcons = {
+  'clear-day': FiSun,
   'clear-night': FiMoon,
   'partly-cloudy-day': FiCloud,
 }
