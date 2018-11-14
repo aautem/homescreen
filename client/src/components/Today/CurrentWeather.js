@@ -2,12 +2,29 @@
 import React from 'react'
 import './CurrentWeather.css'
 
-import { FiSun } from 'react-icons/fi'
+import {
+  FiCloud,
+  FiCloudDrizzle,
+  FiCloudLightning,
+  FiCloudRain,
+  FiCloudSnow,
+  FiHelpCircle,
+  FiMoon,
+  FiSun,
+  FiSunrise,
+  FiSunset,
+  FiWind,
+} from 'react-icons/fi'
 
 import {
   WeatherInjector,
   WeatherProvider,
 } from '../../contexts/Weather'
+
+// TODO: Map icon names
+const icons = {
+  'clear-night': FiMoon,
+}
 
 const getTemperatureString = (
   ({ temperature }) => (
@@ -17,10 +34,24 @@ const getTemperatureString = (
   )
 )
 
+const renderIcon = (
+  ({ icon }) => (
+    icons[icon]
+    ? (
+      icons[icon]({
+        size: '2em',
+      })
+    )
+    : <FiHelpCircle size="2em" />
+  )
+)
+
 const CurrentWeather = () => (
   <WeatherProvider>
     <WeatherInjector>
       {({ currentWeather }) => (
+        console.log({ currentWeather }) ||
+
         <div className="CurrentWeather">
           <div className="CurrentWeather_data">
             <div className="CurrentWeather_temperature">
@@ -50,7 +81,11 @@ const CurrentWeather = () => (
           </div>
     
           <div className="CurrentWeather_icon">
-            <FiSun size="2em" />
+            {
+              renderIcon(
+                currentWeather
+              )
+            }
           </div>
         </div>
       )}
