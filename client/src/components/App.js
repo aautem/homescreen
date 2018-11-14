@@ -2,6 +2,8 @@
 import React from 'react'
 import './App.css'
 
+import { WeatherProvider } from '../contexts/Weather'
+
 import Greeting from './Greeting'
 import Today from './Today'
 import Clock from './Clock'
@@ -13,21 +15,23 @@ import Footer from './Footer'
 const App = () => (
   <div className="App">
     <div className="App_frame">
+      <WeatherProvider>
 
-      <Greeting />
+        <Greeting />
 
-      <Today />
+        <Today />
 
-      <Clock />
+        <Clock />
 
-      <Calendar />
+        <Calendar />
 
-      <StocksRow />
+        <StocksRow />
 
-      <Tomorrow />
+        <Tomorrow />
 
-      <Footer />
+        <Footer />
 
+      </WeatherProvider>
     </div>
   </div>
 )
