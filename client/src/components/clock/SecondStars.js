@@ -2,7 +2,7 @@ import getSeconds from 'date-fns/get_seconds'
 import React from 'react'
 
 import Star from './Star'
-import { DateTimeConsumer } from '../deprecated/contexts/DateTimeContext'
+import { DateTimeConsumer } from '../../contexts/DateTimeContext'
 import { seconds } from '../../utils/constants'
 import './SecondStars.css'
 

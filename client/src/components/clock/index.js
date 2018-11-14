@@ -4,7 +4,7 @@ import React from 'react'
 import './Clock.css'
 
 import SecondStars from './SecondStars'
-import { DateTimeConsumer, DateTimeProvider } from '../deprecated/contexts/DateTimeContext'
+import { DateTimeConsumer, DateTimeProvider } from '../../contexts/DateTimeContext'
 import { militaryTime } from '../../config'
 
 const formatDateTime = dateTime => (
