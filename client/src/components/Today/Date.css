@@ -1,11 +1,11 @@
 .Date {
-    align-items: center;
-    border-bottom: 0.1em solid white;
-    color: white;
-    display: flex;
-    font-size: 6em;
-    font-weight: bold;
-    justify-content: center;
-    flex-basis: 33.33%;
-    text-transform: uppercase;
+  align-items: center;
+  border-bottom: 0.1em solid white;
+  color: white;
+  display: flex;
+  flex-basis: 33.33%;
+  font-size: 6em;
+  font-weight: bold;
+  justify-content: center;
+  text-transform: uppercase;
 }

@@ -1,18 +1,31 @@
-import PropTypes from 'prop-types'
+import format from 'date-fns/format'
+// import PropTypes from 'prop-types'
 import React from 'react'
 import './Date.css'
 
-const propTypes = {
-    //
-}
+import {
+  DateTimeInjector,
+  DateTimeProvider,
+} from '../../contexts/DateTime'
+
+// TODO: Pull from custom config
+const dateFormat = 'ddd, MMM DD'
 
 const Date = () => (
-    <div className="Date">
-        Thu, Nov 8
-    </div>
+  <DateTimeProvider>
+    <DateTimeInjector>
+      {({ dateTime }) => (
+        <div className="Date">
+            {
+              format(
+                dateTime,
+                dateFormat,
+              )
+            }
+        </div>
+      )}
+    </DateTimeInjector>
+  </DateTimeProvider>
 )
-
-Date
-.propTypes = propTypes
 
 export default Date
