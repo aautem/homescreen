@@ -4,10 +4,10 @@ import './Stock.css'
 
 const propTypes = {
   companyName: PropTypes.string.isRequired,
-  high: PropTypes.number.isRequired,
+  high: PropTypes.number,
   latestPrice: PropTypes.string.isRequired,
-  latestTime: PropTypes.string.isRequired,
-  low: PropTypes.number.isRequired,
+  latestTime: PropTypes.string,
+  low: PropTypes.number,
   symbol: PropTypes.string.isRequired,
 }
 

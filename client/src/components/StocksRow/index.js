@@ -11,7 +11,9 @@ import {
 
 const formatStockPrice = (
   ({ latestPrice }) => (
-    latestPrice.toFixed(2)
+    latestPrice
+    ? latestPrice.toFixed(2)
+    : '0.00'
   )
 )
 
@@ -29,6 +31,8 @@ const StocksRow = () => (
   <StocksProvider>
     <StocksInjector>
       {({ stocks }) => (
+        console.log({ stocks }) ||
+        
         <div className="StocksRow">
           {
             stocks
