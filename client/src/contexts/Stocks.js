@@ -3,7 +3,7 @@ import React, { Component, createContext } from 'react'
 
 // TODO: allow for custom symbols
 const apiAddress = 'https://api.iextrading.com/1.0/stock/market/batch?symbols=btcusdt,ethusdt,ltcusdt,oprx&types=quote'
-const fetchDelay = 30000
+const fetchDelay = 10000
 
 export const StocksContext = createContext()
 
@@ -19,10 +19,10 @@ export class StocksProvider extends Component {
   }
 
   componentDidMount() {
-    this.fetchStocksOnDelay(fetchDelay)
+    this.fetchStocksOnDelay()
   }
 
-  fetchStocksOnDelay(delay) {
+  fetchStocksOnDelay() {
     get(apiAddress)
     .then(({ data }) => {
       const stocks = (
@@ -38,15 +38,13 @@ export class StocksProvider extends Component {
       })
     })
 
-    // setTimeout(
-    //   this.fetchStocksOnDelay,
-    //   delay,
-    // )
+    setTimeout(
+      this.fetchStocksOnDelay,
+      fetchDelay,
+    )
   }
 
   render() {
-    console.log({ state: this.state })
-
     return (
       <StocksContext.Provider
         value={this.state}
