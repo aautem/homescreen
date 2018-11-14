@@ -1,20 +1,18 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React from 'react'
 import './Greeting.css'
 
-const propTypes = {
-    //
-}
+// TODO: Get greeting and emoji based on DateTime
 
 const Greeting = () => (
-    <div className="Greeting">
-        <div className="Greeting_text">
-            Good Morning, Alex
-        </div>
+  <div className="Greeting">
+    <div className="Greeting_text">
+      Good Morning, Alex
+      <span className="Greeting_icon">
+        👽
+      </span>
     </div>
+  </div>
 )
-
-Greeting
-.propTypes = propTypes
 
 export default Greeting

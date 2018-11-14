@@ -1,9 +1,0 @@
-.Second {
-  height: 0.5em;
-  width: 0.5em;
-  border-radius: 50%;
-}
-
-.Second.hasElapsed {
-  background-color: white;
-}

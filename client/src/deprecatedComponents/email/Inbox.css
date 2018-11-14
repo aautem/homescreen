@@ -1,9 +1,0 @@
-.Inbox {
-  border: 0.01rem dashed white;
-
-  align-items: center;
-  display: flex;
-  flex-basis: 50%;
-  justify-content: center;
-  width: 100%;
-}
