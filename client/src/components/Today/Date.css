@@ -1,6 +1,7 @@
 .Date {
   align-items: center;
-  border-bottom: 0.1em solid white;
+  border-bottom: 0.3rem solid white;
+  box-sizing: border-box;
   color: white;
   display: flex;
   flex-basis: 33.33%;

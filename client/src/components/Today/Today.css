@@ -7,7 +7,7 @@
   background-image: url('../../images/night-sky-background.jpg');
   background-position: center 12%;
   background-size: 130%;
-  border: 0.4em solid white;
+  border: 0.3rem solid white;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
