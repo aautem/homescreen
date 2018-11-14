@@ -2,8 +2,6 @@
 import React from 'react'
 import './Greeting.css'
 
-// TODO: Get greeting and emoji based on DateTime
-
 const Greeting = () => (
   <div className="Greeting">
     <div className="Greeting_text">

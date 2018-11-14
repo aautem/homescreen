@@ -1,7 +1,6 @@
 import { get } from 'axios'
 import React, { Component, createContext } from 'react'
 
-// TODO: allow for custom symbols
 const apiAddress = 'https://api.iextrading.com/1.0/stock/market/batch?symbols=btcusdt,ethusdt,ltcusdt,oprx&types=quote'
 const fetchDelay = 10000
 const StocksContext = createContext()

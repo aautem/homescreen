@@ -8,7 +8,6 @@ import {
   DateTimeProvider,
 } from '../../contexts/DateTime'
 
-// TODO: Pull from custom config
 const dateFormat = 'ddd, MMM DD'
 
 const Date = () => (
@@ -16,12 +15,12 @@ const Date = () => (
     <DateTimeInjector>
       {({ dateTime }) => (
         <div className="Date">
-            {
-              format(
-                dateTime,
-                dateFormat,
-              )
-            }
+          {
+            format(
+              dateTime,
+              dateFormat,
+            )
+          }
         </div>
       )}
     </DateTimeInjector>

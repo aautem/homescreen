@@ -16,7 +16,6 @@ export const weatherIconProps = {
   size: '1.6em',
 }
 
-// TODO: Map icon names
 export const weatherIcons = {
   'clear-night': FiMoon,
   'partly-cloudy-day': FiCloud,

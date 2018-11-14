@@ -58,8 +58,6 @@ export class WeatherProvider extends Component {
   }
 }
 
-// TODO: Update API response
-//
 // currentWeather = {
 //   icon: 'clear-night',
 //   summary: 'Clear',
