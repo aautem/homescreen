@@ -19,5 +19,6 @@ export const weatherIconProps = {
 export const weatherIcons = {
   'clear-day': FiSun,
   'clear-night': FiMoon,
+  'cloudy': FiCloud,
   'partly-cloudy-day': FiCloud,
 }
