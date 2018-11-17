@@ -21,4 +21,5 @@ export const weatherIcons = {
   'clear-night': FiMoon,
   'cloudy': FiCloud,
   'partly-cloudy-day': FiCloud,
+  'partly-cloudy-night': FiCloud,
 }
