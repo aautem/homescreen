@@ -24,3 +24,5 @@ calendar_credentials.json
 calendar_token.json
 gmail_credentials.json
 gmail_token.json
+client_secret.json
+token.json
