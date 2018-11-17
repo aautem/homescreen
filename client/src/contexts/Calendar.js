@@ -1,3 +1,5 @@
+// colorId: '9' (9 === Blueberry??)
+// description: 'this is a description',
 //   summary: 'Grocery Shopping',         
 //   start: { date: '2018-11-18' },       
 //   end: { date: '2018-11-19' },         
@@ -7,13 +9,64 @@
 // //   end:                               
 // //    { dateTime: '2018-11-19T10:00:00-0
 // //      timeZone: 'America/Chicago' },  
+// location: 'CP Conference Room',
 
+import React, { Component, createContext } from 'react'
 
+const apiAddress = 'http://localhost:3000/api/calendar'
+const fetchDelay = 300000
+const CalendarContext = createContext()
 
+export const CalendarInjector = (
+  CalendarContext.Consumer
+)
 
+export class CalendarProvider extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { events: [] }
+    this.fetchCalendarOnDelay = this.fetchCalendarOnDelay.bind(this)
+  }
 
+  componentDidMount() {
+    this.fetchCalendarOnDelay()
+  }
 
+  fetchCalendarOnDelay() {
+    get(apiAddress)
+    .then(({ data }) => {
+      console.log({ calendarData: data.items })
 
+      this.setState({
+        events: data.items,
+      })
+    })
+    .catch(console.error)
+
+    setTimeout(
+      this.fetchCalendarOnDelay,
+      fetchDelay,
+    )
+  }
+
+  render() {
+    return (
+      <CalendarContext.Provider
+        value={this.state}
+      >
+        {
+          this
+          .props
+          .children
+        }
+      </CalendarContext.Provider>
+    )
+  }
+}
+
+// colorId: '9'
+// description: 'this is a description',
+// location: 'CP Conference Room',
 //   kind: 'calendar#event',              
 //   etag: '"3077337348791000"',          
 //   id: '05j35smnonuj17767rb794l0ea_20181

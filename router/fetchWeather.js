@@ -1,13 +1,13 @@
 const axios = require('axios')
-const latitude = 38.9333544
-const longitude = -94.6452731
+const lat = 38.9333544
+const long = -94.6452731
 const { DARKSKY_API_KEY } = require('./credentials/apiKeys')
 
 const fetchWeather = (req, res) => {
   axios.get(
     'https://api.darksky.net/forecast'
     .concat(`/${DARKSKY_API_KEY}`)
-    .concat(`/${latitude},${longitude}`)
+    .concat(`/${lat},${long}`)
   )
   .then(({ data }) => {
     res.json(
@@ -38,5 +38,4 @@ const fetchWeather = (req, res) => {
   })
 }
 
-module
-.exports = fetchWeather
+module.exports = fetchWeather
