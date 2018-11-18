@@ -14,6 +14,16 @@ export class WeatherProvider extends Component {
     super(props)
     this.fetchWeatherOnDelay = this.fetchWeatherOnDelay.bind(this)
     this.state = {
+      alerts: [],
+      currently: {},
+      daily: {
+        data: [{}],
+      },
+      hourly: {
+        data: [{}],
+      },
+
+      // TODO: Deprecated
       currentWeather: {
         icon: '',
         summary: '',
@@ -30,10 +40,20 @@ export class WeatherProvider extends Component {
   fetchWeatherOnDelay() {
     get(apiAddress)
     .then(({ data }) => {
+      console.log({ data })
+
       this.setState({
-        currentWeather: data[0],
-        forecast: data.slice(1),
+        alerts: data.alerts,
+        currently: data.currently,
+        daily: data.daily,
+        hourly: data.hourly,
       })
+
+      // TODO: DEPRECATED
+      // this.setState({
+      //   currentWeather: data[0],
+      //   forecast: data.slice(1),
+      // })
     })
     .catch(console.error)
 
