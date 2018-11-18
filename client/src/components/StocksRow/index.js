@@ -31,8 +31,6 @@ const StocksRow = () => (
   <StocksProvider>
     <StocksInjector>
       {({ stocks }) => (
-        console.log({ stocks }) ||
-        
         <div className="StocksRow">
           {
             stocks

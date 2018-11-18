@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types'
 import React from 'react'
 import './Greeting.css'
 
@@ -6,7 +5,11 @@ const Greeting = () => (
   <div className="Greeting">
     <div className="Greeting_text">
       Good Morning, Alex
-      <span className="Greeting_icon">
+      <span
+        aria-labelledby="emoji"
+        className="Greeting_icon"
+        role="img"
+      >
         👽
       </span>
     </div>
