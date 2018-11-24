@@ -2,7 +2,7 @@ import format from 'date-fns/format'
 // import PropTypes from 'prop-types'
 import React from 'react'
 import { militaryTime } from '../../config'
-import './Clock.css'
+import './Clock.sass'
 
 import SecondIndicators from './SecondIndicators'
 

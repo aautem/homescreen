@@ -1,5 +1,5 @@
 import React from 'react'
-import './Calendar.css'
+import './Calendar.sass'
 
 const schedule = [
   {

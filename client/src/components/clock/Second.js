@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 
-import './Second.css'
+import './Second.sass'
 
 const Second = ({
   hasElapsed,

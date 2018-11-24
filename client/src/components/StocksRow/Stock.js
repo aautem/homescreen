@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import './Stock.css'
+import './Stock.sass'
 
 const propTypes = {
   companyName: PropTypes.string.isRequired,

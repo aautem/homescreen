@@ -1,7 +1,7 @@
 import format from 'date-fns/format'
 // import PropTypes from 'prop-types'
 import React from 'react'
-import './Date.css'
+import './Date.sass'
 
 import {
   DateTimeInjector,

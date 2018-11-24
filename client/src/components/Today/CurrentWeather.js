@@ -2,7 +2,7 @@ import getTemperature from '../../utils/getTemperature'
 // import PropTypes from 'prop-types'
 import React from 'react'
 import renderWeatherIcon from '../../utils/renderWeatherIcon'
-import './CurrentWeather.css'
+import './CurrentWeather.sass'
 
 import { WeatherInjector } from '../../contexts/Weather'
 

@@ -1,6 +1,6 @@
 // import PropTypes from 'prop-types'
 import React from 'react'
-import './App.css'
+import './App.sass'
 
 import { WeatherProvider } from '../contexts/Weather'
 
@@ -15,7 +15,7 @@ import Footer from './Footer'
 const App = () => (
   <div className="App">
     <div className="App_frame">
-      <WeatherProvider>
+      {/* <WeatherProvider>
 
         <Greeting />
 
@@ -31,7 +31,7 @@ const App = () => (
 
         <Footer />
 
-      </WeatherProvider>
+      </WeatherProvider> */}
     </div>
   </div>
 )

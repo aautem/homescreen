@@ -1,0 +1,18 @@
+@keyframes twinkle
+  from
+    background-color: white
+
+  to
+    background-color: rgba(255, 255, 255, 0.25)
+
+.Second
+  border-radius: 50%
+  height: 0.6em
+  position: absolute
+  width: 0.6em
+
+.Second.hasElapsed
+  animation-direction: alternate
+  animation-duration: 500ms
+  animation-iteration-count: infinite
+  animation-name: twinkle

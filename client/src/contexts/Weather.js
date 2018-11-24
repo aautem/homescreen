@@ -1,4 +1,4 @@
-import { get } from 'axios'
+import axios from 'axios'
 import React, { Component, createContext } from 'react'
 
 const apiAddress = 'http://localhost:3000/api/weather'
@@ -22,14 +22,7 @@ export class WeatherProvider extends Component {
       hourly: {
         data: [{}],
       },
-
-      // TODO: Deprecated
-      currentWeather: {
-        icon: '',
-        summary: '',
-        temperature: 0,
-      },
-      forecast: [],
+      isLoading: false,
     }
   }
 
@@ -38,22 +31,20 @@ export class WeatherProvider extends Component {
   }
 
   fetchWeatherOnDelay() {
-    get(apiAddress)
-    .then(({ data }) => {
-      console.log({ data })
+    this.setState({
+      isLoading: true,
+    })
 
+    axios
+    .get(apiAddress)
+    .then(({ data }) => {
       this.setState({
         alerts: data.alerts,
         currently: data.currently,
         daily: data.daily,
         hourly: data.hourly,
+        isLoading: false,
       })
-
-      // TODO: DEPRECATED
-      // this.setState({
-      //   currentWeather: data[0],
-      //   forecast: data.slice(1),
-      // })
     })
     .catch(console.error)
 
@@ -77,9 +68,3 @@ export class WeatherProvider extends Component {
     )
   }
 }
-
-// currentWeather = {
-//   icon: 'clear-night',
-//   summary: 'Clear',
-//   temperature: 21.46,
-// }

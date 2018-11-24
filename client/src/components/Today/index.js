@@ -1,5 +1,5 @@
 import React from 'react'
-import './Today.css'
+import './Today.sass'
 
 import Date from './Date'
 import CurrentWeather from './CurrentWeather'

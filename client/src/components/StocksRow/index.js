@@ -1,6 +1,6 @@
 // import PropTypes from 'prop-types'
 import React from 'react'
-import './StocksRow.css'
+import './StocksRow.sass'
 
 import Stock from './Stock'
 
