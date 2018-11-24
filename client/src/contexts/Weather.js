@@ -14,19 +14,11 @@ export class WeatherProvider extends Component {
     super(props)
     this.fetchWeatherOnDelay = this.fetchWeatherOnDelay.bind(this)
     this.state = {
-      alerts: [{}],
+      alerts: [],
       currently: {},
-      daily: { data: [{}] },
-      hourly: { data: [{}] },
-      isLoading: false,
-
-      // TODO: Deprecated
-      currentWeather: {
-        icon: '',
-        summary: '',
-        temperature: 0,
-      },
-      forecast: [],
+      daily: {},
+      hourly: {},
+      isLoading: true,
     }
   }
 

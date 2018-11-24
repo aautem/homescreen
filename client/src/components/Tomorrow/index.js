@@ -1,5 +1,4 @@
 import getTemperature from '../../utils/getTemperature'
-// import PropTypes from 'prop-types'
 import React from 'react'
 import renderWeatherIcon from '../../utils/renderWeatherIcon'
 import './Tomorrow.css'
@@ -9,18 +8,15 @@ import { WeatherInjector } from '../../contexts/Weather'
 
 const Tomorrow = () => (
   <WeatherInjector>
-    {({forecast: [today = {}, tomorrow = {}] }) => (
-      console.log({ today, tomorrow }) ||
+    {weather => (
+      console.log({ weather }) ||
 
       <div className="Tomorrow">
         <div className="Tomorrow_content">
           <div className="Tomorrow_temperature">
             {
               getTemperature({
-                temperature: (
-                  today.temperatureLow
-                  || 0
-                ),
+                temperature: 0,
               })
             }
           </div>
@@ -36,9 +32,9 @@ const Tomorrow = () => (
           </div>
           <div className="Tomorrow_icon">
             {
-              renderWeatherIcon(
-                tomorrow
-              )
+              renderWeatherIcon({
+                icon: 'clear-day',
+              })
             }
           </div>
         </div>
