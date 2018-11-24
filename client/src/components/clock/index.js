@@ -1,15 +1,11 @@
 import format from 'date-fns/format'
-// import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Fragment } from 'react'
 import { militaryTime } from '../../config'
 import './Clock.css'
 
 import SecondIndicators from './SecondIndicators'
 
-import {
-  DateTimeInjector,
-  DateTimeProvider,
-} from '../../contexts/DateTime'
+import { DateTimeInjector } from '../../contexts/DateTime'
 
 const formatDateTime = (
   dateTime => (
@@ -20,7 +16,7 @@ const formatDateTime = (
 )
 
 const Clock = () => (
-  <DateTimeProvider>
+  <Fragment>
     <SecondIndicators />
     <DateTimeInjector>
       {({ dateTime }) => (
@@ -46,7 +42,7 @@ const Clock = () => (
         </div>
       )}
     </DateTimeInjector>
-  </DateTimeProvider>
+  </Fragment>
 )
 
 export default Clock

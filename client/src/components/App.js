@@ -2,6 +2,7 @@
 import React from 'react'
 import './App.css'
 
+import { DateTimeProvider } from '../contexts/DateTime'
 import { WeatherProvider } from '../contexts/Weather'
 
 import Greeting from './Greeting'
@@ -15,23 +16,25 @@ import Footer from './Footer'
 const App = () => (
   <div className="App">
     <div className="App_frame">
-      <WeatherProvider>
+      <DateTimeProvider>
+        <WeatherProvider>
 
-        <Greeting />
+          <Greeting />
 
-        <Today />
+          <Today />
 
-        <Clock />
+          <Clock />
 
-        <Calendar />
+          <Calendar />
 
-        <StocksRow />
+          <StocksRow />
 
-        <Tomorrow />
+          <Tomorrow />
 
-        <Footer />
+          <Footer />
 
-      </WeatherProvider>
+        </WeatherProvider>
+      </DateTimeProvider>
     </div>
   </div>
 )
