@@ -12,6 +12,7 @@
 // //      timeZone: 'America/Chicago' },  
 // location: 'CP Conference Room',
 
+import axios from 'axios'
 import React, { Component, createContext } from 'react'
 
 const apiAddress = 'http://localhost:3000/api/calendar'
@@ -25,7 +26,10 @@ export const CalendarInjector = (
 export class CalendarProvider extends Component {
   constructor(props) {
     super(props)
-    this.state = { events: [] }
+    this.state = {
+      events: [],
+      isLoading: true,
+    }
     this.fetchCalendarOnDelay = this.fetchCalendarOnDelay.bind(this)
   }
 
@@ -34,12 +38,16 @@ export class CalendarProvider extends Component {
   }
 
   fetchCalendarOnDelay() {
-    get(apiAddress)
-    .then(({ data }) => {
-      console.log({ calendarData: data.items })
+    this.setState({
+      isLoading: true,
+    })
 
+    axios
+    .get(apiAddress)
+    .then(({ data }) => {
       this.setState({
-        events: data.items,
+        events: data,
+        isLoading: false,
       })
     })
     .catch(console.error)

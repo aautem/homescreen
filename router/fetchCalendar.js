@@ -1,16 +1,18 @@
+// https://developers.google.com/calendar/quickstart/nodejs
+
 const fs = require('fs')
 const readline = require('readline')
-const {google} = require('googleapis')
+const { google } = require('googleapis')
 
-const scope = ['https://www.googleapis.com/auth/calendar.readonly']
-const TOKEN_PATH = 'token.json'
+const scopes = ['https://www.googleapis.com/auth/calendar.readonly']
+const tokenPath = 'token.json'
 
 const getAccessToken = (oAuth2Client, callback) => {
   const authUrl = (
     oAuth2Client
     .generateAuthUrl({
       access_type: 'offline',
-      scope,
+      scopes,
     })
   )
 
@@ -41,7 +43,7 @@ const getAccessToken = (oAuth2Client, callback) => {
 
       fs
       .writeFile(
-        TOKEN_PATH,
+        tokenPath,
         JSON.stringify(token),
         err => {
           if (err) {
@@ -67,19 +69,15 @@ const authorize = ({ installed }, callback) => {
   } = installed
 
   const oAuth2Client = (
-    new (
-      google
-      .auth
-      .OAuth2(
-        client_id,
-        client_secret,
-        redirect_uris[0],
-      )
+    new google.auth.OAuth2(
+      client_id,
+      client_secret,
+      redirect_uris[0],
     )
   )
 
   fs.readFile(
-    TOKEN_PATH,
+    tokenPath,
     (err, token) => {
       if (err) {
         return (
@@ -114,12 +112,13 @@ const listEvents = res => auth => {
   .list(
     {
       calendarId: 'primary',
+      maxResults: 2,
+      orderBy: 'startTime',
+      singleEvents: true,
       timeMin: (
         (new Date)
         .toISOString()
       ),
-      maxResults: 2,
-      orderBy: 'startTime',
     },
     (err, { data }) => {
       if (err) {
