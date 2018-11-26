@@ -13,7 +13,7 @@ const fetchWeather = (req, res) => {
   .get(
     apiUrl
     .concat(
-      `/${locations.liberty}`
+      `/${locations.overlandPark}`
     )
   )
   .then(({ data }) => {

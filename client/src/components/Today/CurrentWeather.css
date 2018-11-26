@@ -57,17 +57,26 @@
   width: 58%;
 }
 
-.CurrentWeather_summary {
+.CurrentWeather_alert {
+  color: lightcoral;
+  font-size: 3em;
+}
+
+.CurrentWeather_description {
   align-items: center;
   box-sizing: border-box;
-  color: white;
   display: flex;
   flex-basis: 40%;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}
+
+.CurrentWeather_summary {
+  color: white;
   font-size: 4em;
   font-weight: bold;
-  justify-content: center;
   text-transform: uppercase;
-  width: 70%;
 }
 
 .CurrentWeather_icon {
