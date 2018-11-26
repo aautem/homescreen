@@ -23,10 +23,9 @@ const Date = () => (
     </DateTimeInjector>
 
     <WeatherInjector>
-      {({ alerts, isLoading }) => (
-        isLoading
-        ? null // TODO: Replace with `LoadingIndicator`
-        : (
+      {({ alerts }) => (
+        alerts
+        ? (
           <div className="Date_alert">
             {
               alerts[0]
@@ -35,6 +34,7 @@ const Date = () => (
             }
           </div>
         )
+        : null
       )}
     </WeatherInjector>
   </div>

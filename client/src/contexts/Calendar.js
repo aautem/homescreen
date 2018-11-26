@@ -1,16 +1,10 @@
-// id
-// colorId: '9' (9 === Blueberry??)
-// description: 'this is a description',
-//   summary: 'Grocery Shopping',         
-//   start: { date: '2018-11-18' },       
-//   end: { date: '2018-11-19' },         
-// //   start:                             
-// //    { dateTime: '2018-11-19T09:45:00-0
-// //      timeZone: 'America/Chicago' },  
-// //   end:                               
-// //    { dateTime: '2018-11-19T10:00:00-0
-// //      timeZone: 'America/Chicago' },  
+// colorId: '9',
+// description: 'This is a description',
+// end: { date: '2018-11-19' },
+// id: '00sma1pl43r9kalima4hpuriqd_20181121T133000Z',
 // location: 'CP Conference Room',
+// start: { date: '2018-11-18' },
+// summary: 'Grocery Shopping',
 
 import axios from 'axios'
 import React, { Component, createContext } from 'react'

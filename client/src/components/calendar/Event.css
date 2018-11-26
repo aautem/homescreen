@@ -1,0 +1,35 @@
+.Event {
+  display: flex;
+}
+
+.Event_description {
+  color: white;
+  font-size: 2em;
+}
+
+.Event_location {
+  color: white;
+  font-size: 2em;
+}
+
+.Event_summary {
+  display: flex;
+  flex-basis: 80%;
+  flex-direction: column;
+}
+
+.Event_time {
+  align-items: center;
+  color: #cccccc;
+  display: flex;
+  flex-basis: 20%;
+  font-size: 2em;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.Event_title {
+  color: white;
+  display: flex;
+  font-size: 4em;
+}

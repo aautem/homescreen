@@ -1,5 +1,7 @@
 // https://developers.google.com/calendar/quickstart/nodejs
 
+const addDays = require('date-fns/add_days')
+const format = require('date-fns/format')
 const fs = require('fs')
 const readline = require('readline')
 const { google } = require('googleapis')
@@ -112,12 +114,21 @@ const listEvents = res => auth => {
   .list(
     {
       calendarId: 'primary',
-      maxResults: 2,
       orderBy: 'startTime',
       singleEvents: true,
+      timeMax: (
+        format(
+          addDays(new Date(), 1),
+          'YYYY-MM-DD'
+        )
+        .concat('T06:00:00.000Z')
+      ),
       timeMin: (
-        (new Date)
-        .toISOString()
+        format(
+          new Date(),
+          'YYYY-MM-DD'
+        )
+        .concat('T06:00:00.000Z')
       ),
     },
     (err, { data }) => {
