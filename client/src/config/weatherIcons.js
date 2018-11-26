@@ -2,8 +2,8 @@ import {
   FiCloud,
   // FiCloudDrizzle,
   // FiCloudLightning,
-  // FiCloudRain,
-  // FiCloudSnow,
+  FiCloudRain,
+  FiCloudSnow,
   // FiHelpCircle,
   FiMoon,
   FiSun,
@@ -22,4 +22,6 @@ export const weatherIcons = {
   'cloudy': FiCloud,
   'partly-cloudy-day': FiCloud,
   'partly-cloudy-night': FiCloud,
+  'rain': FiCloudRain,
+  'snow': FiCloudSnow,
 }

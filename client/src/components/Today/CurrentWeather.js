@@ -43,7 +43,7 @@ import { WeatherInjector } from '../../contexts/Weather'
 const CurrentWeather = () => (
   <WeatherInjector>
     {({ currently, daily, isLoading }) => (
-      console.log({ currently, daily, isLoading }) ||
+      // console.log({ currently, daily, isLoading }) ||
 
       isLoading
       ? null // TODO: Replace with `LoadingIndicator`
@@ -84,7 +84,6 @@ const CurrentWeather = () => (
             {
               currently
               .summary
-              || 'Loading...'
             }
           </div>
     

@@ -9,11 +9,12 @@ import {
 
 const renderWeatherIcon = (
   ({ icon }) => (
-    console.log({ iconName: icon, icon: weatherIcons[icon] }) ||
-
     weatherIcons[icon]
     ? weatherIcons[icon](weatherIconProps)
-    : <FiHelpCircle {...weatherIconProps} />
+    : (
+      console.warn('Missing weather icon:', `"${icon}"`) ||
+      <FiHelpCircle {...weatherIconProps} />
+    )
   )
 )
 

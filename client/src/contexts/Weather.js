@@ -14,7 +14,7 @@ export class WeatherProvider extends Component {
     super(props)
     this.fetchWeatherOnDelay = this.fetchWeatherOnDelay.bind(this)
     this.state = {
-      alerts: [],
+      alerts: null,
       currently: {},
       daily: {},
       hourly: {},
