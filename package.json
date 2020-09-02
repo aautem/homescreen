@@ -11,7 +11,7 @@
     "concurrently": "^4.0.1",
     "date-fns": "^1.29.0",
     "express": "^4.16.3",
-    "googleapis": "27"
+    "googleapis": "39"
   },
   "scripts": {
     "start": "concurrently \"yarn run server\" \"yarn run client\"",
