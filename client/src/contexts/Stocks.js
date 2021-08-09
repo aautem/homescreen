@@ -1,60 +1,51 @@
-import { get } from 'axios'
-import React, { Component, createContext } from 'react'
+import { get } from "axios";
+import React, { Component, createContext } from "react";
 
-const apiAddress = 'https://api.iextrading.com/1.0/stock/market/batch?symbols=btcusdt,ethusdt,ltcusdt,oprx&types=quote'
-const fetchDelay = 10000
-const StocksContext = createContext()
+const apiAddress =
+  "https://api.iextrading.com/1.0/stock/market/batch?symbols=btcusdt,ethusdt,ltcusdt,oprx&types=quote";
+const fetchDelay = 10000;
+const StocksContext = createContext();
 
-export const StocksInjector = (
-  StocksContext.Consumer
-)
+export const StocksInjector = StocksContext.Consumer;
 
 export class StocksProvider extends Component {
   constructor(props) {
-    super(props)
-    this.fetchStocksOnDelay = this.fetchStocksOnDelay.bind(this)
-    this.state = { stocks: [] }
+    super(props);
+    this.fetchStocksOnDelay = this.fetchStocksOnDelay.bind(this);
+    this.state = { stocks: [] };
   }
 
   componentDidMount() {
-    this.fetchStocksOnDelay()
+    // this.fetchStocksOnDelay()
   }
 
   fetchStocksOnDelay() {
-    get(apiAddress)
-    .then(({ data }) => {
-      const stocks = (
-        Object
-        .keys(data)
-        .map(key => data[key])
-        .map(({ quote }) => quote)
-      )
-
-      this
-      .setState({
-        stocks,
-      })
-    })
-    .catch(console.error)
-
-    setTimeout(
-      this.fetchStocksOnDelay,
-      fetchDelay,
-    )
+    // get(apiAddress)
+    // .then(({ data }) => {
+    //   const stocks = (
+    //     Object
+    //     .keys(data)
+    //     .map(key => data[key])
+    //     .map(({ quote }) => quote)
+    //   )
+    //   this
+    //   .setState({
+    //     stocks,
+    //   })
+    // })
+    // .catch(console.error)
+    // setTimeout(
+    //   this.fetchStocksOnDelay,
+    //   fetchDelay,
+    // )
   }
 
   render() {
     return (
-      <StocksContext.Provider
-        value={this.state}
-      >
-        {
-            this
-            .props
-            .children
-        }
+      <StocksContext.Provider value={this.state}>
+        {this.props.children}
       </StocksContext.Provider>
-    )
+    );
   }
 }
 

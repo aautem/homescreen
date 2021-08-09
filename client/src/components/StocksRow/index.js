@@ -1,59 +1,51 @@
 // import PropTypes from 'prop-types'
-import React from 'react'
-import './StocksRow.css'
+import React from "react";
+import "./StocksRow.css";
 
-import Stock from './Stock'
+import Stock from "./Stock";
 
-import {
-  StocksInjector,
-  StocksProvider,
-} from '../../contexts/Stocks'
+import { StocksInjector, StocksProvider } from "../../contexts/Stocks";
 
-const formatStockPrice = (
-  ({ latestPrice }) => (
-    latestPrice
-    ? latestPrice.toFixed(2)
-    : '0.00'
-  )
-)
+const mockData = {
+  stocks: [
+    {
+      latestPrice: 762,
+      symbol: "TSLA",
+    },
+    {
+      latestPrice: 4200,
+      symbol: "ETH",
+    },
+    {
+      latestPrice: 112462,
+      symbol: "BTC",
+    },
+  ],
+};
 
-const formatStockSymbol = (
-  ({ symbol }) => (
-    symbol
-    .replace(
-      'USDT',
-      '',
-    )
-  )
-)
+const formatStockPrice = ({ latestPrice }) =>
+  latestPrice ? latestPrice.toFixed(2) : "0.00";
+
+const formatStockSymbol = ({ symbol }) => symbol.replace("USDT", "");
 
 const StocksRow = () => (
   <StocksProvider>
     <StocksInjector>
       {({ stocks }) => (
         <div className="StocksRow">
-          {
-            stocks
-            .map(stockInfo => ({
+          {mockData.stocks
+            .map((stockInfo) => ({
               ...stockInfo,
-              latestPrice: (
-                formatStockPrice(stockInfo)
-              ),
-              symbol: (
-                formatStockSymbol(stockInfo)
-              ),
+              latestPrice: formatStockPrice(stockInfo),
+              symbol: formatStockSymbol(stockInfo),
             }))
-            .map(stockInfo => (
-              <Stock
-                {...stockInfo}
-                key={stockInfo.symbol}
-              />
-            ))
-          }
+            .map((stockInfo) => (
+              <Stock {...stockInfo} key={stockInfo.symbol} />
+            ))}
         </div>
       )}
     </StocksInjector>
   </StocksProvider>
-)
+);
 
-export default StocksRow
+export default StocksRow;
