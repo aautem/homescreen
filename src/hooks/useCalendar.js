@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 async function fetchCalendarEvents() {
   const response = await window.gapi.client.calendar.events.list({
     calendarId: 'primary',
-    maxResults: 50,
+    maxResults: 20,
     orderBy: 'startTime',
     showDeleted: false,
     singleEvents: true,
@@ -14,6 +14,7 @@ async function fetchCalendarEvents() {
   return response.result.items.filter(i => i.visibility !== 'private')
 }
 
+// TODO: Pass `calendarId` to use multiple calendars (holidays, etc.)
 export function useCalendar(isAuthenticated) {
   return useQuery(['calendar'], fetchCalendarEvents, {
     enabled: isAuthenticated,

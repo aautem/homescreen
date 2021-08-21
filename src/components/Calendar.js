@@ -1,6 +1,12 @@
+import Box from '@material-ui/core/Box'
+import dayjs from 'dayjs'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
+
 import { useCalendar } from '../hooks/useCalendar'
 import { useGoogleAuth } from '../hooks/useGoogleAuth'
-import dayjs from 'dayjs'
+import DayMarker from './DayMarker'
+import Event from './Event'
 
 const Calendar = () => {
   const { isAuthenticated } = useGoogleAuth()
@@ -12,8 +18,8 @@ const Calendar = () => {
     return <div>Calendar error: {calendarQuery.error.message}</div>
   }
 
-  const events = calendarQuery.data ?? []
-  const schedule = events.reduce(
+  // TODO: Handle multi-day events
+  const schedule = (calendarQuery.data ?? []).reduce(
     (s, e) => {
       const { date, datetime, dateTime } = e.start
       const startDate = dayjs(date || datetime || dateTime)
@@ -35,27 +41,55 @@ const Calendar = () => {
     },
   )
 
-  console.log({ schedule })
-
   return (
-    <div>
-      <h2>Calendar status: {calendarQuery.status}</h2>
+    <Box>
+      <Typography align="center" variant="h1">
+        {dayjs().format('MMMM YYYY')}
+      </Typography>
 
-      <h5>Today</h5>
-      {schedule.today.map(e => {
-        return <div key={e.id}>{e.summary}</div>
-      })}
+      <Box alignItems="center" display="flex" justifyContent="space-between">
+        <DayMarker name="Sunday" />
+        <DayMarker name="Monday" />
+        <DayMarker name="Tuesday" />
+        <DayMarker name="Wednesday" />
+        <DayMarker name="Thursday" />
+        <DayMarker name="Friday" />
+        <DayMarker name="Saturday" />
+      </Box>
 
-      <h5>Tomorrow</h5>
-      {schedule.tomorrow.map(e => {
-        return <div key={e.id}>{e.summary}</div>
-      })}
+      <Box mb="1em">
+        <Typography gutterBottom variant="h5">
+          Today
+        </Typography>
+        <Paper>
+          {schedule.today.map(e => {
+            return <Event {...e} key={e.id} />
+          })}
+        </Paper>
+      </Box>
 
-      <h5>Upcoming</h5>
-      {schedule.future.map(e => {
-        return <div key={e.id}>{e.summary}</div>
-      })}
-    </div>
+      <Box mb="1em">
+        <Typography gutterBottom variant="h5">
+          Tomorrow
+        </Typography>
+        <Paper>
+          {schedule.tomorrow.map(e => {
+            return <Event {...e} key={e.id} />
+          })}
+        </Paper>
+      </Box>
+
+      <Box>
+        <Typography gutterBottom variant="h5">
+          Upcoming
+        </Typography>
+        <Paper>
+          {schedule.future.map(e => {
+            return <Event {...e} isFutureEvent key={e.id} />
+          })}
+        </Paper>
+      </Box>
+    </Box>
   )
 }
 
