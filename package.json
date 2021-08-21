@@ -1,21 +1,36 @@
 {
-  "name": "homescreen-api",
-  "version": "1.0.0",
-  "main": "server.js",
-  "repository": "https://github.com/aautem/homescreen.git",
-  "author": "Alex Autem <autem.alex@gmail.com>",
-  "license": "MIT",
+  "name": "homescreen",
+  "version": "2.0.0",
+  "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "concurrently": "^4.0.1",
-    "date-fns": "^1.29.0",
-    "express": "^4.16.3",
-    "googleapis": "27"
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
   },
   "scripts": {
-    "start": "concurrently \"yarn run server\" \"yarn run client\"",
-    "server": "node server.js",
-    "client": "node start-client.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
