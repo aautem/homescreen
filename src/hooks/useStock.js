@@ -30,8 +30,6 @@ async function fetchStock({ type, symbol }) {
     // No updates on weekends or holidays
     // Find most recent key for 05:00:00
     while (attemptNumber < 10) {
-      console.log('WHILELOOP!', { attemptNumber, openKey })
-
       const key = `${dayjs()
         .subtract(attemptNumber, 'day')
         .format('YYYY-MM-DD')} 05:00:00`
@@ -44,8 +42,6 @@ async function fetchStock({ type, symbol }) {
       attemptNumber += 1
     }
   }
-
-  console.log('AFTER WHILE LOOP', { openKey })
 
   if (!openKey) {
     throw new Error(`Unable to locate opening data for ${symbol}`)
