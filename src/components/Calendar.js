@@ -8,6 +8,7 @@ import { useGoogleAuth } from '../hooks/useGoogleAuth'
 import DayMarker from './DayMarker'
 import Event from './Event'
 
+// Set event `opacity` closer to 0 as we get to bottom of page
 const Calendar = () => {
   const { isAuthenticated } = useGoogleAuth()
   const calendarQuery = useCalendar(isAuthenticated)
@@ -61,10 +62,18 @@ const Calendar = () => {
         <Typography gutterBottom variant="h5">
           Today
         </Typography>
-        <Paper>
+        <Paper style={{ background: 'rgba(255, 255, 255, 0.9)' }}>
           {schedule.today.map(e => {
             return <Event {...e} key={e.id} />
           })}
+
+          {!schedule.today.length && (
+            <Box p="0.5em">
+              <Typography variant="h5">
+                Nothing scheduled for {dayjs().format('dddd, MMMM D')}
+              </Typography>
+            </Box>
+          )}
         </Paper>
       </Box>
 
@@ -72,10 +81,19 @@ const Calendar = () => {
         <Typography gutterBottom variant="h5">
           Tomorrow
         </Typography>
-        <Paper>
+        <Paper style={{ background: 'rgba(255, 255, 255, 0.9)' }}>
           {schedule.tomorrow.map(e => {
             return <Event {...e} key={e.id} />
           })}
+
+          {!schedule.tomorrow.length && (
+            <Box p="0.5em">
+              <Typography variant="h5">
+                Nothing scheduled for{' '}
+                {dayjs().add(1, 'day').format('dddd, MMMM D')}
+              </Typography>
+            </Box>
+          )}
         </Paper>
       </Box>
 
@@ -83,10 +101,16 @@ const Calendar = () => {
         <Typography gutterBottom variant="h5">
           Upcoming
         </Typography>
-        <Paper>
+        <Paper style={{ background: 'rgba(255, 255, 255, 0.9)' }}>
           {schedule.future.map(e => {
             return <Event {...e} isFutureEvent key={e.id} />
           })}
+
+          {!schedule.future.length && (
+            <Box p="0.5em">
+              <Typography variant="h5">Loading...</Typography>
+            </Box>
+          )}
         </Paper>
       </Box>
     </Box>
