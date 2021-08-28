@@ -5,14 +5,14 @@ import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
   day: {
-    color: theme.palette.getContrastText(theme.palette.grey[400]),
-    backgroundColor: theme.palette.grey[400],
+    color: '#000',
+    backgroundColor: '#ddd',
     width: theme.spacing(6),
     height: theme.spacing(6),
   },
   today: {
-    color: theme.palette.getContrastText(theme.palette.grey[600]),
-    backgroundColor: theme.palette.grey[600],
+    color: '#000',
+    backgroundColor: '#fff',
     width: theme.spacing(10),
     height: theme.spacing(10),
   },

@@ -43,8 +43,8 @@ const Calendar = () => {
   )
 
   return (
-    <Box>
-      <Typography align="center" variant="h1">
+    <Box color="#fff" pt="1em">
+      <Typography align="center" color="inherit" variant="h1">
         {dayjs().format('MMMM YYYY')}
       </Typography>
 
@@ -58,8 +58,8 @@ const Calendar = () => {
         <DayMarker name="Saturday" />
       </Box>
 
-      <Box mb="1em">
-        <Typography gutterBottom variant="h5">
+      <Box color="#fff" mb="1em">
+        <Typography color="inherit" gutterBottom variant="h5">
           Today
         </Typography>
         <Paper style={{ background: 'rgba(255, 255, 255, 0.9)' }}>
@@ -77,8 +77,8 @@ const Calendar = () => {
         </Paper>
       </Box>
 
-      <Box mb="1em">
-        <Typography gutterBottom variant="h5">
+      <Box color="#fff" mb="1em">
+        <Typography color="inherit" gutterBottom variant="h5">
           Tomorrow
         </Typography>
         <Paper style={{ background: 'rgba(255, 255, 255, 0.9)' }}>
@@ -97,8 +97,8 @@ const Calendar = () => {
         </Paper>
       </Box>
 
-      <Box>
-        <Typography gutterBottom variant="h5">
+      <Box color="#fff">
+        <Typography color="inherit" gutterBottom variant="h5">
           Upcoming
         </Typography>
         <Paper style={{ background: 'rgba(255, 255, 255, 0.9)' }}>
