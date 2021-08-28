@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid'
 import Calendar from './components/Calendar'
 import GoogleAuthProvider from './components/GoogleAuthProvider'
 import Stocks from './components/Stocks'
+import Weather from './components/Weather'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +27,7 @@ const App = () => {
               height="100vh"
               justifyContent="space-between"
             >
-              <Box>WEATHER</Box>
+              <Box>TODOS</Box>
 
               <Stocks />
             </Box>
@@ -37,8 +38,16 @@ const App = () => {
           </Grid>
 
           <Grid item xs={4}>
-            <Box>TODOS</Box>
-            <Box>MENU</Box>
+            <Box
+              display="flex"
+              flexDirection="column"
+              height="100vh"
+              justifyContent="space-between"
+            >
+              <Weather />
+
+              <Box>MENU</Box>
+            </Box>
           </Grid>
         </Grid>
       </GoogleAuthProvider>
