@@ -16,6 +16,7 @@ async function fetchWeather() {
   )
 
   const weather = {
+    alerts: response.data.alerts ?? [],
     now: {
       ...response.data.current,
       sunriseTime: dayjs.unix(response.data.current.sunrise).format('h:mma'),
@@ -23,11 +24,11 @@ async function fetchWeather() {
     },
     daily: response.data.daily.slice(1, 4).map(w => ({
       ...w,
-      dateTime: dayjs.unix(w.dt).format('ddd D, h:mma'),
+      day: dayjs.unix(w.dt).format('ddd'),
     })),
     later: {
       ...response.data.hourly[6],
-      dateTime: dayjs.unix(response.data.hourly[6].dt).format('ddd D, h:mma'),
+      time: dayjs.unix(response.data.hourly[6].dt).format('h:mma'),
     },
   }
 
