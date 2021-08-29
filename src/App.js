@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid'
 
 import Calendar from './components/Calendar'
 import GoogleAuthProvider from './components/GoogleAuthProvider'
+import Menu from './components/Menu'
 import Stocks from './components/Stocks'
 import Weather from './components/Weather'
 
@@ -45,8 +46,7 @@ const App = () => {
               justifyContent="space-between"
             >
               <Weather />
-
-              <Box>MENU</Box>
+              <Menu />
             </Box>
           </Grid>
         </Grid>
