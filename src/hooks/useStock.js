@@ -19,7 +19,8 @@ async function fetchStock({ type, symbol }) {
     type === 'crypto' ? 'Time Series Crypto (60min)' : 'Time Series (60min)'
 
   const data = response.data[typeKey]
-  const currentKey = Object.keys(data)[Object.keys(data).length - 1]
+  const dataKeys = Object.keys(data)
+  const currentKey = dataKeys[dataKeys.length - 1]
   let openKey = ''
 
   if (type === 'crypto') {
