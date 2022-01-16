@@ -2,9 +2,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 import Calendar2 from './components/Calendar2'
 import GoogleAuthProvider from './components/GoogleAuthProvider'
-// import Menu from './components/Menu'
-// import Stocks from './components/Stocks'
-// import Weather from './components/Weather'
+import TimeAndTemp from './components/TimeAndTemp'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,6 +16,8 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <GoogleAuthProvider>
+        <TimeAndTemp />
+
         <div
           style={{
             bottom: 0,
