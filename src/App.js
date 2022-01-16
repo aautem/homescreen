@@ -1,12 +1,10 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
-import Box from '@material-ui/core/Box'
-import Grid from '@material-ui/core/Grid'
 
-import Calendar from './components/Calendar'
+import Calendar2 from './components/Calendar2'
 import GoogleAuthProvider from './components/GoogleAuthProvider'
-import Menu from './components/Menu'
-import Stocks from './components/Stocks'
-import Weather from './components/Weather'
+// import Menu from './components/Menu'
+// import Stocks from './components/Stocks'
+// import Weather from './components/Weather'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,36 +18,48 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <GoogleAuthProvider>
-        <Grid container spacing={0}>
-          <Grid item xs={4}>
-            <Box
-              display="flex"
-              flexDirection="column"
-              height="100vh"
-              justifyContent="space-between"
-            >
-              <Box>TODOS</Box>
-
-              <Stocks />
-            </Box>
-          </Grid>
-
-          <Grid item xs={4}>
-            <Calendar />
-          </Grid>
-
-          <Grid item xs={4}>
-            <Box
-              display="flex"
-              flexDirection="column"
-              height="100vh"
-              justifyContent="space-between"
-            >
-              <Weather />
-              <Menu />
-            </Box>
-          </Grid>
-        </Grid>
+        <div
+          style={{
+            bottom: 0,
+            display: 'grid',
+            gap: '1rem',
+            gridTemplateColumns: '1.5fr 1fr 1fr 1fr',
+            gridTemplateRows: '1fr 1fr',
+            gridTemplateAreas: `
+              "left schedule schedule calendar"
+              "left todo shopping forecast"
+            `,
+            height: 'auto',
+            left: 0,
+            margin: '1rem',
+            position: 'absolute',
+            right: 0,
+            top: 0,
+          }}
+        >
+          <div style={{ gridArea: 'left', background: 'pink' }}>
+            CONTENT (STOCKS/MENU/NFTS)
+          </div>
+          <div style={{ gridArea: 'schedule', background: 'grey' }}>
+            SCHEDULE
+          </div>
+          <div
+            style={{
+              alignContent: 'center',
+              display: 'grid',
+              gridArea: 'calendar',
+            }}
+          >
+            <Calendar2 />
+          </div>
+          <div style={{ gridArea: 'todo', background: 'green' }}>TODO</div>
+          <div style={{ gridArea: 'shopping', background: 'orange' }}>
+            SHOPPING
+          </div>
+          <div style={{ gridArea: 'forecast', background: 'yellow' }}>
+            FORECAST
+          </div>
+        </div>
       </GoogleAuthProvider>
     </QueryClientProvider>
   )
