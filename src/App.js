@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 import Calendar2 from './components/Calendar2'
 import GoogleAuthProvider from './components/GoogleAuthProvider'
+import NFTs from './components/NFTs'
 import TimeAndTemp from './components/TimeAndTemp'
 
 const queryClient = new QueryClient({
@@ -22,23 +23,23 @@ const App = () => {
           style={{
             bottom: 0,
             display: 'grid',
-            gap: '1rem',
+            gap: '0.5rem',
             gridTemplateColumns: '1.5fr 1fr 1fr 1fr',
             gridTemplateRows: '1fr 1fr',
             gridTemplateAreas: `
-              "left schedule schedule calendar"
-              "left todo shopping forecast"
+              "nfts schedule schedule calendar"
+              "stocks todo shopping forecast"
             `,
             height: 'auto',
             left: 0,
-            margin: '1rem',
+            margin: '0.5rem',
             position: 'absolute',
             right: 0,
             top: 0,
           }}
         >
-          <div style={{ gridArea: 'left', background: 'pink' }}>
-            CONTENT (STOCKS/MENU/NFTS)
+          <div style={{ gridArea: 'nfts' }}>
+            <NFTs />
           </div>
           <div style={{ gridArea: 'schedule', background: 'grey' }}>
             SCHEDULE
@@ -46,12 +47,14 @@ const App = () => {
           <div
             style={{
               alignContent: 'center',
+              background: 'rgba(65, 105, 225, 1)',
               display: 'grid',
               gridArea: 'calendar',
             }}
           >
             <Calendar2 />
           </div>
+          <div style={{ gridArea: 'stocks' }}>STOCKS</div>
           <div style={{ gridArea: 'todo', background: 'green' }}>TODO</div>
           <div style={{ gridArea: 'shopping', background: 'orange' }}>
             SHOPPING

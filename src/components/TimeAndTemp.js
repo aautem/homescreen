@@ -15,9 +15,10 @@ const TimeAndTemp = () => {
     <div
       style={{
         color: 'white',
-        left: '1rem',
+        left: '2rem',
         position: 'absolute',
-        top: '1rem',
+        textShadow: '2px 2px 2px rgba(0, 0, 0, 0.5)',
+        top: '2rem',
         zIndex: 100,
       }}
     >
