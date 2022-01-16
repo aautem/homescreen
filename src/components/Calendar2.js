@@ -1,8 +1,18 @@
 import dayjs from 'dayjs'
 
 const dayLabels = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+const dayStyle = {
+  alignItems: 'center',
+  display: 'flex',
+  fontSize: '1.5rem',
+  height: '2.5rem',
+  justifyContent: 'center',
+  opacity: 0.7,
+  width: '2.5rem',
+}
 
 // TODO: Refresh when day changes
+// useEffect - get current time then setTimeout for diff bw now and midnight
 const Calendar2 = () => {
   const today = dayjs()
   const firstOfMonth = today.startOf('month')
@@ -38,69 +48,71 @@ const Calendar2 = () => {
   return (
     <div
       style={{
-        color: 'white',
+        alignContent: 'center',
+        background: 'rgba(95, 158, 160, 1)',
+        bottom: '50%',
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-        gridTemplateRows: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-        placeItems: 'center',
+        left: '75%',
+        padding: '1rem',
+        position: 'absolute',
+        right: 0,
+        top: 0,
       }}
     >
-      <h2 style={{ gridColumn: '1 / 8' }}>{today.format('MMMM YYYY')}</h2>
-
-      {dayLabels.map(d => (
-        <h4 key={d}>{d}</h4>
-      ))}
-
-      {prevMonthDays.map(d => (
-        <span
-          key={d}
+      <div
+        style={{
+          color: 'white',
+          display: 'grid',
+          gap: '1rem',
+          gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+          gridTemplateRows: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+          placeItems: 'center',
+        }}
+      >
+        <div
           style={{
-            alignItems: 'center',
-            display: 'flex',
-            height: '2rem',
-            justifyContent: 'center',
-            opacity: 0.7,
-            width: '2rem',
+            gridColumn: '1 / 8',
+            fontSize: '2rem',
+            marginBottom: '0.5rem',
           }}
         >
-          {d}
-        </span>
-      ))}
+          {today.format('MMMM YYYY')}
+        </div>
 
-      {currentMonthDays.map(d => (
-        <span
-          key={d}
-          style={{
-            alignItems: 'center',
-            background: d === today.date() ? 'white' : undefined,
-            borderRadius: '50%',
-            color: d === today.date() ? 'black' : 'inherit',
-            display: 'flex',
-            fontWeight: 'bold',
-            height: '2rem',
-            justifyContent: 'center',
-            width: '2rem',
-          }}
-        >
-          {d}
-        </span>
-      ))}
+        {dayLabels.map(d => (
+          <div key={d} style={{ opacity: 0.7 }}>
+            {d}
+          </div>
+        ))}
 
-      {nextMonthDays.map(d => (
-        <span
-          key={d}
-          style={{
-            alignItems: 'center',
-            display: 'flex',
-            height: '2rem',
-            justifyContent: 'center',
-            opacity: 0.7,
-            width: '2rem',
-          }}
-        >
-          {d}
-        </span>
-      ))}
+        {prevMonthDays.map(d => (
+          <div key={d} style={dayStyle}>
+            {d}
+          </div>
+        ))}
+
+        {currentMonthDays.map(d => (
+          <div
+            key={d}
+            style={{
+              ...dayStyle,
+              background: d === today.date() ? 'white' : undefined,
+              borderRadius: '50%',
+              color: d === today.date() ? 'black' : 'inherit',
+              fontWeight: 'bold',
+              opacity: 1,
+            }}
+          >
+            {d}
+          </div>
+        ))}
+
+        {nextMonthDays.map(d => (
+          <div key={d} style={dayStyle}>
+            {d}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

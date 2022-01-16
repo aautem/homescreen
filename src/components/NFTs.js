@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-
 import { useNFTs } from '../hooks/useNFTs'
 
 const NFTs = () => {
@@ -9,8 +8,9 @@ const NFTs = () => {
   useEffect(() => {
     if (!nftsQuery.data?.length) return
 
-    // TODO: initialize if no nft
-    let nftIndex = 0
+    let nftIndex = 1
+    setNft(nftsQuery.data[0])
+
     const interval = setInterval(() => {
       setNft(nftsQuery.data[nftIndex])
       if (nftIndex === nftsQuery.data.length - 1) nftIndex = 0
@@ -22,23 +22,34 @@ const NFTs = () => {
     }
   }, [nftsQuery.data])
 
-  if (nftsQuery.isError || !nft) {
-    return (
-      <div
-        style={{
-          alignItems: 'center',
-          background: nftsQuery.isError ? 'pink' : 'lightgrey',
-          display: 'flex',
-          height: '100%',
-          justifyContent: 'center',
-        }}
-      >
-        {nftsQuery.isError ? 'Error loading NFTs' : 'Loading NFTs...'}
-      </div>
-    )
-  }
-
-  return <img alt={nft.description ?? 'nft'} src={nft.image_url} width="100%" />
+  return (
+    <div
+      style={{
+        bottom: '50%',
+        left: 0,
+        position: 'absolute',
+        right: '65%',
+        top: 0,
+      }}
+    >
+      {nftsQuery.isError || !nft ? (
+        <div
+          style={{
+            alignItems: 'center',
+            background: nftsQuery.isError ? 'pink' : 'lightgrey',
+            display: 'flex',
+            fontSize: '2rem',
+            height: '100%',
+            justifyContent: 'center',
+          }}
+        >
+          {nftsQuery.isError ? 'Error loading NFTs' : 'Loading NFTs...'}
+        </div>
+      ) : (
+        <img alt={nft.description ?? 'nft'} src={nft.image_url} width="100%" />
+      )}
+    </div>
+  )
 }
 
 export default NFTs

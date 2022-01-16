@@ -1,15 +1,24 @@
+import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 
 import { useWeather } from '../hooks/useWeather'
 import weatherIcons from '../utils/weatherIcons'
 
-// TODO: Update time every minute
-// TODO: Update weather every hour
+const timeFormat = 'h:mm a'
+
 const TimeAndTemp = () => {
-  const now = dayjs()
+  const [time, setTime] = useState(dayjs().format(timeFormat))
   const weatherQuery = useWeather()
   const currentWeather = weatherQuery.data?.now
   const WeatherIcon = weatherIcons[currentWeather?.weather[0].icon]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(dayjs().format(timeFormat))
+    }, 60000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div
@@ -22,25 +31,23 @@ const TimeAndTemp = () => {
         zIndex: 100,
       }}
     >
-      <span style={{ fontSize: '3rem', fontWeight: 'bold' }}>
-        {now.format('h:mm a')}
-      </span>
+      <dvi style={{ fontSize: '3rem', fontWeight: 'bold' }}>{time}</dvi>
       <div
         style={{
           alignItems: 'center',
           display: 'flex',
           fontSize: '2rem',
-          justifyContent: 'center',
         }}
       >
-        {weatherQuery.isError && <span>Error loading weather</span>}
+        {weatherQuery.isError && <dvi>Error loading weather</dvi>}
 
-        {WeatherIcon && <WeatherIcon />}
         {weatherQuery.isSuccess && (
-          <span style={{ marginLeft: '1rem' }}>
+          <dvi style={{ marginRight: '0.5rem' }}>
             {Math.round(currentWeather?.temp)}&deg;F
-          </span>
+          </dvi>
         )}
+
+        {WeatherIcon && <WeatherIcon fontSize="inherit" />}
       </div>
     </div>
   )

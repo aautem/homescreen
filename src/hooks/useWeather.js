@@ -37,5 +37,5 @@ async function fetchWeather() {
 
 // Limited to 60 API calls per minute
 export function useWeather() {
-  return useQuery(['weather'], fetchWeather)
+  return useQuery(['weather'], fetchWeather, { staleTime: 60 * 1000 * 60 })
 }
