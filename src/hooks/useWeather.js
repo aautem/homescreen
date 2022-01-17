@@ -25,11 +25,11 @@ async function fetchWeather() {
     later: [
       {
         ...response.data.hourly[6],
-        time: dayjs.unix(response.data.hourly[6].dt).format('h A'),
+        time: dayjs.unix(response.data.hourly[6].dt).format('ha'),
       },
       {
         ...response.data.hourly[12],
-        time: dayjs.unix(response.data.hourly[12].dt).format('h A'),
+        time: dayjs.unix(response.data.hourly[12].dt).format('ha'),
       },
     ],
   }
