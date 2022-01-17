@@ -20,7 +20,15 @@ const colors = {
 const currentFormat = 'h:mm A'
 const upcomingFormat = 'ddd, MMM D'
 
-const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
+const Event = ({
+  colorId,
+  end,
+  isCurrentEvent,
+  isFutureEvent,
+  location,
+  start,
+  summary,
+}) => {
   const dateFormat = isFutureEvent ? upcomingFormat : currentFormat
   const isAllDay = !isFutureEvent && Boolean(start.date)
 
@@ -37,6 +45,9 @@ const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
       <div
         style={{
           alignItems: 'center',
+          backgroundImage: isCurrentEvent
+            ? 'linear-gradient(to right, rgba(95, 158, 160, 0.8), rgba(95, 158, 160, 0.2))'
+            : undefined,
           display: 'flex',
         }}
       >
@@ -45,7 +56,7 @@ const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
             background: colors[colorId] ?? colors[7],
             borderRadius: '50%',
             height: '1rem',
-            marginRight: '0.5rem',
+            margin: '0 0.5rem 0 2rem',
             width: '1rem',
           }}
         />
@@ -53,7 +64,8 @@ const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            padding: '0.5rem',
+            padding: '1rem',
+            paddingBottom: 0,
           }}
         >
           <div style={{ fontSize: '1.5rem' }}>
@@ -62,14 +74,18 @@ const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
               : `${startDate}${endDate ? ` - ${endDate}` : ''}`}
             {location && ` (${location})`}
           </div>
-          <div style={{ fontSize: '2rem', marginTop: '0.5rem' }}>{summary}</div>
+          <div style={{ fontSize: '2rem', margin: '0.5rem 0 1rem' }}>
+            {summary}
+          </div>
         </div>
       </div>
-      <hr style={{ width: '100%' }} />
+
+      <div style={{ height: '1px', background: 'white' }} />
     </>
   )
 }
 
+// TODO: style empty states
 const Schedule = () => {
   const { isAuthenticated } = useGoogleAuth()
   const calendarQuery = useCalendar(isAuthenticated)
@@ -117,34 +133,55 @@ const Schedule = () => {
           color: 'white',
           display: 'flex',
           flexDirection: 'column',
-          padding: '2rem',
         }}
       >
-        <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>Today</div>
+        <div style={{ fontSize: '2rem', margin: '2rem 0 1rem 2rem' }}>
+          Today
+        </div>
 
         {!schedule.today.length && (
-          <div>Nothing scheduled for {dayjs().format('dddd, MMMM D')}</div>
+          <>
+            <div style={{ fontSize: '1.5rem', margin: '0 0 1rem 2rem' }}>
+              Nothing scheduled for {dayjs().format('dddd, MMMM D')}
+            </div>
+            <div style={{ height: '1px', background: 'white' }} />
+          </>
         )}
 
-        {schedule.today.map(e => (
-          <Event {...e} key={e.id} />
+        {schedule.today.map((e, i) => (
+          <Event {...e} isCurrentEvent={i === 0} key={e.id} />
         ))}
 
-        <div style={{ fontSize: '2rem', margin: '1rem 0' }}>Tomorrow</div>
+        <div style={{ fontSize: '2rem', margin: '1rem 0 0.5rem 2rem' }}>
+          Tomorrow
+        </div>
 
         {!schedule.tomorrow.length && (
-          <div>
-            Nothing scheduled for {dayjs().add(1, 'day').format('dddd, MMMM D')}
-          </div>
+          <>
+            <div style={{ fontSize: '1.5rem', margin: '0 0 1rem 2rem' }}>
+              Nothing scheduled for{' '}
+              {dayjs().add(1, 'day').format('dddd, MMMM D')}
+            </div>
+            <div style={{ height: '1px', background: 'white' }} />
+          </>
         )}
 
         {schedule.tomorrow.map(e => (
           <Event {...e} key={e.id} />
         ))}
 
-        <div style={{ fontSize: '2rem', margin: '1rem 0' }}>Upcoming</div>
+        <div style={{ fontSize: '2rem', margin: '1rem 0 0.5rem 2rem' }}>
+          Upcoming
+        </div>
 
-        {!schedule.future.length && <div>Loading...</div>}
+        {!schedule.future.length && (
+          <>
+            <div style={{ fontSize: '1.5rem', margin: '0 0 1rem 2rem' }}>
+              Loading...
+            </div>
+            <div style={{ height: '1px', background: 'white' }} />
+          </>
+        )}
 
         {schedule.future.map(e => (
           <Event {...e} isFutureEvent key={e.id} />
