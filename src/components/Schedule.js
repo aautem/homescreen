@@ -3,6 +3,8 @@ import dayjs from 'dayjs'
 import { useCalendar } from '../hooks/useCalendar'
 import { useGoogleAuth } from '../hooks/useGoogleAuth'
 
+dayjs.extend(require('dayjs/plugin/isBetween'))
+
 const colors = {
   1: '#a4bdfc',
   2: '#7ae7bf',
@@ -20,25 +22,15 @@ const colors = {
 const currentFormat = 'h:mm A'
 const upcomingFormat = 'ddd, MMM D'
 
-const Event = ({
-  colorId,
-  end,
-  isCurrentEvent,
-  isFutureEvent,
-  location,
-  start,
-  summary,
-}) => {
+const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
   const dateFormat = isFutureEvent ? upcomingFormat : currentFormat
   const isAllDay = !isFutureEvent && Boolean(start.date)
 
-  const startDate = dayjs(
-    start.date ?? start.datetime ?? start.dateTime,
-  ).format(dateFormat)
+  const startDate = dayjs(start.date ?? start.datetime ?? start.dateTime)
+  const endDate = dayjs(end.date ?? end.datetime ?? end.dateTime)
 
-  const endDate = end
-    ? dayjs(end.date ?? end.datetime ?? end.dateTime).format(dateFormat)
-    : null
+  const isCurrentEvent =
+    !isAllDay && Boolean(end) && dayjs().isBetween(startDate, endDate)
 
   return (
     <>
@@ -71,7 +63,9 @@ const Event = ({
           <div style={{ fontSize: '1.5rem' }}>
             {isAllDay
               ? 'All Day'
-              : `${startDate}${endDate ? ` - ${endDate}` : ''}`}
+              : `${startDate.format(dateFormat)}${
+                  end ? ` - ${endDate.format(dateFormat)}` : ''
+                }`}
             {location && ` (${location})`}
           </div>
           <div style={{ fontSize: '2rem', margin: '0.5rem 0 1rem' }}>
@@ -85,7 +79,6 @@ const Event = ({
   )
 }
 
-// TODO: style empty states
 const Schedule = () => {
   const { isAuthenticated } = useGoogleAuth()
   const calendarQuery = useCalendar(isAuthenticated)
@@ -149,7 +142,7 @@ const Schedule = () => {
         )}
 
         {schedule.today.map((e, i) => (
-          <Event {...e} isCurrentEvent={i === 0} key={e.id} />
+          <Event {...e} key={e.id} />
         ))}
 
         <div style={{ fontSize: '2rem', margin: '1rem 0 0.5rem 2rem' }}>
