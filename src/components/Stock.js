@@ -1,10 +1,3 @@
-import { makeStyles } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
-
 import { useStock } from '../hooks/useStock'
 
 function formatPrice(price) {
@@ -14,24 +7,20 @@ function formatPrice(price) {
   }).format(Number(price ?? 0))
 }
 
-const useStyles = makeStyles(theme => ({
-  gain: {
-    color: theme.palette.success.dark,
-  },
-  loss: {
-    color: theme.palette.error.dark,
-  },
-  paper: {
-    background: 'rgba(255, 255, 255, 0.9)',
-  },
-}))
+// const useStyles = makeStyles(theme => ({
+//   gain: {
+//     color: theme.palette.success.dark,
+//   },
+//   loss: {
+//     color: theme.palette.error.dark,
+//   },
+//   paper: {
+//     background: 'rgba(255, 255, 255, 0.9)',
+//   },
+// }))
 
 const Stock = ({ symbol, type }) => {
-  const classes = useStyles()
   const stockQuery = useStock({ type, symbol })
-
-  console.log({ stockQuery })
-
   if (stockQuery.isError) console.log({ error: stockQuery.error })
 
   const { current = '0', open = '0' } = stockQuery.data ?? {}
@@ -40,38 +29,44 @@ const Stock = ({ symbol, type }) => {
   const hasGain = priceChange > 0
 
   return (
-    <Grid item xs={6}>
-      <Paper className={classes.paper}>
-        <Box
-          alignItems="center"
-          display="flex"
-          justifyContent="space-between"
-          minHeight="4em"
-          p="0.5em"
-        >
-          <Typography variant="h4">{symbol}</Typography>
-
-          {stockQuery.isLoading || stockQuery.isError ? (
-            <Box display="flex" justifyContent="center">
-              <CircularProgress color="secondary" />
-            </Box>
-          ) : (
-            <Box className={classes[hasGain ? 'gain' : 'loss']}>
-              <Typography align="right" variant="h4">
-                {formatPrice(stockQuery.data?.current)}
-              </Typography>
-              <Typography align="right">
-                {hasGain ? '+' : '-'}
-                {formatPrice(priceChange)}
-                {' / '}
-                {hasGain ? '+' : '-'}
-                {isNaN(percentageChange) ? '-' : percentageChange}%
-              </Typography>
-            </Box>
-          )}
-        </Box>
-      </Paper>
-    </Grid>
+    <div
+      style={{
+        columnGap: '3rem',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gridTemplateRows: '1fr 1fr',
+        marginLeft: '-1rem',
+      }}
+    >
+      <div
+        style={{
+          alignSelf: 'center',
+          color: 'white',
+          fontSize: '2.5rem',
+          gridRow: '1 / 3',
+          justifySelf: 'flex-end',
+        }}
+      >
+        {symbol}
+      </div>
+      <div style={{ alignSelf: 'center', color: 'white', fontSize: '2rem' }}>
+        {formatPrice(stockQuery.data?.current)}
+      </div>
+      <div
+        style={{
+          alignSelf: 'center',
+          gridColumn: '2 / 3',
+          color: hasGain ? '#3cb371' : 'pink',
+          fontSize: '1.25rem',
+        }}
+      >
+        {hasGain ? '+' : '-'}
+        {formatPrice(priceChange)}
+        {' / '}
+        {hasGain ? '+' : '-'}
+        {isNaN(percentageChange) ? '-' : percentageChange}%
+      </div>
+    </div>
   )
 }
 

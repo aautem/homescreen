@@ -1,9 +1,6 @@
-import Box from '@material-ui/core/Box'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-
 import Stock from './Stock'
 
+// TODO: build admin portal to configure these and fetch from API
 const stocks = [
   { symbol: 'TSLA', type: 'stock' },
   { symbol: 'VOO', type: 'stock' },
@@ -17,17 +14,23 @@ const stocks = [
 
 const Stocks = () => {
   return (
-    <Box color="#fff" p="2em">
-      <Typography color="inherit" gutterBottom variant="h4">
-        Finances
-      </Typography>
-
-      <Grid container spacing={2} wrap="wrap-reverse">
-        {stocks.map(s => (
-          <Stock {...s} key={s.symbol} />
-        ))}
-      </Grid>
-    </Box>
+    <div
+      style={{
+        background: 'rgb(80, 80, 80)',
+        bottom: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        left: 0,
+        position: 'absolute',
+        right: '75%',
+        top: '50%',
+      }}
+    >
+      {stocks.map(s => (
+        <Stock {...s} key={s.symbol} />
+      ))}
+    </div>
   )
 }
 

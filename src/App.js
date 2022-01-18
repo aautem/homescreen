@@ -6,6 +6,7 @@ import GoogleAuthProvider from './components/GoogleAuthProvider'
 import NFTs from './components/NFTs'
 import Schedule from './components/Schedule'
 import Shopping from './components/Shopping'
+import Stocks from './components/Stocks'
 import Time from './components/Time'
 import Todos from './components/Todos'
 
@@ -26,20 +27,7 @@ const App = () => {
         <Schedule />
       </GoogleAuthProvider>
       <Calendar />
-
-      <div
-        style={{
-          background: 'rgb(80, 80, 80)',
-          bottom: 0,
-          left: 0,
-          position: 'absolute',
-          right: '75%',
-          top: '50%',
-        }}
-      >
-        stocks
-      </div>
-
+      <Stocks />
       <Todos />
       <Shopping />
       <Forecast />
