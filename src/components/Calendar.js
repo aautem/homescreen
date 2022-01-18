@@ -49,7 +49,7 @@ const Calendar = () => {
     <div
       style={{
         alignContent: 'center',
-        background: 'rgba(95, 158, 160, 1)',
+        background: 'rgb(95, 158, 160)',
         bottom: '50%',
         display: 'grid',
         left: '75%',

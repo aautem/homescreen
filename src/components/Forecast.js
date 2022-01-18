@@ -13,7 +13,7 @@ const Forecast = () => {
   return (
     <div
       style={{
-        background: query.isError ? 'pink' : 'rgba(95, 158, 160, 0.8)',
+        background: query.isError ? 'pink' : 'rgb(127, 177, 179)',
         bottom: 0,
         color: 'white',
         left: '75%',

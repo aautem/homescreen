@@ -113,7 +113,7 @@ const Schedule = () => {
   return (
     <div
       style={{
-        background: 'rgba(95, 158, 160, 0.8)',
+        background: 'rgb(127, 177, 179)',
         bottom: '50%',
         left: '35%',
         position: 'absolute',
@@ -184,7 +184,7 @@ const Schedule = () => {
       <div
         style={{
           backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0), rgb(95, 158, 160))',
+            'linear-gradient(rgba(0, 0, 0, 0), rgb(127, 177, 179))',
           bottom: 0,
           left: 0,
           position: 'absolute',

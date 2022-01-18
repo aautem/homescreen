@@ -5,6 +5,7 @@ import Forecast from './components/Forecast'
 import GoogleAuthProvider from './components/GoogleAuthProvider'
 import NFTs from './components/NFTs'
 import Schedule from './components/Schedule'
+import Shopping from './components/Shopping'
 import Time from './components/Time'
 import Todos from './components/Todos'
 
@@ -40,20 +41,7 @@ const App = () => {
       </div>
 
       <Todos />
-
-      <div
-        style={{
-          background: 'lightgrey',
-          bottom: 0,
-          left: '50%',
-          position: 'absolute',
-          right: '25%',
-          top: '50%',
-        }}
-      >
-        shopping
-      </div>
-
+      <Shopping />
       <Forecast />
     </QueryClientProvider>
   )
