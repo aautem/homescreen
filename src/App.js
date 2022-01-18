@@ -6,6 +6,7 @@ import GoogleAuthProvider from './components/GoogleAuthProvider'
 import NFTs from './components/NFTs'
 import Schedule from './components/Schedule'
 import Time from './components/Time'
+import Todos from './components/Todos'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,7 +28,7 @@ const App = () => {
 
       <div
         style={{
-          background: 'red',
+          background: 'rgb(80, 80, 80)',
           bottom: 0,
           left: 0,
           position: 'absolute',
@@ -37,21 +38,12 @@ const App = () => {
       >
         stocks
       </div>
+
+      <Todos />
+
       <div
         style={{
-          background: 'purple',
-          bottom: 0,
-          left: '25%',
-          position: 'absolute',
-          right: '50%',
-          top: '50%',
-        }}
-      >
-        todo
-      </div>
-      <div
-        style={{
-          background: 'pink',
+          background: 'lightgrey',
           bottom: 0,
           left: '50%',
           position: 'absolute',

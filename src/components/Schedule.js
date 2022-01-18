@@ -11,7 +11,7 @@ const colors = {
   3: '#dbadff',
   4: '#ff887c',
   5: '#fbd75b',
-  6: '#ffb878',
+  6: '#dc143c	',
   7: '#46d6db', // Default
   8: '#e1e1e1',
   9: '#5484ed',

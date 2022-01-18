@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 async function fetchCalendarEvents() {
   const response = await window.gapi.client.calendar.events.list({
     calendarId: 'primary',
-    maxResults: 20,
+    maxResults: 50,
     orderBy: 'startTime',
     showDeleted: false,
     singleEvents: true,
