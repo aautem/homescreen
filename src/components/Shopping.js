@@ -8,12 +8,12 @@ const Shopping = () => {
     <div
       style={{
         background: 'rgb(210, 210, 210)',
-        bottom: '1rem',
+        bottom: 0,
         color: 'black',
-        left: '51%',
+        left: '50%',
         padding: '2rem',
         position: 'absolute',
-        right: '26%',
+        right: '25%',
         top: '50%',
       }}
     >
