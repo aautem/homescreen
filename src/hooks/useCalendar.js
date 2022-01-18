@@ -18,6 +18,6 @@ async function fetchCalendarEvents() {
 export function useCalendar(isAuthenticated) {
   return useQuery(['calendar'], fetchCalendarEvents, {
     enabled: isAuthenticated,
-    staleTime: 60 * 1000 * 60,
+    staleTime: 60 * 1000 * 15, // 15 minutes
   })
 }

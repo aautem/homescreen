@@ -1,119 +1,119 @@
-import Box from '@material-ui/core/Box'
 import dayjs from 'dayjs'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
 
-import { useCalendar } from '../hooks/useCalendar'
-import { useGoogleAuth } from '../hooks/useGoogleAuth'
-import DayMarker from './DayMarker'
-import Event from './Event'
+const dayLabels = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+const dayStyle = {
+  alignItems: 'center',
+  display: 'flex',
+  fontSize: '1.5rem',
+  height: '2.5rem',
+  justifyContent: 'center',
+  opacity: 0.7,
+  width: '2.5rem',
+}
 
-// Set event `opacity` closer to 0 as we get to bottom of page
+// TODO: Refresh when day changes
+// useEffect - get current time then setTimeout for diff bw now and midnight
 const Calendar = () => {
-  const { isAuthenticated } = useGoogleAuth()
-  const calendarQuery = useCalendar(isAuthenticated)
+  const today = dayjs()
+  const firstOfMonth = today.startOf('month')
+  const firstDayOfMonth = firstOfMonth.day()
 
-  console.log({ calendarQuery })
+  const prevMonthDays = []
+  const currentMonthDays = []
+  const nextMonthDays = []
 
-  if (calendarQuery.isError) {
-    return <div>Calendar error: {calendarQuery.error.message}</div>
+  // Add days for previous month
+  if (firstDayOfMonth > 0) {
+    const prevMonth = firstOfMonth.subtract(1, 'month')
+    const lastDay = prevMonth.endOf('month').date()
+
+    for (let d = firstDayOfMonth; d > 0; d--) {
+      prevMonthDays.unshift(lastDay - prevMonthDays.length)
+    }
   }
 
-  // TODO: Handle multi-day events
-  const schedule = (calendarQuery.data ?? []).reduce(
-    (s, e) => {
-      const { date, datetime, dateTime } = e.start
-      const startDate = dayjs(date || datetime || dateTime)
+  // Add days for current month
+  const lastDay = today.endOf('month').date()
+  for (let d = 1; d <= lastDay; d++) currentMonthDays.push(d)
 
-      if (dayjs().isSame(startDate, 'day')) {
-        s.today.push(e)
-      } else if (dayjs().add(1, 'day').isSame(startDate, 'day')) {
-        s.tomorrow.push(e)
-      } else {
-        s.future.push(e)
-      }
+  // Add days for next month
+  const dayCount = prevMonthDays.length + currentMonthDays.length
+  let d = 1
 
-      return s
-    },
-    {
-      future: [],
-      today: [],
-      tomorrow: [],
-    },
-  )
+  while (dayCount + nextMonthDays.length < 42) {
+    nextMonthDays.push(d)
+    d++
+  }
 
   return (
-    <Box color="#fff" pt="1em">
-      <Typography align="center" color="inherit" variant="h1">
-        {dayjs().format('MMMM YYYY')}
-      </Typography>
+    <div
+      style={{
+        alignContent: 'center',
+        background: 'rgba(95, 158, 160, 1)',
+        bottom: '50%',
+        display: 'grid',
+        left: '75%',
+        padding: '1rem',
+        position: 'absolute',
+        right: 0,
+        top: 0,
+      }}
+    >
+      <div
+        style={{
+          color: 'white',
+          display: 'grid',
+          gap: '1rem',
+          gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+          gridTemplateRows: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+          placeItems: 'center',
+        }}
+      >
+        <div
+          style={{
+            gridColumn: '1 / 8',
+            fontSize: '2rem',
+            marginBottom: '0.5rem',
+          }}
+        >
+          {today.format('MMMM YYYY')}
+        </div>
 
-      <Box alignItems="center" display="flex" justifyContent="space-between">
-        <DayMarker name="Sunday" />
-        <DayMarker name="Monday" />
-        <DayMarker name="Tuesday" />
-        <DayMarker name="Wednesday" />
-        <DayMarker name="Thursday" />
-        <DayMarker name="Friday" />
-        <DayMarker name="Saturday" />
-      </Box>
+        {dayLabels.map(d => (
+          <div key={d} style={{ opacity: 0.7 }}>
+            {d}
+          </div>
+        ))}
 
-      <Box color="#fff" mb="1em">
-        <Typography color="inherit" gutterBottom variant="h5">
-          Today
-        </Typography>
-        <Paper style={{ background: 'rgba(255, 255, 255, 0.9)' }}>
-          {schedule.today.map(e => {
-            return <Event {...e} key={e.id} />
-          })}
+        {prevMonthDays.map(d => (
+          <div key={d} style={dayStyle}>
+            {d}
+          </div>
+        ))}
 
-          {!schedule.today.length && (
-            <Box p="0.5em">
-              <Typography variant="h5">
-                Nothing scheduled for {dayjs().format('dddd, MMMM D')}
-              </Typography>
-            </Box>
-          )}
-        </Paper>
-      </Box>
+        {currentMonthDays.map(d => (
+          <div
+            key={d}
+            style={{
+              ...dayStyle,
+              background: d === today.date() ? 'white' : undefined,
+              borderRadius: '50%',
+              color: d === today.date() ? 'black' : 'inherit',
+              fontWeight: 'bold',
+              opacity: 1,
+            }}
+          >
+            {d}
+          </div>
+        ))}
 
-      <Box color="#fff" mb="1em">
-        <Typography color="inherit" gutterBottom variant="h5">
-          Tomorrow
-        </Typography>
-        <Paper style={{ background: 'rgba(255, 255, 255, 0.9)' }}>
-          {schedule.tomorrow.map(e => {
-            return <Event {...e} key={e.id} />
-          })}
-
-          {!schedule.tomorrow.length && (
-            <Box p="0.5em">
-              <Typography variant="h5">
-                Nothing scheduled for{' '}
-                {dayjs().add(1, 'day').format('dddd, MMMM D')}
-              </Typography>
-            </Box>
-          )}
-        </Paper>
-      </Box>
-
-      <Box color="#fff">
-        <Typography color="inherit" gutterBottom variant="h5">
-          Upcoming
-        </Typography>
-        <Paper style={{ background: 'rgba(255, 255, 255, 0.9)' }}>
-          {schedule.future.map(e => {
-            return <Event {...e} isFutureEvent key={e.id} />
-          })}
-
-          {!schedule.future.length && (
-            <Box p="0.5em">
-              <Typography variant="h5">Loading...</Typography>
-            </Box>
-          )}
-        </Paper>
-      </Box>
-    </Box>
+        {nextMonthDays.map(d => (
+          <div key={d} style={dayStyle}>
+            {d}
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 

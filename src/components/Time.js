@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 
 const timeFormat = 'h:mm a'
 
-const TimeAndTemp = () => {
+const Time = () => {
   const [time, setTime] = useState(dayjs().format(timeFormat))
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const TimeAndTemp = () => {
   )
 }
 
-export default TimeAndTemp
+export default Time
