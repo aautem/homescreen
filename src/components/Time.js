@@ -18,10 +18,10 @@ const Time = () => {
     <div
       style={{
         color: 'white',
-        left: '2rem',
+        left: '1.5rem',
         position: 'absolute',
         textShadow: '2px 2px 2px rgba(0, 0, 0, 0.5)',
-        top: '2rem',
+        top: '1rem',
         zIndex: 100,
       }}
     >

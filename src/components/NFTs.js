@@ -28,7 +28,7 @@ const NFTs = () => {
         bottom: '50%',
         left: 0,
         position: 'absolute',
-        right: '65%',
+        right: '71%',
         top: 0,
       }}
     >

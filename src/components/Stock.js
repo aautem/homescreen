@@ -7,18 +7,6 @@ function formatPrice(price) {
   }).format(Number(price ?? 0))
 }
 
-// const useStyles = makeStyles(theme => ({
-//   gain: {
-//     color: theme.palette.success.dark,
-//   },
-//   loss: {
-//     color: theme.palette.error.dark,
-//   },
-//   paper: {
-//     background: 'rgba(255, 255, 255, 0.9)',
-//   },
-// }))
-
 const Stock = ({ symbol, type }) => {
   const stockQuery = useStock({ type, symbol })
   if (stockQuery.isError) console.log({ error: stockQuery.error })
@@ -31,25 +19,26 @@ const Stock = ({ symbol, type }) => {
   return (
     <div
       style={{
-        columnGap: '3rem',
+        columnGap: '1.5rem',
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         gridTemplateRows: '1fr 1fr',
-        marginLeft: '-1rem',
+        marginBottom: '0.1rem',
+        marginLeft: '-2rem',
       }}
     >
       <div
         style={{
           alignSelf: 'center',
           color: 'white',
-          fontSize: '2.5rem',
+          fontSize: '1.75rem',
           gridRow: '1 / 3',
           justifySelf: 'flex-end',
         }}
       >
         {symbol}
       </div>
-      <div style={{ alignSelf: 'center', color: 'white', fontSize: '2rem' }}>
+      <div style={{ alignSelf: 'center', color: 'white', fontSize: '1.1rem' }}>
         {formatPrice(stockQuery.data?.current)}
       </div>
       <div
@@ -57,7 +46,7 @@ const Stock = ({ symbol, type }) => {
           alignSelf: 'center',
           gridColumn: '2 / 3',
           color: hasGain ? '#3cb371' : 'pink',
-          fontSize: '1.25rem',
+          fontSize: '0.9rem',
         }}
       >
         {hasGain ? '+' : '-'}
