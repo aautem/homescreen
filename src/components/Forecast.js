@@ -25,22 +25,20 @@ const Forecast = () => {
     >
       <div style={{ fontSize: '1.75rem' }}>Liberty, MO</div>
 
-      {/* TODO: check this */}
       {query.isSuccess && query.data?.alerts.length > 0 && (
         <div
           style={{
             background: 'pink',
             color: 'black',
-            fontSize: '1.5rem',
-            marginBottom: '-1rem',
-            padding: '0.25rem',
+            fontSize: '0.8rem',
+            marginBottom: '-2rem',
+            padding: '0 0.25rem',
           }}
         >
           {JSON.stringify(query.data.alerts[0])}
         </div>
       )}
 
-      {/* TODO: check this */}
       {query.isError && (
         <div
           style={{
