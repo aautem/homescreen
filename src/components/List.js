@@ -31,7 +31,7 @@ const List = ({
           <div style={{ fontSize: '2.25rem', padding: '0.75rem 0' }}>
             {item}
           </div>
-          <div style={{ height: '1px', background: 'white' }} />
+          <div style={{ height: '1px', background: color }} />
         </Fragment>
       ))}
 

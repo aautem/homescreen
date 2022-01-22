@@ -17,14 +17,15 @@ const Forecast = () => {
         bottom: 0,
         color: 'white',
         left: '75%',
-        padding: '2rem',
+        padding: '1rem 1.5rem',
         position: 'absolute',
         right: 0,
         top: '50%',
       }}
     >
-      <div style={{ fontSize: '2rem' }}>Liberty, MO</div>
+      <div style={{ fontSize: '1.75rem' }}>Liberty, MO</div>
 
+      {/* TODO: check this */}
       {query.isSuccess && query.data?.alerts.length > 0 && (
         <div
           style={{
@@ -39,6 +40,7 @@ const Forecast = () => {
         </div>
       )}
 
+      {/* TODO: check this */}
       {query.isError && (
         <div
           style={{
@@ -58,15 +60,15 @@ const Forecast = () => {
           style={{
             alignItems: 'center',
             display: 'flex',
-            fontSize: '6rem',
+            fontSize: '5rem',
             fontWeight: 'bold',
             justifyContent: 'center',
-            marginTop: '0.5rem',
+            marginTop: '-1.25rem',
           }}
         >
-          {Icon && <Icon size="9rem" />}
+          {Icon && <Icon size="10rem" />}
           {Math.round(now?.temp)}
-          <WiFahrenheit size="8rem" style={{ margin: '-1rem 0 0 -2rem' }} />
+          <WiFahrenheit size="10rem" style={{ margin: '-1rem 0 0 -2rem' }} />
         </div>
       )}
 
@@ -74,11 +76,11 @@ const Forecast = () => {
         <div
           style={{
             display: 'flex',
-            fontSize: '2.5rem',
+            fontSize: '1.5rem',
             fontWeight: 'bold',
-            gap: '2rem',
+            gap: '1rem',
             justifyContent: 'center',
-            marginTop: '-1rem',
+            marginTop: '-2.5rem',
           }}
         >
           <div>H {Math.round(today?.temp.max)}&deg;</div>
@@ -90,10 +92,10 @@ const Forecast = () => {
         <div
           style={{
             display: 'grid',
-            fontSize: '2rem',
+            fontSize: '1.5rem',
             gridTemplateColumns: '1fr 1fr 1fr 1fr',
             gridTemplateRows: '1fr 1fr 1fr 1fr 1fr',
-            marginTop: '1.5rem',
+            marginTop: '1rem',
             placeItems: 'center',
           }}
         >
@@ -103,7 +105,7 @@ const Forecast = () => {
             return (
               <Fragment key={i}>
                 <div>{w.time}</div>
-                {Icon ? <Icon size="4rem" /> : <div>?</div>}
+                {Icon ? <Icon size="2.25rem" /> : <div>?</div>}
                 <div>{Math.round(w.temp)}&deg;</div>
                 <div>{w.pop}%</div>
               </Fragment>
@@ -116,7 +118,7 @@ const Forecast = () => {
             return (
               <Fragment key={i}>
                 <div>{w.day}</div>
-                {Icon ? <Icon size="4rem" /> : <div>?</div>}
+                {Icon ? <Icon size="2.25rem" /> : <div>?</div>}
                 <div>{Math.round(w.temp.day)}&deg;</div>
                 <div>{w.pop}%</div>
               </Fragment>
