@@ -25,7 +25,7 @@ const Time = () => {
         zIndex: 100,
       }}
     >
-      <div style={{ fontSize: '3rem', fontWeight: 'bold' }}>{time}</div>
+      <div style={{ fontSize: '2.5rem', fontWeight: 'bold' }}>{time}</div>
     </div>
   )
 }

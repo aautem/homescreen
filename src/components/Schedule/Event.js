@@ -17,6 +17,22 @@ const colors = {
 const currentFormat = 'h:mm A'
 const upcomingFormat = 'ddd, MMM D'
 
+const ColorMarker = ({ colorId }) => {
+  const background = colors[colorId] ?? colors[7]
+
+  return (
+    <div
+      style={{
+        background,
+        borderRadius: '50%',
+        height: '1rem',
+        margin: '0 0.5rem 0 2rem',
+        width: '1rem',
+      }}
+    />
+  )
+}
+
 const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
   const dateFormat = isFutureEvent ? upcomingFormat : currentFormat
   const isAllDay = !isFutureEvent && Boolean(start.date)
@@ -26,6 +42,8 @@ const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
 
   const isCurrentEvent =
     !isAllDay && Boolean(end) && dayjs().isBetween(startDate, endDate)
+
+  const locationName = location?.split(',')[0]
 
   return (
     <>
@@ -38,34 +56,24 @@ const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
           display: 'flex',
         }}
       >
-        <div
-          style={{
-            background: colors[colorId] ?? colors[7],
-            borderRadius: '50%',
-            height: '1rem',
-            margin: '0 0.5rem 0 2rem',
-            width: '1rem',
-          }}
-        />
+        <ColorMarker colorId={colorId} />
+
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            padding: '1rem',
-            paddingBottom: 0,
+            padding: '0.5rem',
           }}
         >
-          <div style={{ fontSize: '1.5rem' }}>
+          <div style={{ fontSize: '1.25rem' }}>
             {isAllDay
               ? 'All Day'
               : `${startDate.format(dateFormat)}${
                   end ? ` - ${endDate.format(dateFormat)}` : ''
                 }`}
-            {location && ` (${location})`}
+            {locationName && ` (${locationName})`}
           </div>
-          <div style={{ fontSize: '2rem', margin: '0.5rem 0 1rem' }}>
-            {summary}
-          </div>
+          <div style={{ fontSize: '1.75rem' }}>{summary}</div>
         </div>
       </div>
 

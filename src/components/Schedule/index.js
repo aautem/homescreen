@@ -1,8 +1,11 @@
 import dayjs from 'dayjs'
 
-import { useCalendar } from '../hooks/useCalendar'
-import { useGoogleAuth } from '../hooks/useGoogleAuth'
+import { useCalendar } from '../../hooks/useCalendar'
+import { useGoogleAuth } from '../../hooks/useGoogleAuth'
+import EmptyState from './EmptyState'
 import Event from './Event'
+import FadeOut from '../FadeOut'
+import Header from './Header'
 
 dayjs.extend(require('dayjs/plugin/isBetween'))
 
@@ -55,70 +58,40 @@ const Schedule = () => {
           flexDirection: 'column',
         }}
       >
-        <div style={{ fontSize: '2rem', margin: '2rem 0 1rem 2rem' }}>
-          Today
-        </div>
+        <Header>Today</Header>
 
         {!schedule.today.length && (
-          <>
-            <div style={{ fontSize: '1.5rem', margin: '0 0 1rem 2rem' }}>
-              Nothing scheduled for {dayjs().format('dddd, MMMM D')}
-            </div>
-            <div style={{ height: '1px', background: 'white' }} />
-          </>
+          <EmptyState>
+            Nothing scheduled for {dayjs().format('dddd, MMMM D')}
+          </EmptyState>
         )}
 
         {schedule.today.map((e, i) => (
           <Event {...e} key={e.id} />
         ))}
 
-        <div style={{ fontSize: '2rem', margin: '1rem 0 0.5rem 2rem' }}>
-          Tomorrow
-        </div>
+        <Header>Tomorrow</Header>
 
         {!schedule.tomorrow.length && (
-          <>
-            <div style={{ fontSize: '1.5rem', margin: '0 0 1rem 2rem' }}>
-              Nothing scheduled for{' '}
-              {dayjs().add(1, 'day').format('dddd, MMMM D')}
-            </div>
-            <div style={{ height: '1px', background: 'white' }} />
-          </>
+          <EmptyState>
+            Nothing scheduled for {dayjs().add(1, 'day').format('dddd, MMMM D')}
+          </EmptyState>
         )}
 
         {schedule.tomorrow.map(e => (
           <Event {...e} key={e.id} />
         ))}
 
-        <div style={{ fontSize: '2rem', margin: '1rem 0 0.5rem 2rem' }}>
-          Upcoming
-        </div>
+        <Header>Upcoming</Header>
 
-        {!schedule.future.length && (
-          <>
-            <div style={{ fontSize: '1.5rem', margin: '0 0 1rem 2rem' }}>
-              Loading...
-            </div>
-            <div style={{ height: '1px', background: 'white' }} />
-          </>
-        )}
+        {!schedule.future.length && <EmptyState>Loading...</EmptyState>}
 
         {schedule.future.map(e => (
           <Event {...e} isFutureEvent key={e.id} />
         ))}
       </div>
 
-      <div
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0), rgb(127, 177, 179))',
-          bottom: 0,
-          left: 0,
-          position: 'absolute',
-          right: 0,
-          top: '60%',
-        }}
-      />
+      <FadeOut color="rgb(127, 177, 179)" />
     </div>
   )
 }

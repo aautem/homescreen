@@ -49,11 +49,11 @@ const Stock = ({ symbol, type }) => {
           fontSize: '0.9rem',
         }}
       >
-        {hasGain ? '+' : '-'}
+        {hasGain && '+'}
         {formatPrice(priceChange)}
         {' / '}
-        {hasGain ? '+' : '-'}
-        {isNaN(percentageChange) ? '-' : percentageChange}%
+        {hasGain && '+'}
+        {isNaN(percentageChange) ? '--' : percentageChange}%
       </div>
     </div>
   )
