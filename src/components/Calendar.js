@@ -4,11 +4,10 @@ const dayLabels = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 const dayStyle = {
   alignItems: 'center',
   display: 'flex',
-  fontSize: '1.5rem',
-  height: '2.5rem',
+  height: '1.75rem',
   justifyContent: 'center',
   opacity: 0.7,
-  width: '2.5rem',
+  width: '1.75rem',
 }
 
 // TODO: Refresh when day changes
@@ -63,17 +62,16 @@ const Calendar = () => {
         style={{
           color: 'white',
           display: 'grid',
-          gap: '1rem',
           gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
           gridTemplateRows: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
           placeItems: 'center',
+          rowGap: '1rem',
         }}
       >
         <div
           style={{
             gridColumn: '1 / 8',
-            fontSize: '2rem',
-            marginBottom: '0.5rem',
+            fontSize: '1.5rem',
           }}
         >
           {today.format('MMMM YYYY')}

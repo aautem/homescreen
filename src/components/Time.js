@@ -20,7 +20,7 @@ const Time = () => {
         color: 'white',
         left: '1.5rem',
         position: 'absolute',
-        textShadow: '2px 2px 2px rgba(0, 0, 0, 0.5)',
+        textShadow: '1px 1px 1px rgba(0, 0, 0, 0.5)',
         top: '1rem',
         zIndex: 100,
       }}
