@@ -9,6 +9,8 @@ import Header from './Header'
 
 dayjs.extend(require('dayjs/plugin/isBetween'))
 
+const background = 'rgb(127, 177, 179)'
+
 const Schedule = () => {
   const { isAuthenticated } = useGoogleAuth()
   const calendarQuery = useCalendar(isAuthenticated)
@@ -43,7 +45,7 @@ const Schedule = () => {
   return (
     <div
       style={{
-        background: 'rgb(127, 177, 179)',
+        background,
         bottom: '50%',
         left: '29%',
         position: 'absolute',
@@ -91,7 +93,7 @@ const Schedule = () => {
         ))}
       </div>
 
-      <FadeOut color="rgb(127, 177, 179)" />
+      <FadeOut color={background} />
     </div>
   )
 }

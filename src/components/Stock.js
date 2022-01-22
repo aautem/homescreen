@@ -46,7 +46,7 @@ const Stock = ({ symbol, type }) => {
           alignSelf: 'center',
           gridColumn: '2 / 3',
           color: hasGain ? '#3cb371' : 'pink',
-          fontSize: '0.9rem',
+          fontSize: '0.75rem',
         }}
       >
         {hasGain && '+'}
