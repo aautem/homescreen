@@ -5,7 +5,9 @@ const List = ({
   background,
   bottom,
   color,
+  error,
   header,
+  isLoading,
   items,
   left,
   right,
@@ -26,10 +28,13 @@ const List = ({
     >
       <div style={{ fontSize: '1.75rem' }}>{header}</div>
 
-      {items.map((item, i) => (
-        <Fragment key={i}>
+      {isLoading && <div>Loading...</div>}
+      {!isLoading && error && <div style={{ color: 'red' }}>{error}</div>}
+
+      {items.map(i => (
+        <Fragment key={i.id}>
           <div style={{ fontSize: '2.25rem', padding: '0.75rem 0' }}>
-            {item}
+            {i.name}
           </div>
           <div style={{ height: '1px', background: color }} />
         </Fragment>
