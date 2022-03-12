@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 
 const dayLabels = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
@@ -10,12 +11,21 @@ const dayStyle = {
   width: '1.75rem',
 }
 
-// TODO: Refresh when day changes
-// useEffect - get current time then setTimeout for diff bw now and midnight
 const Calendar = () => {
-  const today = dayjs()
+  const [today, setToday] = useState(dayjs())
   const firstOfMonth = today.startOf('month')
   const firstDayOfMonth = firstOfMonth.day()
+
+  useEffect(() => {
+    const startOfTomorrow = today.add(1, 'day').startOf('day')
+    const msLeftInDay = startOfTomorrow.valueOf() - today.valueOf()
+  
+    const timeout = setTimeout(() => {
+      setToday(dayjs())
+    }, msLeftInDay)
+
+    return () => clearTimeout(timeout)
+  }, [today])
 
   const prevMonthDays = []
   const currentMonthDays = []
