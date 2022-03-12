@@ -15,6 +15,6 @@ async function fetchShoppingList() {
 
 export function useShoppingList() {
   return useQuery(['shopping'], fetchShoppingList, {
-    staleTime: 60 * 1000 * 30, // 30 minutes
+    refetchInterval: 60 * 1000 * 5, // 5 minutes
   })
 }

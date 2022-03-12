@@ -67,6 +67,6 @@ async function fetchStock({ type, symbol }) {
 export function useStock({ type, symbol }) {
   return useQuery(['stock', symbol], () => fetchStock({ type, symbol }), {
     retryDelay: 120 * 1000, // Limited to 5 API calls per minute, 500 per day
-    staleTime: 60 * 1000 * 60, // 1 hour
+    refetchInterval: 60 * 1000 * 60, // 1 hour
   })
 }
