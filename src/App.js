@@ -2,8 +2,8 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 import Calendar from './components/Calendar'
 import Forecast from './components/Forecast'
+import Gallery from './components/Gallery'
 import GoogleAuthProvider from './components/GoogleAuthProvider'
-import NFTs from './components/NFTs'
 import Schedule from './components/Schedule'
 import Shopping from './components/Shopping'
 import Stocks from './components/Stocks'
@@ -22,7 +22,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Time />
-      <NFTs />
+      <Gallery />
       <GoogleAuthProvider>
         <Schedule />
       </GoogleAuthProvider>

@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { useQuery } from 'react-query'
+import axios from 'axios'
 
 const apiUrl = process.env.REACT_APP_API_URL
 
