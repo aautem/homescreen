@@ -13,7 +13,7 @@ const Shopping = () => {
       header="Shopping List"
       isLoading={listQuery.isLoading}
       items={listQuery.data ?? []}
-      left="50%"
+      left="52%"
       right="25%"
       top="50%"
     />

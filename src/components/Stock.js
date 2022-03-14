@@ -19,34 +19,38 @@ const Stock = ({ symbol, type }) => {
   return (
     <div
       style={{
-        columnGap: '1.5rem',
+        columnGap: '1rem',
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
-        gridTemplateRows: '1fr 1fr',
-        marginBottom: '0.1rem',
-        marginLeft: '-2rem',
       }}
     >
       <div
         style={{
-          alignSelf: 'center',
+          alignSelf: 'end',
           color: 'white',
-          fontSize: '1.75rem',
-          gridRow: '1 / 3',
-          justifySelf: 'flex-end',
+          fontSize: '1.25rem',
+          justifySelf: 'end',
         }}
       >
         {symbol}
       </div>
-      <div style={{ alignSelf: 'center', color: 'white', fontSize: '1.1rem' }}>
+      <div
+        style={{
+          alignSelf: 'end',
+          color: 'white',
+          fontSize: '1rem',
+          justifySelf: 'start',
+        }}
+      >
         {formatPrice(stockQuery.data?.current)}
       </div>
       <div
         style={{
-          alignSelf: 'center',
-          gridColumn: '2 / 3',
+          alignSelf: 'start',
           color: hasGain ? '#3cb371' : 'pink',
           fontSize: '0.75rem',
+          gridColumn: '1 / 3',
+          justifySelf: 'center',
         }}
       >
         {hasGain && '+'}

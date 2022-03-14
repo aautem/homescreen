@@ -13,8 +13,8 @@ const Todos = () => {
       header="To-Do List"
       isLoading={todosQuery.isLoading}
       items={todosQuery.data ?? []}
-      left="25%"
-      right="50%"
+      left="29%"
+      right="48%"
       top="50%"
     />
   )
