@@ -23,21 +23,26 @@ const Forecast = () => {
         top: '50%',
       }}
     >
-      <div style={{ fontSize: '1.75rem' }}>Liberty, MO</div>
-
-      {query.isSuccess && query.data?.alerts.length > 0 && (
-        <div
-          style={{
-            background: 'pink',
-            color: 'black',
-            fontSize: '0.8rem',
-            marginBottom: '-2rem',
-            padding: '0 0.25rem',
-          }}
-        >
-          {JSON.stringify(query.data.alerts[0])}
-        </div>
-      )}
+      <div
+        style={{
+          alignItems: 'center',
+          display: 'flex',
+          fontSize: '1.75rem',
+          justifyContent: 'space-between',
+        }}
+      >
+        Liberty, MO
+        {query.isSuccess && query.data?.alerts.length > 0 && (
+          <div
+            style={{
+              color: 'red',
+              fontSize: '0.8rem',
+            }}
+          >
+            {query.data.alerts[0].event}
+          </div>
+        )}
+      </div>
 
       {query.isError && (
         <div
