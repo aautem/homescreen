@@ -123,7 +123,7 @@ const Forecast = () => {
                 <div>{w.day}</div>
                 {Icon ? <Icon size="2.25rem" /> : <div>?</div>}
                 <div>{Math.round(w.temp.day)}&deg;</div>
-                <div>{w.pop}%</div>
+                <div>{w.pop * 100}%</div>
               </Fragment>
             )
           })}
