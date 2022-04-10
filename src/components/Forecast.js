@@ -31,16 +31,17 @@ const Forecast = () => {
           justifyContent: 'space-between',
         }}
       >
-        Liberty, MO
+        <span style={{ width: 150 }}>Liberty, MO</span>
         {query.isSuccess && query.data?.alerts.length > 0 && (
-          <div
+          <span
             style={{
               color: 'red',
-              fontSize: '0.8rem',
+              fontSize: '0.7rem',
+              textAlign: 'right',
             }}
           >
             {query.data.alerts[0].event}
-          </div>
+          </span>
         )}
       </div>
 
