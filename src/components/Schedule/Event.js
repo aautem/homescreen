@@ -1,5 +1,3 @@
-import dayjs from 'dayjs'
-
 const colors = {
   1: '#a4bdfc',
   2: '#7ae7bf',
@@ -13,9 +11,6 @@ const colors = {
   10: '#51b749',
   11: '#dc2127',
 }
-
-const currentFormat = 'h:mm A'
-const upcomingFormat = 'ddd, MMM D'
 
 const ColorMarker = ({ colorId }) => {
   const background = colors[colorId] ?? colors[7]
@@ -33,16 +28,7 @@ const ColorMarker = ({ colorId }) => {
   )
 }
 
-const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
-  const dateFormat = isFutureEvent ? upcomingFormat : currentFormat
-  const isAllDay = !isFutureEvent && Boolean(start.date)
-
-  const startDate = dayjs(start.date ?? start.datetime ?? start.dateTime)
-  const endDate = dayjs(end.date ?? end.datetime ?? end.dateTime)
-
-  const isCurrentEvent =
-    !isAllDay && Boolean(end) && dayjs().isBetween(startDate, endDate)
-
+const Event = ({ colorId, displayTime, isInProgress, location, name }) => {
   const locationName = location?.split(',')[0]
 
   return (
@@ -50,7 +36,7 @@ const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
       <div
         style={{
           alignItems: 'center',
-          backgroundImage: isCurrentEvent
+          backgroundImage: isInProgress
             ? 'linear-gradient(to right, rgba(95, 158, 160, 0.8), rgba(95, 158, 160, 0.2))'
             : undefined,
           display: 'flex',
@@ -66,14 +52,10 @@ const Event = ({ colorId, end, isFutureEvent, location, start, summary }) => {
           }}
         >
           <div style={{ fontSize: '1.25rem' }}>
-            {isAllDay
-              ? 'All Day'
-              : `${startDate.format(dateFormat)}${
-                  end ? ` - ${endDate.format(dateFormat)}` : ''
-                }`}
+            {displayTime}
             {locationName && ` (${locationName})`}
           </div>
-          <div style={{ fontSize: '1.75rem' }}>{summary}</div>
+          <div style={{ fontSize: '1.75rem' }}>{name}</div>
         </div>
       </div>
 

@@ -8,8 +8,20 @@ import FadeOut from '../FadeOut'
 import Header from './Header'
 
 dayjs.extend(require('dayjs/plugin/isBetween'))
+dayjs.extend(require('dayjs/plugin/isSameOrBefore'))
 
 const background = 'rgb(127, 177, 179)'
+const dateFormat = 'ddd, MMM D'
+const timeFormat = 'h:mma'
+
+const formatEvent = (e, displayTime, isInProgress = false) => ({
+  colorId: e.colorId,
+  displayTime,
+  id: e.id,
+  isInProgress,
+  location: e.location,
+  name: e.summary,
+})
 
 const Schedule = () => {
   const { isAuthenticated } = useGoogleAuth()
@@ -19,18 +31,95 @@ const Schedule = () => {
     return <div>Calendar error: {calendarQuery.error.message}</div>
   }
 
-  // TODO: Handle multi-day events
-  const schedule = (calendarQuery.data ?? []).reduce(
+  const schedule = (calendarQuery.data ?? []).slice(0, 5).reduce(
     (s, e) => {
-      const { date, datetime, dateTime } = e.start
-      const startDate = dayjs(date ?? datetime ?? dateTime)
+      const today = dayjs()
+      const tomorrow = dayjs().add(1, 'day')
+      const future = dayjs().add(2, 'days')
 
-      if (dayjs().isSame(startDate, 'day')) {
-        s.today.push(e)
-      } else if (dayjs().add(1, 'day').isSame(startDate, 'day')) {
-        s.tomorrow.push(e)
+      const startDate = e.start.date
+      const startTime = e.start.dateTime ?? e.start.datetime
+      const start = startDate
+        ? dayjs(startDate).startOf('day')
+        : dayjs(startTime)
+
+      const endDate = e.end.date
+      const endTime = e.end.dateTime ?? e.end.datetime
+      const end = endDate
+        ? dayjs(endDate).subtract(1, 'day').endOf('day')
+        : dayjs(endTime)
+
+      // Multi day events
+      if (!start.isSame(end, 'day')) {
+        if (start.isSameOrBefore(today, 'day')) {
+          let displayTime = 'All Day'
+          let startsAt = null
+          let endsAt = null
+
+          if (start.isAfter(today.startOf('day'))) {
+            startsAt = start.format(timeFormat)
+          }
+
+          if (end.isBefore(today.endOf('day'))) {
+            endsAt = end.format(timeFormat)
+          }
+
+          if (startsAt) {
+            displayTime = startsAt
+          } else if (endsAt) {
+            displayTime = `Until ${endsAt}`
+          }
+
+          const isInProgress =
+            Boolean(startsAt || endsAt) && dayjs().isBetween(start, end)
+
+          s.today.push(formatEvent(e, displayTime, isInProgress))
+        }
+
+        if (tomorrow.isSameOrBefore(end, 'day')) {
+          let displayTime = 'All Day'
+          let startsAt = null
+          let endsAt = null
+
+          if (start.isAfter(tomorrow.startOf('day'))) {
+            startsAt = start.format(timeFormat)
+          }
+
+          if (end.isBefore(tomorrow.endOf('day'))) {
+            endsAt = end.format(timeFormat)
+          }
+
+          if (startsAt) {
+            displayTime = startsAt
+          } else if (endsAt) {
+            displayTime = `Until ${endsAt}`
+          }
+
+          s.tomorrow.push(formatEvent(e, displayTime))
+        }
+
+        if (future.isSameOrBefore(end, 'day')) {
+          let startsAt = start.format(dateFormat)
+          let endsAt = end.format(dateFormat)
+          let displayTime = `${startsAt} - ${endsAt}`
+
+          s.future.push(formatEvent(e, displayTime))
+        }
+
+        return s
+      }
+
+      const isAllDay = !startTime
+      const displayTime = isAllDay ? 'All Day' : start.format(timeFormat)
+
+      if (today.isSame(start, 'day')) {
+        const isInProgress = !isAllDay && dayjs().isBetween(start, end)
+
+        s.today.push(formatEvent(e, displayTime, isInProgress))
+      } else if (tomorrow.isSame(start, 'day')) {
+        s.tomorrow.push(formatEvent(e, displayTime))
       } else {
-        s.future.push(e)
+        s.future.push(formatEvent(e, start.format(dateFormat)))
       }
 
       return s
@@ -89,7 +178,7 @@ const Schedule = () => {
         {!schedule.future.length && <EmptyState>Loading...</EmptyState>}
 
         {schedule.future.map(e => (
-          <Event {...e} isFutureEvent key={e.id} />
+          <Event {...e} key={e.id} />
         ))}
       </div>
 
