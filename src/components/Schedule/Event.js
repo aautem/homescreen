@@ -51,11 +51,12 @@ const Event = ({ colorId, displayTime, isInProgress, location, name }) => {
             padding: '0.5rem',
           }}
         >
-          <div style={{ fontSize: '1.25rem' }}>
+          <div style={{ fontSize: '1rem' }}>
             {displayTime}
             {locationName && ` (${locationName})`}
           </div>
-          <div style={{ fontSize: '1.75rem' }}>{name}</div>
+
+          <div style={{ fontSize: '1.5rem' }}>{name}</div>
         </div>
       </div>
 

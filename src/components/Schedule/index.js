@@ -51,7 +51,11 @@ const Schedule = () => {
 
       // Multi day events
       if (!start.isSame(end, 'day')) {
+        let isTodayOrTomorrow = false
+
         if (start.isSameOrBefore(today, 'day')) {
+          isTodayOrTomorrow = true
+
           let displayTime = 'All Day'
           let startsAt = null
           let endsAt = null
@@ -77,6 +81,8 @@ const Schedule = () => {
         }
 
         if (tomorrow.isSameOrBefore(end, 'day')) {
+          isTodayOrTomorrow = true
+
           let displayTime = 'All Day'
           let startsAt = null
           let endsAt = null
@@ -98,7 +104,7 @@ const Schedule = () => {
           s.tomorrow.push(formatEvent(e, displayTime))
         }
 
-        if (future.isSameOrBefore(end, 'day')) {
+        if (!isTodayOrTomorrow && future.isSameOrBefore(end, 'day')) {
           let startsAt = start.format(dateFormat)
           let endsAt = end.format(dateFormat)
           let displayTime = `${startsAt} - ${endsAt}`
