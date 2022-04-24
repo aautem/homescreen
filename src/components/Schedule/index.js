@@ -80,7 +80,10 @@ const Schedule = () => {
           s.today.push(formatEvent(e, displayTime, isInProgress))
         }
 
-        if (tomorrow.isSameOrBefore(end, 'day')) {
+        if (
+          start.isSameOrBefore(tomorrow, 'day') &&
+          tomorrow.isSameOrBefore(end, 'day')
+        ) {
           isTodayOrTomorrow = true
 
           let displayTime = 'All Day'
