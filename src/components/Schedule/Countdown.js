@@ -2,30 +2,41 @@ import { BiTimer } from 'react-icons/bi'
 import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 
+import { useCountdown } from '../../hooks/useCountdown'
+
 dayjs.extend(require('dayjs/plugin/relativeTime'))
 
-const countdown = {
-  date: dayjs('2022-05-21T02:30:00.000Z'),
-  name: 'Leaving for Ireland',
-}
-
 const Countdown = () => {
-  const [timeRemaining, setTimeRemaining] = useState('')
-  const hasCountdown = countdown && dayjs().isBefore(countdown.date)
+  const countdownQuery = useCountdown()
+  const { name = '', date = '', time = '' } = countdownQuery.data ?? {}
+  const [hours, minutes] = time.split(':')
+
+  const countdownDateTime =
+    date &&
+    time &&
+    dayjs(date)
+      .startOf('day')
+      .add(Number(hours), 'hours')
+      .add(Number(minutes), 'minutes')
+
+  const hasCountdown =
+    !!countdownDateTime && dayjs().isBefore(countdownDateTime)
+
+  const [timeRemaining, setTimeRemaining] = useState(
+    () => hasCountdown && dayjs().to(countdownDateTime),
+  )
 
   useEffect(() => {
     if (!hasCountdown) return setTimeRemaining('')
 
-    setTimeRemaining(dayjs().to(countdown.date))
-
     const interval = setInterval(() => {
-      setTimeRemaining(dayjs().to(countdown.date))
+      setTimeRemaining(dayjs().to(countdownDateTime))
     }, 60 * 1000)
 
     return () => {
       clearInterval(interval)
     }
-  }, [hasCountdown])
+  }, [countdownDateTime, hasCountdown])
 
   if (!hasCountdown) return null
 
@@ -45,7 +56,7 @@ const Countdown = () => {
     >
       <BiTimer size="24" />
       <span style={{ marginLeft: '0.25rem' }}>
-        {countdown.name} {timeRemaining}
+        {name} {timeRemaining}
       </span>
     </div>
   )
