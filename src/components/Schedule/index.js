@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 
 import { useCalendar } from '../../hooks/useCalendar'
 import { useGoogleAuth } from '../../hooks/useGoogleAuth'
+import Countdown from './Countdown'
 import EmptyState from './EmptyState'
 import Event from './Event'
 import FadeOut from '../FadeOut'
@@ -192,6 +193,7 @@ const Schedule = () => {
       </div>
 
       <FadeOut color={background} />
+      <Countdown />
     </div>
   )
 }
